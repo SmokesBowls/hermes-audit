@@ -1,0 +1,36 @@
+{
+  "schema": "engav.review-preservation.v1",
+  "delegation_id": "deleg_e0bd6d1c",
+  "reviewed_source_hashes": {
+    "SnapshotManager.gd": "fa8335b69c720cb0d31eac580bebb4a1e9ed3447c44e61f17113f4826f125839",
+    "EngAInDragon.gd": "5212a0e464d454767e54c70752e432a47491ab5fdd31fd01042f4826097e039e",
+    "EngAInBridge.gd": "36ef7fe21f230aad83cd70f80c50c4291ad14182c6196b352ac29fe89ac077f7",
+    "hermes_session_adapter.py": "19ccd8a2bf6cdf39a6d2cc60eb17a6556b37ef84d0d57500ed566431833c8b6f",
+    "tests/test_hermes_session_adapter.py": "797e3069380d7eceaf72ec3ea5390de5a1f3d2f0699a0235bf953c09772517a0"
+  },
+  "complete_results": [
+    {
+      "role": "frozen_contract_compliance",
+      "passed": false,
+      "path": "/home/mytruelove/.hermes/cache/delegation/subagent-summary-0-20260801_135803_956785.txt",
+      "sha256": "056c2f8591ba67107e7798f502bfdc46b920d08ccf9b7ca37bcb3bf3b21d65e3"
+    },
+    {
+      "role": "hostile_security",
+      "passed": false,
+      "path": "/home/mytruelove/.hermes/cache/delegation/subagent-summary-1-20260801_135803_958401.txt",
+      "sha256": "0260500a34954ad5ad991f4ba7e6501a1b2f56622366fbad7fb78c752ca5539d"
+    }
+  ],
+  "live_transcripts": [
+    {
+      "path": "/home/mytruelove/.hermes/cache/delegation/live/deleg_e0bd6d1c/task-0.log",
+      "sha256": "774c2f37997fef1db47136e1a550b57641883e79e476a1016c1f631ef3fc02f2"
+    },
+    {
+      "path": "/home/mytruelove/.hermes/cache/delegation/live/deleg_e0bd6d1c/task-1.log",
+      "sha256": "4bc1bf8ecf3580ec95fc827bc306a3e4e4a379b2ce3d28bda48ce99852ddd95c"
+    }
+  ],
+  "adjudication": "FAIL findings were accepted; closure withheld; repairs were limited to reviewed findings."
+}

@@ -1,0 +1,215 @@
+    Yes—/home/mytruelove/Desktop/burdens_of_a_forgotten_past/EngAIn is the actual EngAIn engine tree. I traced the two
+    servers and the historical 3D Dragon endpoint read-only.
+    
+    No files were staged, edited, or launched.
+    
+    3D repository state
+    
+    The new repository is correctly connected:
+    
+    - Branch: main
+    - HEAD: 22d81b5ce75619b2aab312cf880de2f16b6db1dd
+    - Tree: cd40e787bfe7829f9c43b66e61961a929fb3f371
+    - Remote: git@github.com:SmokesBowls/godot_3d_avatar.git
+    - Local branch tracks origin/main
+    
+    But only README.md is committed.
+    
+    The entire existing Godot project—scripts, scenes, assets, plugin, and project settings—is still untracked. I left it
+    exactly that way. Before capability work, we should make a complete preservation commit of the current prototype.
+    
+    What the two EngAIn servers actually are
+    
+    1. launch_engine.py
+    
+    Path:
+    
+    /home/mytruelove/Desktop/burdens_of_a_forgotten_past/EngAIn/tier1/engainos/launch_engine.py
+    
+    This identifies itself as the canonical EngAIn engine bootstrap. It:
+    
+    - enforces the expected EngAIn root
+    - checks engine invariants
+    - initializes AP runtime integration
+    - starts the scene/AP server
+    - accepts Godot scene and AP queries
+    - listens on port 8765
+    
+    Its surface is the scene server, not the Dragon conversation endpoint.
+    
+    2. sim_runtime.py
+    
+    Path:
+    
+    /home/mytruelove/Desktop/burdens_of_a_forgotten_past/EngAIn/tier2/godotsim/sim_runtime.py
+    
+    This is the primary simulation runtime. It:
+    
+    - creates EngAInRuntime
+    - installs RuntimeHTTPHandler
+    - owns simulation state
+    - handles snapshots, scenes, commands, vaults, transforms, and embodiment contracts
+    - listens on 127.0.0.1:8080
+    
+    Its principal routes include:
+    
+    text
+    GET  /health
+    GET  /snapshot
+    GET  /transforms
+    GET  /vault/status
+    POST /command
+    POST /scene/load
+    POST /vault/link
+    POST /world/sync
+    POST /transforms
+    POST /embodiment/apply
+    
+    
+    It does not implement:
+    
+    text
+    POST /v1/engain/parse
+    
+    
+    There is also the Tier-1 FastAPI facade
+    
+    tier1/engainos/engainos_server.py normally fronts the runtime on port 8090.
+    
+    Its API includes:
+    
+    text
+    /api/health
+    /api/snapshot
+    /api/command
+    /api/dialogue/say
+    /api/dialogue/ask
+    /api/lore/uplift
+    /api/hud/*
+    
+    
+    That facade also does not implement /v1/engain/parse.
+    
+    What happened with port 8081
+    
+    I found an older quarantined copy of engainos_server.py that starts Uvicorn on port 8081:
+    
+    `/mnt/data-drive/burdens_of_a_forgotten_past/EngAIn/_quarantine/avatar_2026-03-07/avatar/godotengain/engainos/engainos_ser
+    ver.py`
+    
+    That historical facade contains:
+    
+    text
+    POST /api/lore/collaborate
+    POST /api/dragon/speak
+    
+    
+    But it still does not contain /v1/engain/parse.
+    
+    Its Dragon endpoint is also just a rule-based placeholder that returns:
+    
+    text
+    EngAIn Dragon pulses with resonance: '<text>' ...
+    Calculating cosmic delta.
+    
+    
+    It was not a persisted AI brain.
+    
+    Historical route conclusion
+    
+    I searched:
+    
+    - the current EngAIn source
+    - the recovered /mnt/data-drive EngAIn copy
+    - Python and GDScript sources
+    - the EngAIn Git history
+    
+    /v1/engain/parse appears only in EngAInBridge3D.gd clients. I found no server implementation for that route.
+    
+    Git history confirms that the string entered history with the old Godot clients, but not with a corresponding Python
+    route.
+    
+    Therefore, the historical 3D bridge appears to have been an unfinished or orphaned client contract:
+    
+    text
+    EngAInBridge3D.gd
+    → expected 127.0.0.1:8081/v1/engain/parse
+    → no matching preserved server implementation
+    
+    
+    That explains why the 3D project contains a bridge-shaped client but no recoverable Dragon brain behind it.
+    
+    Provenance of the 3D project
+    
+    I compared the current 3D project with:
+    
+    /mnt/data-drive/burdens_of_a_forgotten_past/EngAIn/godot_engain_test/engain-parser
+    
+    Excluding the newly copied GodotOllama addon and new README:
+    
+    - Files compared: 22
+    - Byte-identical: 21
+    - Different: project.godot
+    
+    The project.godot difference is consistent with enabling the copied portable addon.
+    
+    So the new 3D repository is essentially the preserved early engain-parser prototype plus the portable GodotOllama tool.
+    
+    How the systems should be classified
+    
+    text
+    Hermes session
+    → Dragon identity, context, language, and snapshot understanding
+    
+    Godot 3D project
+    → world/HUD embodiment and snapshot producer
+    
+    EngAIn sim runtime :8080
+    → world state, commands, scenes, transforms, and snapshots
+    
+    EngAIn facade :8090
+    → governed/supervised access to runtime
+    
+    EngAIn scene/AP server :8765
+    → scene loading and AP queries
+    
+    GodotOllama addon
+    → portable editor tool
+    
+    
+    The EngAIn engine is real and important, but neither launch_engine.py nor sim_runtime.py should replace the proven
+    Hermes Dragon-session path.
+    
+    For first capability parity, we do not need to revive /v1/engain/parse or wire the 3D Dragon directly into the world
+    engine. We should reproduce the proven 2D Hermes mailbox, persisted session, correlated screenshot, and observation-only
+    response path inside the 3D project.
+    
+    Later, the same project can consume EngAIn’s :8080/:8090 world surfaces through a separate, explicitly authorized
+    runtime lane.
+    
+    Current live state
+    
+    I also checked ports:
+    
+    text
+    8080
+    8081
+    8090
+    8765
+    
+    
+    None are currently listening.
+    
+    Next safe action
+    
+    Before changing any behavior, the existing untracked 3D prototype should receive its preservation commit. That would lock:
+    
+    - original 3D flight behavior
+    - original HTTP bridge
+    - HUD
+    - assets and scenes
+    - exact portable GodotOllama copy
+    - current project.godot
+    
+    After that lock, the first capability ticket can replace only the orphaned Dragon communication path while preserving its
+    3D embodiment and the addon’s portability.

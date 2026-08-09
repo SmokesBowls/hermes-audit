@@ -1,0 +1,18 @@
+=== ollama list ===
+NAME                          ID              SIZE      MODIFIED     
+qwen3:8b                      500a1f067a9f    5.2 GB    11 days ago     
+qwen3.5:9b                    6488c96fa5fa    6.6 GB    3 weeks ago     
+spindle/botforgodot:latest    afaa63c73225    986 MB    3 weeks ago     
+qwen2.5-coder:7b-instruct     dae161e27b0e    4.7 GB    3 weeks ago     
+qwen2.5:7b-instruct           845dbda0ea48    4.7 GB    3 weeks ago     
+llama3.2:latest               a80c4f17acd5    2.0 GB    7 weeks ago     
+qwen3.5:latest                6488c96fa5fa    6.6 GB    2 months ago    
+gemma4:latest                 c6eb396dbd59    9.6 GB    2 months ago    
+deepseek-r1:latest            6995872bfe4c    5.2 GB    2 months ago    
+OLLAMA_LIST_EXIT=0
+=== HTTP probes ===
+localhost:11434/api/tags status=200
+CURL_11434_EXIT=0
+localhost:5000/engain status=curl: (7) Failed to connect to localhost:5000 after 0 ms: Could not connect to server
+000
+CURL_5000_EXIT=7

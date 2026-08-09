@@ -1,0 +1,80 @@
+{
+  "schema": "engav.review-disposition.v1",
+  "delegation_id": "deleg_e0bd6d1c",
+  "closure": "WITHHELD",
+  "findings": [
+    {
+      "finding": "Replay capacity was checked only after provider invocation and response publication.",
+      "valid": true,
+      "disposition": "REPAIRED",
+      "proof": "A full tracker now fails before provider invocation; durable toxic test asserts zero director calls, no response, and unchanged request bytes."
+    },
+    {
+      "finding": "Persisted replay state filtered malformed IDs and truncated oversized history.",
+      "valid": true,
+      "disposition": "REPAIRED",
+      "proof": "Malformed, duplicate, and oversized processed_request_ids now invalidate the entire persisted authority state."
+    },
+    {
+      "finding": "The state-file path could be substituted.",
+      "valid": true,
+      "disposition": "REPAIRED",
+      "proof": "AdapterConfig accepts only exact equality with project_dir/.godot/engain_hermes_session.json; a substitution test is durable."
+    },
+    {
+      "finding": "Response publication backpressure could delete an in-flight request and permit provider replay.",
+      "valid": true,
+      "disposition": "REPAIRED",
+      "proof": "A durable pre-provider reservation is fsynced; exceptional publication restores exact request bytes without provider replay."
+    },
+    {
+      "finding": "Response claim could unlink a replacement after its final inode comparison.",
+      "valid": true,
+      "disposition": "REPAIRED",
+      "proof": "Claim now atomically renames the mailbox entry into a newly created private claim directory before opening and parsing; a post-rename replacement remains untouched."
+    },
+    {
+      "finding": "provider_session_ref drifted from the frozen four-key schema.",
+      "valid": true,
+      "disposition": "REPAIRED",
+      "proof": "Adapter output and Godot validation now use exactly companion_ref, provider, model, and session_id."
+    },
+    {
+      "finding": "Source-unavailable responses invented VIEWPORT_UNAVAILABLE as a failure code.",
+      "valid": true,
+      "disposition": "REPAIRED",
+      "proof": "Source-unavailable failure_code is null; unavailable_reason retains the frozen source reason."
+    },
+    {
+      "finding": "structured_only accepted unknown source viewport reasons.",
+      "valid": true,
+      "disposition": "REPAIRED",
+      "proof": "Unavailable viewport reason validation is closed to the frozen seven-value source set."
+    },
+    {
+      "finding": "Rejected responses did not bind exact pending provenance.",
+      "valid": true,
+      "disposition": "REPAIRED",
+      "proof": "Godot now separates frozen hard-rejection and provider/session code sets; provider failures require exact pending requested_state, capture identity/event/phase/time, and metadata/image hashes. Toxic mutations cover every field."
+    },
+    {
+      "finding": "State persistence failure occurred after a response could become visible without durable replay protection.",
+      "valid": true,
+      "disposition": "REPAIRED",
+      "proof": "A fixed-root fsynced reservation records the request before provider work; it remains through response and state failures and drives provider-free recovery."
+    },
+    {
+      "finding": "The repository diff evidence was stale.",
+      "valid": true,
+      "disposition": "REPAIRED",
+      "proof": "ENGAV-0002-WORKLOAD-3-REPOSITORY-DIFF.patch was regenerated from exact current allowlisted bytes; SHA-256 2c479e58a30d7c08e86cb804fe5602e898c4b08a0b406d436ee34a681a330d8a."
+    },
+    {
+      "finding": "No durable evidence proves every applicable R01-R17 was observed RED before its corresponding original implementation.",
+      "valid": true,
+      "disposition": "UNRESOLVED_HISTORICAL_GATE",
+      "proof": "Post-review repairs have preserved RED-to-GREEN evidence, but that cannot retroactively establish the frozen pre-implementation history for every original R01-R17 proof."
+    }
+  ],
+  "current_adjudication": "Workload 3 is not closed. An authorized boundary amendment or other explicit operator adjudication is required for the unresolved historical RED gate."
+}

@@ -1,0 +1,46 @@
+{
+  "schema": "engav.current-byte-verification.v1",
+  "contract_sha256": "1351dd7ef540d7158c244707ff8c1a73f1630789fe3f0a4bf1f1f39273f36b51",
+  "source_sha256": {
+    "SnapshotManager.gd": "fa8335b69c720cb0d31eac580bebb4a1e9ed3447c44e61f17113f4826f125839",
+    "EngAInDragon.gd": "5212a0e464d454767e54c70752e432a47491ab5fdd31fd01042f4826097e039e",
+    "EngAInBridge.gd": "37a207c871e38a008dffc283c1c28ca7bc418d2c2047805cb25c61f3454cf266",
+    "hermes_session_adapter.py": "06e8f88181e7a4640a5b913efbf3d0f1041a638db4187423f0db58c119620193",
+    "tests/test_hermes_session_adapter.py": "ecc5845f784ab1524b12971cde4f8082f6f94e9a428f0b86a62e24eba64cc76b"
+  },
+  "trusted_hermes_executable": {"path": "/home/mytruelove/.local/bin/hermes", "sha256": "e02455b2b8f5bb4dc9646c22bd1e6ca8869cd98aeb3b8b22e2c0840efaf1aa42", "fixed_and_checksum_verified": true},
+  "verification": {
+    "python_compilation": "PASS",
+    "pytest": "68 passed in 2.30s",
+    "provider_receipt_toxic_tests": "PASS",
+    "godot_parse_import": "PASS",
+    "scoped_source_diff_check": "PASS",
+    "repository_diff_reverse_apply_check": "PASS",
+    "repository_diff_headers": 5,
+    "repository_diff_truncation_marker_absent": true,
+    "graphical_correlated_runtime": "PASS",
+    "exact_argv_request_response_correlation": "PASS",
+    "text_only_no_image_flag": true,
+    "viewport_image_attached": false
+  },
+  "runtime": {
+    "request_id": "req_ae9c0ee06ec4d34fa286a7f4d477ed2c",
+    "client_request_id": "dragon_90cda72127e4c6557ca8396b318a7326_1",
+    "capture_id": "cap_7dda19ace3e4723e57f6d73b9ca4bdfd_1",
+    "captured_at": 1785621333.49741,
+    "metadata_sha256": "14bec0a5e1ae096299f9ce07c0d91957f44582536c0cf612a4fbe5f0c2c0d31f",
+    "image_sha256": "ae2c73dc27f6c8c3956e302b18e94e9dd212bf8aeddc5cf935661b64907cff1d",
+    "effective_state": "structured_only"
+  },
+  "evidence_sha256": {
+    "REQUEST-EXACT.json": "f403d5e643aa7ad74417d0c98977f82883276d050e7b13e8d684471d05c40e84",
+    "RESPONSE-EXACT.json": "d07f566707581b0c572a672cadfcb759826174ea38425e082b3927d9bceb3be1",
+    "HERMES-ARGV.json": "50ac2e78ea8f769d9f5dad4c1243a8e7f3ad7000997a6c16a49efb96bef95382",
+    "GODOT-RUNTIME.log": "98be479b97056aeb5f793b949fe09157c3f45ac691caef5efee92e99a9a50229",
+    "ADAPTER-RUNTIME.log": "52e24ac88eda741a3f19532037620466c1055ee0b44ce3026e6fd15637ec1c81",
+    "REPOSITORY-DIFF.patch": "3de9d189c0b284a5b65b70f55eae3ee6bba4123a9f107d5f6882b6836da5605e"
+  },
+  "repository": {"head": "f00ff0424f714726f024c0d763b741f61dfc8178", "tree": "2e8d83408d435e06277b38b2e0925bbf90915d3e", "branch": "main", "unrelated_dirty_state_preserved": true},
+  "protected_repository": {"head": "610499af117a743cd4ce0159c6cdd7a856e49e00", "tree": "e4ef86600d745d36f3b70e5cf0e1a09bdf50317f", "baseline_head_tree_unchanged": true, "unrelated_dirty_state_preserved": true},
+  "closure_blocker": "No durable evidence establishes that every applicable frozen R01-R17 proof was observed RED before its corresponding implementation. Closure remains withheld unless an authorized boundary amendment resolves this historical gate."
+}

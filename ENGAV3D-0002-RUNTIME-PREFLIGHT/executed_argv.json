@@ -1,0 +1,22 @@
+[
+  "/home/mytruelove/.local/bin/hermes",
+  "-p",
+  "default",
+  "chat",
+  "-Q",
+  "--source",
+  "tool",
+  "--pass-session-id",
+  "--ignore-rules",
+  "-t",
+  "__engain_text_only_no_tools_v1__",
+  "--provider",
+  "openai-codex",
+  "-m",
+  "gpt-5.6-sol",
+  "--resume",
+  "20260731_065008_63a62d",
+  "--no-restore-cwd",
+  "-q",
+  "Act only as the text reasoning provider for the EngAIn director.\n\nDo not call tools. Return only the response requested below, with no commentary.\n\nEach CONVERSATION_MESSAGE body is Base64-encoded UTF-8; decode it before responding.\n\n<CONVERSATION_MESSAGE role=system encoding=base64 utf8_bytes=315>\nUmV0dXJuIG9uZSBzdHJpY3QgSlNPTiBvYmplY3Qgd2l0aCBleGFjdGx5IHRoZXNlIGtleXM6IGFuYWx5c2lzLCByZWNvbW1lbmRlZF9hY3Rpb24sIG5hcnJhdGl2ZV9yZXNwb25zZSwgc3RhdGVfbW9kaWZpY2F0aW9ucywgcmVhc29uaW5nLCBlbnRyb3B5X2ltcGFjdC4gcmVjb21tZW5kZWRfYWN0aW9uIG11c3QgYmUgT0JTRVJWQVRJT047IHN0YXRlX21vZGlmaWNhdGlvbnMgbXVzdCBiZSB7fTsgZW50cm9weV9pbXBhY3QgbXVzdCBiZSAwLjAuIG5hcnJhdGl2ZV9yZXNwb25zZSBtdXN0IGJlIGNvbmNpc2Ugbm9uLWVtcHR5IGNvbXBhbmlvbiBzcGVlY2gu\n</CONVERSATION_MESSAGE>\n\n<CONVERSATION_MESSAGE role=user encoding=base64 utf8_bytes=201>\nUnVudGltZSBwcmVmbGlnaHQgb25seTogY29uZmlybSB0aGlzIG1lc3NhZ2UgcmVzdW1lZCBvdXIgZXhpc3RpbmcgY29tcGFuaW9uIHNlc3Npb24uIEN1cnJlbnQgM0QgcnVudGltZSBwZXJjZXB0aW9uIGlzIHVuYXZhaWxhYmxlOyBkbyBub3QgY2xhaW0gdG8gc2VlIHRoZSB2aWV3cG9ydC4gUmVwbHkgYnJpZWZseSBhcyB0aGUgc2FtZSBjb21wYW5pb24u\n</CONVERSATION_MESSAGE>\n\n<CURRENT_RUNTIME_PERCEPTION>\nPROVENANCE=UNAVAILABLE_OR_UNVERIFIED\nNo current structured runtime snapshot is available for this request.\nNo current viewport image is attached for this request.\nDo not claim to see current artwork, objects, colors, positions, or UI from pixels.\nIdentify prior facts only as conversation memory.\n</CURRENT_RUNTIME_PERCEPTION>"
+]

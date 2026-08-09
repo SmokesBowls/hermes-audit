@@ -1,0 +1,120 @@
+{
+	"additional_context": {
+		"client_request_id": "dragon_ce1b0114894d8604fa6908bcf14fa07f_1",
+		"companion_ref": "hermes_b",
+		"perception": {
+			"capture_event": "message_received",
+			"capture_id": "cap_0b4ba83c81b7dd2964a6e335f276d836_1",
+			"capture_phase": "pre_dispatch_player_view.v1",
+			"captured_at": 1785574178.8306,
+			"perception_state": "full",
+			"project_id": "engain_avatar",
+			"scene_path": "res://addons/zwengain/scenes/EngAInDragon.tscn",
+			"schema": "engain.runtime_perception.v1",
+			"snapshot": {
+				"metadata": {
+					"capture_event": "message_received",
+					"capture_id": "cap_0b4ba83c81b7dd2964a6e335f276d836_1",
+					"capture_phase": "pre_dispatch_player_view.v1",
+					"captured_at": 1785574178.8306,
+					"client_request_id": "dragon_ce1b0114894d8604fa6908bcf14fa07f_1",
+					"project_id": "engain_avatar",
+					"runtime": {
+						"current_location": "Cosmic Command Center",
+						"fps": 1.0,
+						"inventory": [],
+						"player_position": null
+					},
+					"scene_path": "res://addons/zwengain/scenes/EngAInDragon.tscn",
+					"schema": "engain.runtime_snapshot.v1",
+					"viewport": {
+						"availability": "available",
+						"height": 648,
+						"image_path": "snapshots/perception_cap_0b4ba83c81b7dd2964a6e335f276d836_1.png",
+						"image_sha256": "ae2c73dc27f6c8c3956e302b18e94e9dd212bf8aeddc5cf935661b64907cff1d",
+						"media_type": "image/png",
+						"reason": null,
+						"width": 1152
+					}
+				},
+				"metadata_path": "snapshots/perception_cap_0b4ba83c81b7dd2964a6e335f276d836_1.json",
+				"metadata_sha256": "abaa6d2a81607a00248b49f7781955aecf0f5ab4d6b48aef937e86097445cd87"
+			},
+			"unavailable_reason": null,
+			"viewport": {
+				"availability": "available",
+				"height": 648,
+				"image_path": "snapshots/perception_cap_0b4ba83c81b7dd2964a6e335f276d836_1.png",
+				"image_sha256": "ae2c73dc27f6c8c3956e302b18e94e9dd212bf8aeddc5cf935661b64907cff1d",
+				"media_type": "image/png",
+				"reason": null,
+				"width": 1152
+			}
+		}
+	},
+	"game_state": {
+		"characters": {
+			"dragon_council": {
+				"aspects": [
+					"Time",
+					"Space",
+					"Memory",
+					"Dream",
+					"Paradox",
+					"Entropy",
+					"Anchor",
+					"Echo",
+					"Transformation"
+				],
+				"collective_wisdom": 0.8,
+				"cooperation_level": 0.9,
+				"count": 9
+			},
+			"player": {
+				"abilities": [
+					"entropy_sight",
+					"dimensional_awareness"
+				],
+				"loyalty": 1.0,
+				"name": "Consciousness",
+				"role": "reality_manipulator"
+			}
+		},
+		"current_scene": "cosmic_interface_with_dragons",
+		"entropy_level": 45.0,
+		"narrative_threads": [],
+		"pending_decisions": [],
+		"player_stats": {
+			"entropy_mastery": 0.0,
+			"level": 1
+		},
+		"recent_actions": [
+			"GENERAL_INPUT"
+		],
+		"world_state": {
+			"active_phenomena": [
+				"dragon_flight_patterns",
+				"energy_currents",
+				"crowd_movement"
+			],
+			"akashic_flows_discovered": false,
+			"dimensional_anchors": [
+				"TimelineAnchor",
+				"MandelaLock"
+			],
+			"environment": "Ancient temple with energy streams and crowds",
+			"location": "Cosmic Command Center",
+			"reality_stability": 0.75,
+			"session_started_data": {
+				"crowd_present": true,
+				"dragon_count": 9,
+				"energy_flows_active": true,
+				"environment": "ancient_temple_with_energy_streams"
+			},
+			"session_started_triggered": true
+		}
+	},
+	"player_input": "Workload 3 proof: report the supplied structured runtime location and state that no viewport image was attached.",
+	"request_id": "req_9e2e52ba9df0f6edae2c52d27fb7a999",
+	"timestamp": 1785574179.21436
+}

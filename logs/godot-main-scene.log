@@ -1,0 +1,23 @@
+Godot Engine v4.6.1.stable.official.14d19694e - https://godotengine.org
+
+EventBus: ZW Protocol event system ready
+🧠 EngAIn Bridge: Ready for AI co-direction
+📡 Communication channel: JSON file exchange
+🔍 DEBUG: Dragon _ready() called
+🔍 DEBUG: Looking for EngAInBridge...
+🔍 Trying path: EngAInBridge
+✅ Found EngAIn bridge at: EngAInBridge
+✅ EngAIn bridge connected!
+🧠 Connected to EngAIn AI Co-Director
+📸 SnapshotManager connected for visual context
+🌟 World event triggered: session_started
+🐉 EngAIn Dragon: AI Co-Director integration ready!
+SnapshotManager: Initializing ZW Protocol snapshot system...
+SnapshotManager: Snapshots saved to: /mnt/data-drive/engain_avatar/snapshots/
+SnapshotManager: Python can access: snapshots/
+SnapshotManager: Connected to EventBus
+SnapshotManager: Running cleanup...
+SnapshotManager: Ready! Storage limit: 500.0MB
+DynamicContextManager: Found SnapshotManager at: /root/Node2D/SnapshotManager
+DynamicContextManager: Ready to replace static templates!
+EXIT_STATUS=124

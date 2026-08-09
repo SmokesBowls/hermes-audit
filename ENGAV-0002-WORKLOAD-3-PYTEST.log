@@ -1,0 +1,13 @@
+Python compilation: PASS
+Pytest: 68 passed in 2.30s
+Fixed/checksummed Hermes executable: PASS
+Strict raw-provider schema: PASS
+Single-use raw-response-bound receipt: PASS
+Local fallback/substitution toxic proofs: PASS
+Godot headless parse/import: PASS
+Scoped source git diff --check: PASS
+Complete repository diff reverse-apply check: PASS
+Complete repository diff headers: 5
+Graphical correlated runtime chain: PASS
+Exact request/response/argv correlation: PASS
+Fresh Hermes B continuity: PASS (40 messages; latest IDs 25965/25966)

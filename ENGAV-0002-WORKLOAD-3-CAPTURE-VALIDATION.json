@@ -1,0 +1,16 @@
+{
+  "request_id": "req_518e46bc7a012f5adc45e0781c9f08bd",
+  "client_request_id": "dragon_d4397a0663a7d4d91d417287071975af_1",
+  "capture_id": "cap_2385b88605ff075cd5a6ce79e65f3b9f_1",
+  "capture_event": "message_received",
+  "capture_phase": "pre_dispatch_player_view.v1",
+  "requested_state": "full",
+  "effective_state": "structured_only",
+  "metadata_path": "/mnt/data-drive/engain_avatar/snapshots/perception_cap_2385b88605ff075cd5a6ce79e65f3b9f_1.json",
+  "metadata_sha256_declared": "0f00c8ac8a1eb87e71861d097d4e2caf04bbb38cc13d84918082062bf7fee32f",
+  "metadata_sha256_actual": "0f00c8ac8a1eb87e71861d097d4e2caf04bbb38cc13d84918082062bf7fee32f",
+  "image_path": "/mnt/data-drive/engain_avatar/snapshots/perception_cap_2385b88605ff075cd5a6ce79e65f3b9f_1.png",
+  "image_sha256_declared": "ae2c73dc27f6c8c3956e302b18e94e9dd212bf8aeddc5cf935661b64907cff1d",
+  "image_sha256_actual": "ae2c73dc27f6c8c3956e302b18e94e9dd212bf8aeddc5cf935661b64907cff1d",
+  "provider_session_id": "20260731_065008_63a62d"
+}

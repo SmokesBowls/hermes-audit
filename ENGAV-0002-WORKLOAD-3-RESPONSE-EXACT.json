@@ -1,0 +1,31 @@
+{
+  "request_id": "req_ae9c0ee06ec4d34fa286a7f4d477ed2c",
+  "client_request_id": "dragon_90cda72127e4c6557ca8396b318a7326_1",
+  "narrative_response": "Supplied structured runtime location: Cosmic Command Center. No current viewport image was attached.",
+  "action_type": "OBSERVATION",
+  "state_changes": {},
+  "director_analysis": "Hermes conversational response",
+  "reasoning": "Structured runtime perception lane; no viewport image attached",
+  "entropy_impact": 0.0,
+  "timestamp": 1785621343.093364,
+  "provider_session_ref": {
+    "companion_ref": "hermes_b",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "session_id": "20260731_065008_63a62d"
+  },
+  "perception_result": {
+    "schema": "engain.runtime_perception_result.v1",
+    "requested_state": "full",
+    "effective_state": "structured_only",
+    "capture_id": "cap_7dda19ace3e4723e57f6d73b9ca4bdfd_1",
+    "capture_event": "message_received",
+    "capture_phase": "pre_dispatch_player_view.v1",
+    "captured_at": 1785621333.49741,
+    "metadata_sha256": "14bec0a5e1ae096299f9ce07c0d91957f44582536c0cf612a4fbe5f0c2c0d31f",
+    "image_sha256": "ae2c73dc27f6c8c3956e302b18e94e9dd212bf8aeddc5cf935661b64907cff1d",
+    "structured_snapshot_supplied": true,
+    "viewport_image_attached": false,
+    "failure_code": null
+  }
+}

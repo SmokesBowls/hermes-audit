@@ -1,0 +1,23 @@
+{
+  "schema": "engav.review-preservation.v1",
+  "delegation_id": "deleg_eb68c462",
+  "reviewed_source_hashes": {
+    "SnapshotManager.gd": "fa8335b69c720cb0d31eac580bebb4a1e9ed3447c44e61f17113f4826f125839",
+    "EngAInDragon.gd": "5212a0e464d454767e54c70752e432a47491ab5fdd31fd01042f4826097e039e",
+    "EngAInBridge.gd": "37a207c871e38a008dffc283c1c28ca7bc418d2c2047805cb25c61f3454cf266",
+    "hermes_session_adapter.py": "864c04d56260876c36497b415043c2503163ef1be79e6ba518c39e0b11f2ca24",
+    "tests/test_hermes_session_adapter.py": "33dfb22fc0c70457833a9500b1e07ee375260b0c38b83350c2fb99f9ef22f97a"
+  },
+  "compliance_result": {"passed": false, "security_concerns": [], "logic_errors": [], "missing_proofs": ["Historical R01-R17 RED gate unresolved"], "summary": "No current implementation blocker; strict failure on historical gate."},
+  "hostile_result": {
+    "passed": false,
+    "path": "/home/mytruelove/.hermes/cache/delegation/subagent-summary-1-20260801_144248_263036.txt",
+    "sha256": "e45bf5ffd28919e0402fb63dbbdf28f622fc63c96b1a238dcab0f8ac1212e6f1",
+    "findings": ["configurable executable forgery", "mutable invocation fields", "provider output replaced by local fallback"]
+  },
+  "live_transcripts": [
+    {"path": "/home/mytruelove/.hermes/cache/delegation/live/deleg_eb68c462/task-0.log", "sha256": "6d6e607be84c6e884a5174ff67ce093f3eda20899d79bf12e7307f137bf24945"},
+    {"path": "/home/mytruelove/.hermes/cache/delegation/live/deleg_eb68c462/task-1.log", "sha256": "414f1534694e0eb76a9eceb14bd82ecbe880d42e259d95e3d1bf720a9f26eb35"}
+  ],
+  "adjudication": "FAIL preserved. All implementation findings repaired on later bytes; historical RED gate remains unresolved."
+}

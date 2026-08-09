@@ -1,0 +1,32 @@
+{
+  "verdict": "PASS",
+  "controlled_provider_calls_before": 0,
+  "controlled_provider_calls_consumed": 1,
+  "controlled_provider_calls_remaining": 0,
+  "profile": "default",
+  "contract_profile_selector": [
+    "--profile",
+    "default"
+  ],
+  "executed_profile_selector": [
+    "-p",
+    "default"
+  ],
+  "session_id_requested": "20260731_065008_63a62d",
+  "session_id_returned": "20260731_065008_63a62d",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "request_id": "req_5b70272e3c463af2e43bc765b164ce18",
+  "client_request_id": "dragon3d_d62d32a40e6a5a59905567b92b4d1375_1",
+  "capture_id": "cap_1d2ae4dc8895d062ebaf70ed286f6acc_1",
+  "requested_perception": "unavailable",
+  "effective_perception": "unavailable",
+  "viewport_image_attached": false,
+  "action_type": "OBSERVATION",
+  "state_changes": {},
+  "entropy_impact": 0.0,
+  "provider_returncode": 0,
+  "narrative_response": "I'm here—the same companion session continues. I can't currently see the 3D viewport, but I remember where we left off.",
+  "adapter_sha256": "adc138e67426447369d588c3275d64a42bf9568e32b5f82b3bc508a59157b438",
+  "stage3_test_sha256": "35834506405c5f9c63f188c68088aa4a4e9640b2fe8bd2c355ba984b6c5a9d77"
+}

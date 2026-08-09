@@ -1,0 +1,41 @@
+{
+	"broadcast_active": false,
+	"dream_depth": 0,
+	"event": "ai_dragon_spoke",
+	"file_size_kb": 1318.5634765625,
+	"fps": 60.0,
+	"godot_version": {
+		"build": "official",
+		"hash": "14d19694e0c88a3f9e82d899a0400f27a24c176e",
+		"hex": 263681,
+		"major": 4,
+		"minor": 6,
+		"patch": 1,
+		"status": "stable",
+		"string": "4.6.1-stable (official)",
+		"timestamp": 0
+	},
+	"locked_anchor": "",
+	"priority": 3,
+	"priority_name": "low",
+	"reality_entropy": 0.0,
+	"retention_hours": 4,
+	"scene_path": "res://addons/zwengain/scenes/EngAInDragon.tscn",
+	"state": {
+		"current_location": "",
+		"fps": 60.0,
+		"inventory": [],
+		"scene": "res://addons/zwengain/scenes/EngAInDragon.tscn",
+		"timestamp": 1785505850.69891
+	},
+	"timestamp": 1785505851.09898,
+	"visual_analysis": "I observe the cosmic interface during dragon communication. The dragon has just communicated: 'TOKEN STORED'. The interface shows a sophisticated reality manipulation command center with central navigation systems, entropy controls for temporal adjustments, reality control panels, timeline anchor systems, and dimensional monitoring displays. Complex geometric patterns suggest cosmic-scale reality engineering capabilities.",
+	"zw_packet": {
+		"data": {
+			"ai_generated": true,
+			"director_active": true,
+			"text": "TOKEN STORED"
+		},
+		"event": "ai_dragon_spoke"
+	}
+}

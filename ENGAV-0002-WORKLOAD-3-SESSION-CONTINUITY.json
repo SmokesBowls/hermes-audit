@@ -1,0 +1,15 @@
+{
+  "schema": "engav.session-continuity.v1",
+  "session_ref": "@session:default/20260731_065008_63a62d",
+  "session_id": "20260731_065008_63a62d",
+  "profile": "default",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "message_count": 40,
+  "latest_user_message_id": 25965,
+  "latest_assistant_message_id": 25966,
+  "latest_capture_id": "cap_7dda19ace3e4723e57f6d73b9ca4bdfd_1",
+  "latest_captured_at": 1785621333.49741,
+  "latest_response": "Supplied structured runtime location: Cosmic Command Center. No current viewport image was attached.",
+  "continuity": "PASS"
+}

@@ -1,0 +1,39 @@
+{
+	"broadcast_active": false,
+	"dream_depth": 0,
+	"event": "message_received",
+	"file_size_kb": 1256.30078125,
+	"fps": 60.0,
+	"godot_version": {
+		"build": "official",
+		"hash": "14d19694e0c88a3f9e82d899a0400f27a24c176e",
+		"hex": 263681,
+		"major": 4,
+		"minor": 6,
+		"patch": 1,
+		"status": "stable",
+		"string": "4.6.1-stable (official)",
+		"timestamp": 0
+	},
+	"locked_anchor": "",
+	"priority": 3,
+	"priority_name": "low",
+	"reality_entropy": 0.0,
+	"retention_hours": 4,
+	"scene_path": "res://addons/zwengain/scenes/EngAInDragon.tscn",
+	"state": {
+		"current_location": "",
+		"fps": 60.0,
+		"inventory": [],
+		"scene": "res://addons/zwengain/scenes/EngAInDragon.tscn",
+		"timestamp": 1785505682.42896
+	},
+	"timestamp": 1785505682.81011,
+	"visual_analysis": "I observe the cosmic interface as a command is received. The command was: 'hello'. The interface shows a sophisticated reality manipulation command center with central navigation systems, entropy controls for temporal adjustments, reality control panels, timeline anchor systems, and dimensional monitoring displays. Complex geometric patterns suggest cosmic-scale reality engineering capabilities.",
+	"zw_packet": {
+		"data": {
+			"command": "hello"
+		},
+		"event": "message_received"
+	}
+}

@@ -1,0 +1,20 @@
+{
+  "schema": "engav.review-preservation.v1",
+  "delegation_id": "deleg_727b525e",
+  "reviewed_source_hashes": {
+    "SnapshotManager.gd": "fa8335b69c720cb0d31eac580bebb4a1e9ed3447c44e61f17113f4826f125839",
+    "EngAInDragon.gd": "5212a0e464d454767e54c70752e432a47491ab5fdd31fd01042f4826097e039e",
+    "EngAInBridge.gd": "df0825dc174201d1712d94fbf1b3a858b0cd2a5e86b04d83dd75e490f731e290",
+    "hermes_session_adapter.py": "9b5c65d71acf5eb2aa68d5701bdef70af24153d9cb87923ab2273058ddf398a1",
+    "tests/test_hermes_session_adapter.py": "dd0e4543dee5afae2e29f6b138da4f1b1b89b8dc2b93aad3b1d3b67e8565e20f"
+  },
+  "complete_results": [
+    {"role": "frozen_contract_compliance", "passed": false, "path": "/home/mytruelove/.hermes/cache/delegation/subagent-summary-0-20260801_142417_820531.txt", "sha256": "43a6bbf8e80050a002f737154b33463900836ce2854fdb850625d51d7a3f3f76"},
+    {"role": "hostile_security", "passed": false, "path": "/home/mytruelove/.hermes/cache/delegation/subagent-summary-1-20260801_142417_821343.txt", "sha256": "b171a36779c81f32ab7390cb8c2749b8e8281c6270e6956c73e23e1221e302cc"}
+  ],
+  "live_transcripts": [
+    {"path": "/home/mytruelove/.hermes/cache/delegation/live/deleg_727b525e/task-0.log", "sha256": "4d4ec22b61eb6ac54bc32f4ddeaa0b4e36c90a3f121825cb37cae3aadf6dbcf3"},
+    {"path": "/home/mytruelove/.hermes/cache/delegation/live/deleg_727b525e/task-1.log", "sha256": "4ae3e7858d73eca091ecd294817eed1132dcd4a4ab166936ffb7f5de5acfdb6a"}
+  ],
+  "adjudication": "FAIL findings accepted. The corrupt patch and wall-clock rollback defect were repaired on later bytes; historical R01-R17 RED proof remains unresolved."
+}

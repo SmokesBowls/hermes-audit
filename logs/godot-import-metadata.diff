@@ -1,0 +1,120 @@
+diff --git a/addons/zwengain/scenes/idle_flap.png.import b/addons/zwengain/scenes/idle_flap.png.import
+index 34c521c..a3052a8 100644
+--- a/addons/zwengain/scenes/idle_flap.png.import
++++ b/addons/zwengain/scenes/idle_flap.png.import
+@@ -18,6 +18,8 @@ dest_files=["res://.godot/imported/idle_flap.png-fb54fa12331bad5a5a964442f4811ba
+ compress/mode=0
+ compress/high_quality=false
+ compress/lossy_quality=0.7
++compress/uastc_level=0
++compress/rdo_quality_loss=0.0
+ compress/hdr_compression=1
+ compress/normal_map=0
+ compress/channel_pack=0
+@@ -25,6 +27,10 @@ mipmaps/generate=false
+ mipmaps/limit=-1
+ roughness/mode=0
+ roughness/src_normal=""
++process/channel_remap/red=0
++process/channel_remap/green=1
++process/channel_remap/blue=2
++process/channel_remap/alpha=3
+ process/fix_alpha_border=true
+ process/premult_alpha=false
+ process/normal_map_invert_y=false
+diff --git a/addons/zwengain/scenes/idol_flap.png.import b/addons/zwengain/scenes/idol_flap.png.import
+index e93d9e5..287f69a 100644
+--- a/addons/zwengain/scenes/idol_flap.png.import
++++ b/addons/zwengain/scenes/idol_flap.png.import
+@@ -18,6 +18,8 @@ dest_files=["res://.godot/imported/idol_flap.png-f70fc996746e95359247cffa30c0219
+ compress/mode=0
+ compress/high_quality=false
+ compress/lossy_quality=0.7
++compress/uastc_level=0
++compress/rdo_quality_loss=0.0
+ compress/hdr_compression=1
+ compress/normal_map=0
+ compress/channel_pack=0
+@@ -25,6 +27,10 @@ mipmaps/generate=false
+ mipmaps/limit=-1
+ roughness/mode=0
+ roughness/src_normal=""
++process/channel_remap/red=0
++process/channel_remap/green=1
++process/channel_remap/blue=2
++process/channel_remap/alpha=3
+ process/fix_alpha_border=true
+ process/premult_alpha=false
+ process/normal_map_invert_y=false
+diff --git a/assets/generation-6c5f80d1-6b4f-4b28-819b-9fcce84b0f25.png.import b/assets/generation-6c5f80d1-6b4f-4b28-819b-9fcce84b0f25.png.import
+index 509825b..163c8f1 100644
+--- a/assets/generation-6c5f80d1-6b4f-4b28-819b-9fcce84b0f25.png.import
++++ b/assets/generation-6c5f80d1-6b4f-4b28-819b-9fcce84b0f25.png.import
+@@ -18,6 +18,8 @@ dest_files=["res://.godot/imported/generation-6c5f80d1-6b4f-4b28-819b-9fcce84b0f
+ compress/mode=0
+ compress/high_quality=false
+ compress/lossy_quality=0.7
++compress/uastc_level=0
++compress/rdo_quality_loss=0.0
+ compress/hdr_compression=1
+ compress/normal_map=0
+ compress/channel_pack=0
+@@ -25,6 +27,10 @@ mipmaps/generate=false
+ mipmaps/limit=-1
+ roughness/mode=0
+ roughness/src_normal=""
++process/channel_remap/red=0
++process/channel_remap/green=1
++process/channel_remap/blue=2
++process/channel_remap/alpha=3
+ process/fix_alpha_border=true
+ process/premult_alpha=false
+ process/normal_map_invert_y=false
+diff --git a/assets/generation-6d2a77ce-fe3b-4b62-a899-c9d4c258d1f7(2).png.import b/assets/generation-6d2a77ce-fe3b-4b62-a899-c9d4c258d1f7(2).png.import
+index c8c6d57..5d5e0d6 100644
+--- a/assets/generation-6d2a77ce-fe3b-4b62-a899-c9d4c258d1f7(2).png.import
++++ b/assets/generation-6d2a77ce-fe3b-4b62-a899-c9d4c258d1f7(2).png.import
+@@ -18,6 +18,8 @@ dest_files=["res://.godot/imported/generation-6d2a77ce-fe3b-4b62-a899-c9d4c258d1
+ compress/mode=0
+ compress/high_quality=false
+ compress/lossy_quality=0.7
++compress/uastc_level=0
++compress/rdo_quality_loss=0.0
+ compress/hdr_compression=1
+ compress/normal_map=0
+ compress/channel_pack=0
+@@ -25,6 +27,10 @@ mipmaps/generate=false
+ mipmaps/limit=-1
+ roughness/mode=0
+ roughness/src_normal=""
++process/channel_remap/red=0
++process/channel_remap/green=1
++process/channel_remap/blue=2
++process/channel_remap/alpha=3
+ process/fix_alpha_border=true
+ process/premult_alpha=false
+ process/normal_map_invert_y=false
+diff --git a/icon.svg.import b/icon.svg.import
+index 46f5fe3..20545d6 100644
+--- a/icon.svg.import
++++ b/icon.svg.import
+@@ -18,6 +18,8 @@ dest_files=["res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.cte
+ compress/mode=0
+ compress/high_quality=false
+ compress/lossy_quality=0.7
++compress/uastc_level=0
++compress/rdo_quality_loss=0.0
+ compress/hdr_compression=1
+ compress/normal_map=0
+ compress/channel_pack=0
+@@ -25,6 +27,10 @@ mipmaps/generate=false
+ mipmaps/limit=-1
+ roughness/mode=0
+ roughness/src_normal=""
++process/channel_remap/red=0
++process/channel_remap/green=1
++process/channel_remap/blue=2
++process/channel_remap/alpha=3
+ process/fix_alpha_border=true
+ process/premult_alpha=false
+ process/normal_map_invert_y=false

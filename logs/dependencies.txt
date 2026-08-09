@@ -1,0 +1,15 @@
+=== command availability ===
+godot=/home/mytruelove/.local/bin/godot
+godot4=MISSING
+python=/usr/bin/python
+ollama=/usr/bin/ollama
+=== versions ===
+Godot 4.6.1.stable.official.14d19694e
+Python 3.14.6
+ollama 0.32.1
+=== Python dependency discovery (no imports) ===
+requests: /usr/lib/python3.14/site-packages/requests/__init__.py
+PIL: /usr/lib/python3.14/site-packages/PIL/__init__.py
+sqlite3: /usr/lib/python3.14/sqlite3/__init__.py
+dataclasses: /usr/lib/python3.14/dataclasses.py
+typing: /usr/lib/python3.14/typing.py

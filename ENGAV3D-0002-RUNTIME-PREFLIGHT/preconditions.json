@@ -1,0 +1,17 @@
+{
+  "freeze_verified": true,
+  "stage3_test_sha256": "35834506405c5f9c63f188c68088aa4a4e9640b2fe8bd2c355ba984b6c5a9d77",
+  "contract_tests": "37 passed",
+  "session_lookup_passed": true,
+  "adapter_local_path": "/mnt/data-drive/godot_engain_3d_avatar/hermes_session_adapter.py",
+  "engain_dolphin_dependency": false,
+  "donor_live_path": false,
+  "request_strict_json_valid": true,
+  "mailbox_exact_bytes_valid": true,
+  "perception_state": "unavailable",
+  "viewport_image_attached": false,
+  "contract_argv_valid": true,
+  "executed_argv_valid": true,
+  "no_restore_cwd": true,
+  "provider_calls_before_dispatch": 0
+}

@@ -1,0 +1,33 @@
+{
+  "schema": "engav.review-disposition.v1",
+  "delegation_id": "deleg_727b525e",
+  "closure": "WITHHELD",
+  "findings": [
+    {
+      "finding": "The retained repository diff was truncated and corrupt.",
+      "valid": true,
+      "disposition": "REPAIRED",
+      "proof": {
+        "path": "/mnt/data-drive/engain-avatar-audit/ENGAV-0002-WORKLOAD-3-REPOSITORY-DIFF.patch",
+        "sha256": "5a530d8de7004697a9d81c98004976f53306be0a57865e6c2c1fa004ba6b6b6e",
+        "bytes": 164186,
+        "diff_headers": 5,
+        "reverse_apply_check": "PASS",
+        "truncation_marker_absent": true
+      }
+    },
+    {
+      "finding": "A valid exactly correlated response could be destructively discarded after wall-clock rollback because timestamp had to exceed process-global last_response_time.",
+      "valid": true,
+      "disposition": "REPAIRED",
+      "proof": "The timestamp remains numeric/finite validated but no longer orders acceptance. Exact active request/client/provenance correlation governs acceptance. RED then GREEN toxic behavior proves timestamp 8.0 is accepted despite last_response_time 100.0."
+    },
+    {
+      "finding": "No durable evidence proves every applicable R01-R17 was observed RED before its original implementation.",
+      "valid": true,
+      "disposition": "UNRESOLVED_HISTORICAL_GATE",
+      "proof": "Later repair-specific RED/GREEN evidence cannot establish original pre-implementation history."
+    }
+  ],
+  "current_adjudication": "Implementation findings repaired and exact-current review re-dispatched as deleg_f9c1349e. Workload 3 remains not closed because the frozen historical RED gate has no proof or amendment."
+}

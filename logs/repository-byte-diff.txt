@@ -1,0 +1,56 @@
+--- /mnt/data-drive/engain-avatar-audit/logs/baseline-files.sha256	2026-07-30 18:17:23.550342668 -0700
++++ /mnt/data-drive/engain-avatar-audit/logs/final-files.sha256	2026-07-30 18:21:40.027752539 -0700
+@@ -1,6 +1,25 @@
+ FILE	.editorconfig	100644	33	3b2c749c8a940905a08f727d8be9017c9568a12421c0aee7e37e9543b3751b1b
+ FILE	.gitattributes	100644	80	21b01a606c9f85f18bb9230245f00ab104df7409cbb2fe9423f6751ca72ba754
+ FILE	.gitignore	100644	206	bb76afe8b6690a3768f3d69f1d04dce6e1ae8d562dbf262cb23a9f8df9b6ff8b
++DIR	.godot	40755
++FILE	.godot/.gdignore	100644	1	01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b
++DIR	.godot/editor	40755
++FILE	.godot/editor/EngAInDragon.tscn-folding-5ee61f64c50c13afda969259800f4039.cfg	100644	785	6a93cfce033d294f46efd9d0a3d6056273b80f95c73f058081ff7cce2c6ba05e
++FILE	.godot/editor/filesystem_cache10	100644	2949	77d27e7bf8b9437038a8ff7377c86142ad39da9367ed3a978c5abd2e88af1431
++FILE	.godot/editor/project_metadata.cfg	100644	203	2afca0ed98b49f0487f764f9487ab67be78e879846a874e0d24718e5549f27af
++FILE	.godot/global_script_class_cache.cfg	100644	390	f003f3d477b101183d1ae22636a97bd3baa7f16069dbb8d61fc869013d1d7c4c
++DIR	.godot/imported	40755
++FILE	.godot/imported/generation-6c5f80d1-6b4f-4b28-819b-9fcce84b0f25.png-0f2b7b94ac7f4c3a7f3719d4947ac0af.ctex	100644	1446782	a37b60cab37eb6a60248bc83ae711f9ab492b8a7750431a9e4afb1093388a300
++FILE	.godot/imported/generation-6c5f80d1-6b4f-4b28-819b-9fcce84b0f25.png-0f2b7b94ac7f4c3a7f3719d4947ac0af.md5	100644	91	486f742487e49141a6a2c9ad51d65384bb844f5d3afca3861cb4ae34b1c2123f
++FILE	.godot/imported/generation-6d2a77ce-fe3b-4b62-a899-c9d4c258d1f7(2).png-d5a2bf87bf4522f1d3b1b957a9cba4fc.ctex	100644	1365548	95a3f79070ce21a6df6e5d125029dcd957538750e271eb67d2b502e418200c0f
++FILE	.godot/imported/generation-6d2a77ce-fe3b-4b62-a899-c9d4c258d1f7(2).png-d5a2bf87bf4522f1d3b1b957a9cba4fc.md5	100644	91	f1eae6343e498fb5c7ce266f210459e6959699f499cffe3423dc2c59c71b1eeb
++FILE	.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex	100644	3430	babe973c9432aa31e861cd24215c5b3093f1a0b7079d58e9d2536d87f09bef99
++FILE	.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.md5	100644	91	184ce3d47578e60a268eba8e3de3bea92effe2b92cfbd51352f2b062776d664d
++FILE	.godot/imported/idle_flap.png-fb54fa12331bad5a5a964442f4811baa.ctex	100644	61992	97a743a59a4865adb0da969d2a9f96d461d1fa924ed2691e108a9fa70f6d7e12
++FILE	.godot/imported/idle_flap.png-fb54fa12331bad5a5a964442f4811baa.md5	100644	91	9ef3d0daff791cdb67ee9163f2b0cfec5aca044a525166b765a704bd26a289b5
++FILE	.godot/imported/idol_flap.png-f70fc996746e95359247cffa30c02197.ctex	100644	59430	49fce5d931e5412af46349b4c2f7f776882a56651181fb394e72168da08bb7da
++FILE	.godot/imported/idol_flap.png-f70fc996746e95359247cffa30c02197.md5	100644	91	0e8fd07e21a49e75a8bbff66a2382eb694d5e972bc7f8c08c4f42c67398f63aa
++FILE	.godot/uid_cache.bin	100644	814	52535ee269d3754ca92741110b630ca7078d59c4898126b8d4c6944838d61e5a
+ FILE	README.TXT	100644	15117	9efe984724c905196f6b3ea404c33e00c47068e7c23268557f6959a3d387fc0f
+ FILE	VisionAgent.py	100644	6935	abca6d8a995cf1510252e0dd5951cb6f98913d476b8a6a6f5264539387503e86
+ DIR	addons	40755
+@@ -15,9 +34,9 @@
+ FILE	addons/zwengain/scenes/engainbridge.gd	100644	13	006c373933f8e49903c974a70b81864df932f34b72076a11916696e4577e804a
+ FILE	addons/zwengain/scenes/engainbridge.gd.uid	100644	20	e2d7c4257c411bc9a1e6fd12108bb8a0582f670d6954824f0f262ca11c22cc12
+ FILE	addons/zwengain/scenes/idle_flap.png	100644	33844	41df0a37c9a6298abcb2f81518d05f29a38b76d7fed00bdef4e11fe02326bcac
+-FILE	addons/zwengain/scenes/idle_flap.png.import	100644	784	562f6cbc2eab3dd30489d8671e734054d420afa345ed3f10d313e9cde5d7bbb8
++FILE	addons/zwengain/scenes/idle_flap.png.import	100644	954	e1caf71e913822e9366acc1bd4e335058ec6377896715794145656f392529eb9
+ FILE	addons/zwengain/scenes/idol_flap.png	100644	33566	dffd43c9ebf39e2be5cf695a552f5b490e3c102c6446112bd0467c06e48b30a0
+-FILE	addons/zwengain/scenes/idol_flap.png.import	100644	783	c117f3746489b73860b818780951239df1db4d6f521d1d8e8ba84bfa600204e6
++FILE	addons/zwengain/scenes/idol_flap.png.import	100644	953	f186020a1a9593e20b34cb06d8bb721f525b2241f30994fd39ac7a369527817a
+ DIR	addons/zwengain/scripts	40755
+ FILE	addons/zwengain/scripts/EngAInBridge.gd	100644	11890	89976b7dd04bcab1fd44520f9be8151da7e94121b5b8aee8ca1927c4cdc84840
+ FILE	addons/zwengain/scripts/EngAInBridge.gd.uid	100644	20	956395a7949691e023c9da509b41dacc78e64f0cba113fa65b9a0c3037dc6857
+@@ -31,11 +50,12 @@
+ FILE	addons/zwengain/zw_engine_plugin.gd.uid	100644	20	c3330cc5dcbaa299224b6c50b736b322c3444ee05f9432b0598d4b170510df31
+ DIR	assets	40755
+ FILE	assets/generation-6c5f80d1-6b4f-4b28-819b-9fcce84b0f25.png	100644	1796198	5b0cec2376ea1ab4f595d8292525d814095072d78c691ec029f70f3a40541380
+-FILE	assets/generation-6c5f80d1-6b4f-4b28-819b-9fcce84b0f25.png.import	100644	882	b3df3c799398b2bca17722b7750ec67a3f713cc6c5c6c6ece238191783052a02
++FILE	assets/generation-6c5f80d1-6b4f-4b28-819b-9fcce84b0f25.png.import	100644	1052	62fa7eb68ec7eb91187205fb8699cc89a243dcbc50827a4fd4d09eda4c0a1f89
+ FILE	assets/generation-6d2a77ce-fe3b-4b62-a899-c9d4c258d1f7(2).png	100644	1796315	ca7ba75b89dec95e16f12bba52beb0d26dde7551a1fff8d0f9a08ef5af1e9db8
+-FILE	assets/generation-6d2a77ce-fe3b-4b62-a899-c9d4c258d1f7(2).png.import	100644	891	24aba0e7f3f6310d3c6c14bc3cf1c0b0263076d43ae7a09a0dc167cccd12e182
++FILE	assets/generation-6d2a77ce-fe3b-4b62-a899-c9d4c258d1f7(2).png.import	100644	1061	94a835aa437dee9e705543c473871e13978f6999bbcb2539f060332715db7ada
+ FILE	engain_dolphin.py	100644	21671	2e93866bb05c43d31b050988f187e1359db9c9e0a2bf0b0c6dbedea24617dff2
+ FILE	icon.svg	100644	994	f6369bae7e12e6d16019cd6214cf27a2fdb6f3f6d024bd6f23c322be4804474f
+-FILE	icon.svg.import	100644	842	280b6ed3e4ad0e15e3161a49e81c0776b38a5df7f0a5da7d56509c5a14d58bec
++FILE	icon.svg.import	100644	1012	ae3c27dcc1c933ae334d46ed63b115aca89a0913279738b4c7539dbf5baa2969
+ FILE	project.godot	100644	684	e76b8950f88114cf02a0a62e8a6d56fd4c3dc5be47d50701223b403e672c2075
++DIR	snapshots	40755
+ FILE	zw_file_bridge.py	100644	8945	f61af5e2fd827ff27a7e69fc36c8b92e017d0377b53e0f820e72d336b9c693a2

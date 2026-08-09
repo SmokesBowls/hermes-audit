@@ -1,0 +1,12 @@
+=== git status --short --untracked-files=all ===
+ M addons/zwengain/scenes/idle_flap.png.import
+ M addons/zwengain/scenes/idol_flap.png.import
+ M assets/generation-6c5f80d1-6b4f-4b28-819b-9fcce84b0f25.png.import
+ M assets/generation-6d2a77ce-fe3b-4b62-a899-c9d4c258d1f7(2).png.import
+ M icon.svg.import
+=== git rev-parse HEAD ===
+22b0ffdf16c014da8aaf7760a031c5ae6788e9cd
+=== git branch --show-current ===
+main
+=== tracked-byte manifest comparison ===
+TRACKED_BYTES_CMP_EXIT=1

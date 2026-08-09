@@ -1,0 +1,12 @@
+{
+  "schema": "engav.review-disposition.v1",
+  "delegation_id": "deleg_eb68c462",
+  "closure": "WITHHELD",
+  "findings": [
+    {"finding": "Configurable Hermes executable permitted substitute-program provenance forgery.", "valid": true, "disposition": "REPAIRED", "proof": "CLI/environment override removed; production path fixed to /home/mytruelove/.local/bin/hermes, required to be an owned non-group/other-writable regular file with frozen SHA-256 e02455b2b8f5bb4dc9646c22bd1e6ca8869cd98aeb3b8b22e2c0840efaf1aa42. Toxic substitution test passes."},
+    {"finding": "Public mutable invocation fields could authorize a local response.", "valid": true, "disposition": "REPAIRED", "proof": "Public fields removed. A private immutable single-use receipt is minted only after successful fixed executable completion, exact session validation, and strict raw response validation. Local field assignment cannot mint it; stale reuse is rejected."},
+    {"finding": "Malformed provider output could become EngAInDirector fallback or synthesized-field success.", "valid": true, "disposition": "REPAIRED", "proof": "HermesCLIClient now rejects malformed/incomplete/non-exact provider JSON before director parsing. Adapter ignores director narrative and publishes only the narrative bound to the strict raw-provider receipt. Toxic local substitution and malformed output tests pass."},
+    {"finding": "No durable evidence proves every applicable R01-R17 was observed RED before original implementation.", "valid": true, "disposition": "UNRESOLVED_HISTORICAL_GATE", "proof": "Later RED/GREEN evidence cannot establish original pre-implementation history."}
+  ],
+  "current_adjudication": "Current implementation findings repaired; Workload 3 remains not closed solely pending fresh review and the historical RED gate."
+}

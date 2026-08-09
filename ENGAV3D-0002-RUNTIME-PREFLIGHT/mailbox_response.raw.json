@@ -1,0 +1,31 @@
+{
+  "request_id": "req_5b70272e3c463af2e43bc765b164ce18",
+  "client_request_id": "dragon3d_d62d32a40e6a5a59905567b92b4d1375_1",
+  "narrative_response": "I'm here—the same companion session continues. I can't currently see the 3D viewport, but I remember where we left off.",
+  "action_type": "OBSERVATION",
+  "state_changes": {},
+  "director_analysis": "Hermes conversational response",
+  "reasoning": "Structured runtime perception lane; no viewport image attached",
+  "entropy_impact": 0.0,
+  "timestamp": 1786295991.4117146,
+  "provider_session_ref": {
+    "companion_ref": "hermes_b",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "session_id": "20260731_065008_63a62d"
+  },
+  "perception_result": {
+    "schema": "engain.runtime_perception_result.v1",
+    "requested_state": "unavailable",
+    "effective_state": "unavailable",
+    "capture_id": "cap_1d2ae4dc8895d062ebaf70ed286f6acc_1",
+    "capture_event": "message_received",
+    "capture_phase": "pre_dispatch_player_view.v1",
+    "captured_at": 1786295978.5225556,
+    "metadata_sha256": null,
+    "image_sha256": null,
+    "structured_snapshot_supplied": false,
+    "viewport_image_attached": false,
+    "failure_code": null
+  }
+}

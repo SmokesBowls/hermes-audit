@@ -1,0 +1,34 @@
+{
+  "schema": "engav.review-preservation.v1",
+  "delegation_id": "deleg_b873126a",
+  "reviewed_source_hashes": {
+    "SnapshotManager.gd": "213475b9ce9f7ea9ee46066903633afdada2cf7eb8707abc3dcb3301f927305c",
+    "EngAInDragon.gd": "5212a0e464d454767e54c70752e432a47491ab5fdd31fd01042f4826097e039e",
+    "EngAInBridge.gd": "05e71e5772108dcd92708fa541ffc583899467e364c2ebaa2d18627f30d30978",
+    "hermes_session_adapter.py": "2a1caf5fb352e140a4906abbc21ac8d1bd8bdae0353fd662928b55627645bea1",
+    "tests/test_hermes_session_adapter.py": "b77f6c1a1b7c7e34b54f7206edd5c2c0e3adf01ca5e2abc0f2294d7962c231c9"
+  },
+  "results": {
+    "frozen_contract_compliance": "FAIL: stale mismatched exact Hermes argv artifact",
+    "hostile_security": "FAIL: seven security concerns, five logic errors, and ten missing test/proof classes",
+    "workload_3_closed": false
+  },
+  "complete_immutable_sources": [
+    {
+      "path": "/home/mytruelove/.hermes/cache/delegation/subagent-summary-0-20260801_015900_613959.txt",
+      "sha256": "74dc28c18395e31d9db9763466ac7cc908d37adf5e1e5a32e1caa6ab7002f42b"
+    },
+    {
+      "path": "/home/mytruelove/.hermes/cache/delegation/subagent-summary-1-20260801_015900_616916.txt",
+      "sha256": "7bd4da97ccf68b629a0ffa2df2cc4ba00d4abbac420935379b378dd9581eb219"
+    },
+    {
+      "path": "/home/mytruelove/.hermes/cache/delegation/live/deleg_b873126a/task-0.log",
+      "sha256": "d8657e35d775b2037cfead95f24d504a77662ad6a30f87e886deba9f3a79dbec"
+    },
+    {
+      "path": "/home/mytruelove/.hermes/cache/delegation/live/deleg_b873126a/task-1.log",
+      "sha256": "ef9f22fd071522f96deb5539ffb65bcdb38c5f7ed59d3ff0d053069998aa1ed3"
+    }
+  ]
+}

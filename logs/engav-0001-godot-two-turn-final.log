@@ -1,0 +1,71 @@
+Godot Engine v4.6.1.stable.official.14d19694e - https://godotengine.org
+
+EventBus: ZW Protocol event system ready
+🧠 EngAIn Bridge: Ready for AI co-direction
+📡 Communication channel: JSON file exchange
+🔍 DEBUG: Dragon _ready() called
+🔍 DEBUG: Looking for EngAInBridge...
+🔍 Trying path: EngAInBridge
+✅ Found EngAIn bridge at: EngAInBridge
+✅ EngAIn bridge connected!
+🧠 Connected to EngAIn AI Co-Director
+📸 SnapshotManager connected for visual context
+🌟 World event triggered: session_started
+🐉 EngAIn Dragon: AI Co-Director integration ready!
+SnapshotManager: Initializing ZW Protocol snapshot system...
+SnapshotManager: Snapshots saved to: /mnt/data-drive/engain_avatar/snapshots/
+SnapshotManager: Python can access: snapshots/
+SnapshotManager: Connected to EventBus
+SnapshotManager: Running cleanup...
+SnapshotManager: Ready! Storage limit: 500.0MB
+DynamicContextManager: Found SnapshotManager at: /root/Node2D/SnapshotManager
+DynamicContextManager: Ready to replace static templates!
+🎮 Player input: Remember this exact token for our next exchange: DRAGON-NONCE-7F31. Reply with only: TOKEN STORED
+🔍 DEBUG: Trying to write to: /mnt/data-drive/engain_avatar/engain_request.json
+🎯 Sent to EngAIn: Remember this exact token for our next exchange: DRAGON-NONCE-7F31. Reply with only: TOKEN STORED
+📁 Request file written to: /mnt/data-drive/engain_avatar/engain_request.json
+📝 File size: 1715 bytes
+📊 Game State - Entropy: 45.0, Tension: 18.0
+✅ File exists after write
+📥 Found AI response file!
+🐉 Dragon (EngAIn): TOKEN STORED
+🎭 AI Director Action: OBSERVATION
+🧠 Analysis: Hermes conversational response...
+🧠 EngAIn Decision: OBSERVATION
+💭 Reasoning: Text-only restoration lane...
+ENGAV_PROOF_TURN1=TOKEN STORED
+🎮 Player input: What exact token did I ask you to remember? Reply with only that token.
+🔍 DEBUG: Trying to write to: /mnt/data-drive/engain_avatar/engain_request.json
+🎯 Sent to EngAIn: What exact token did I ask you to remember? Reply with only that token.
+📁 Request file written to: /mnt/data-drive/engain_avatar/engain_request.json
+📝 File size: 1711 bytes
+📊 Game State - Entropy: 45.0, Tension: 18.0
+✅ File exists after write
+📥 Found AI response file!
+🐉 Dragon (EngAIn): DRAGON-NONCE-7F31
+ERROR: Parameter "t" is null.
+   at: texture_2d_get (./servers/rendering/dummy/storage/texture_storage.h:106)
+   GDScript backtrace (most recent call first):
+       [0] capture_snapshot (res://addons/zwengain/scenes/SnapshotManager.gd:101)
+       [1] capture_event (res://addons/zwengain/scenes/SnapshotManager.gd:300)
+       [2] dragon_speak (res://addons/zwengain/scripts/EngAInDragon.gd:281)
+       [3] _on_ai_decision (res://addons/zwengain/scripts/EngAInDragon.gd:213)
+       [4] process_ai_decision (res://addons/zwengain/scripts/EngAInBridge.gd:194)
+       [5] _check_for_ai_response (res://addons/zwengain/scripts/EngAInBridge.gd:169)
+SCRIPT ERROR: Attempt to call function 'save_png' in base 'null instance' on a null instance.
+          at: SnapshotManager.capture_snapshot (res://addons/zwengain/scenes/SnapshotManager.gd:113)
+          GDScript backtrace (most recent call first):
+              [0] capture_snapshot (res://addons/zwengain/scenes/SnapshotManager.gd:113)
+              [1] capture_event (res://addons/zwengain/scenes/SnapshotManager.gd:300)
+              [2] dragon_speak (res://addons/zwengain/scripts/EngAInDragon.gd:281)
+              [3] _on_ai_decision (res://addons/zwengain/scripts/EngAInDragon.gd:213)
+              [4] process_ai_decision (res://addons/zwengain/scripts/EngAInBridge.gd:194)
+              [5] _check_for_ai_response (res://addons/zwengain/scripts/EngAInBridge.gd:169)
+🎭 AI Director Action: OBSERVATION
+🧠 Analysis: Hermes conversational response...
+🧠 EngAIn Decision: OBSERVATION
+💭 Reasoning: Text-only restoration lane...
+ENGAV_PROOF_TURN2=DRAGON-NONCE-7F31
+ENGAV_PROOF=PASS
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+     at: cleanup (core/object/object.cpp:2641)

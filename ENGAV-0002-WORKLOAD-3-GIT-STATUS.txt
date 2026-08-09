@@ -1,0 +1,11 @@
+ M addons/zwengain/scenes/SnapshotManager.gd
+ M addons/zwengain/scenes/idle_flap.png.import
+ M addons/zwengain/scenes/idol_flap.png.import
+ M addons/zwengain/scripts/EngAInBridge.gd
+ M addons/zwengain/scripts/EngAInDragon.gd
+ M assets/generation-6c5f80d1-6b4f-4b28-819b-9fcce84b0f25.png.import
+ M assets/generation-6d2a77ce-fe3b-4b62-a899-c9d4c258d1f7(2).png.import
+ M hermes_session_adapter.py
+ M icon.svg.import
+ M project.godot
+?? tests/test_hermes_session_adapter.py

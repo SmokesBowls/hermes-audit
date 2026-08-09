@@ -1,0 +1,146 @@
+ENGAV3D-0001 STAGE 3 RED EVIDENCE
+Generated UTC: 2026-08-09T07:30:08.881752+00:00
+
+FREEZE IMMUTABILITY CHECK
+command: sha256sum -c ENGAV3D-0001-IDENTITY-MAILBOX-PERCEPTION-FREEZE.md.sha256
+exit_code: 0
+ENGAV3D-0001-IDENTITY-MAILBOX-PERCEPTION-FREEZE.md: OK
+
+3D BASELINE IDENTITY AND ADAPTER ABSENCE
+commands:
+  git rev-parse HEAD
+  git rev-parse HEAD^{tree}
+  adapter existence check
+exit_code: 0
+5d2a46533f4b52cfed9a03a2169638bd0f93f6f9
+0c70d0497e18c600f46e85f341b65b00034ed542
+ADAPTER_ABSENT
+
+TEST SYNTAX CHECK
+command: python3 -m py_compile tests/test_hermes_session_adapter.py
+exit_code: 0
+
+
+EXPECTED RED COMMAND
+command: python3 -m pytest -q tests/test_hermes_session_adapter.py
+exit_code: 1
+
+.....FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF                                    [100%]
+=================================== FAILURES ===================================
+_____________ test_adapter_exports_exact_frozen_identity_constants _____________
+STAGE3_RED: hermes_session_adapter.py is absent from the untouched 3D project
+___ test_adapter_config_owns_project_local_mailboxes_state_and_capture_root ____
+STAGE3_RED: hermes_session_adapter.py is absent from the untouched 3D project
+______ test_strict_json_rejects_duplicate_nonfinite_and_overflow_numbers _______
+STAGE3_RED: hermes_session_adapter.py is absent from the untouched 3D project
+_________ test_valid_correlated_3d_full_request_is_accepted_with_image _________
+STAGE3_RED: hermes_session_adapter.py is absent from the untouched 3D project
+_ test_wrong_host_event_or_phase_is_rejected[project_id-engain_avatar-PROJECT_ID_MISMATCH] _
+STAGE3_RED: hermes_session_adapter.py is absent from the untouched 3D project
+_ test_wrong_host_event_or_phase_is_rejected[scene_path-res://scenes/DragonAvatar3D.tscn-SCENE_IDENTITY_MISMATCH] _
+STAGE3_RED: hermes_session_adapter.py is absent from the untouched 3D project
+_ test_wrong_host_event_or_phase_is_rejected[capture_event-ai_dragon_spoke-CAPTURE_EVENT_INVALID] _
+STAGE3_RED: hermes_session_adapter.py is absent from the untouched 3D project
+_ test_wrong_host_event_or_phase_is_rejected[capture_phase-post_dispatch.v1-CAPTURE_PHASE_INVALID] _
+STAGE3_RED: hermes_session_adapter.py is absent from the untouched 3D project
+___________________ test_wrong_client_request_id_is_rejected ___________________
+STAGE3_RED: hermes_session_adapter.py is absent from the untouched 3D project
+______________________ test_wrong_capture_id_is_rejected _______________________
+STAGE3_RED: hermes_session_adapter.py is absent from the untouched 3D project
+____ test_nonconforming_identifier_is_schema_invalid[request_id-req_short] _____
+STAGE3_RED: hermes_session_adapter.py is absent from the untouched 3D project
+_ test_nonconforming_identifier_is_schema_invalid[client_request_id-dragon_legacy_1] _
+STAGE3_RED: hermes_session_adapter.py is absent from the untouched 3D project
+____ test_nonconforming_identifier_is_schema_invalid[capture_id-cap_short] _____
+STAGE3_RED: hermes_session_adapter.py is absent from the untouched 3D project
+__________ test_stale_capture_is_rejected_without_newest_substitution __________
+STAGE3_RED: hermes_session_adapter.py is absent from the untouched 3D project
+___________________ test_metadata_hash_mismatch_is_rejected ____________________
+STAGE3_RED: hermes_session_adapter.py is absent from the untouched 3D project
+_____________________ test_image_hash_mismatch_is_rejected _____________________
+STAGE3_RED: hermes_session_adapter.py is absent from the untouched 3D project
+___________________ test_out_of_root_image_path_is_rejected ____________________
+STAGE3_RED: hermes_session_adapter.py is absent from the untouched 3D project
+___________________ test_symlinked_capture_root_is_rejected ____________________
+STAGE3_RED: hermes_session_adapter.py is absent from the untouched 3D project
+_______ test_unsupported_image_type_is_rejected_even_with_matching_hash ________
+STAGE3_RED: hermes_session_adapter.py is absent from the untouched 3D project
+_________________ test_png_ihdr_dimension_mismatch_is_rejected _________________
+STAGE3_RED: hermes_session_adapter.py is absent from the untouched 3D project
+______ test_boolean_or_out_of_range_dimensions_are_schema_invalid[width] _______
+STAGE3_RED: hermes_session_adapter.py is absent from the untouched 3D project
+______ test_boolean_or_out_of_range_dimensions_are_schema_invalid[height] ______
+STAGE3_RED: hermes_session_adapter.py is absent from the untouched 3D project
+_______________ test_missing_image_downgrades_to_structured_only _______________
+STAGE3_RED: hermes_session_adapter.py is absent from the untouched 3D project
+_______________ test_missing_metadata_downgrades_to_unavailable ________________
+STAGE3_RED: hermes_session_adapter.py is absent from the untouched 3D project
+__________ test_unavailable_prompt_denies_structured_and_pixel_vision __________
+STAGE3_RED: hermes_session_adapter.py is absent from the untouched 3D project
+_ test_hermes_command_explicitly_selects_profile_session_provider_model_and_image _
+STAGE3_RED: hermes_session_adapter.py is absent from the untouched 3D project
+_______ test_session_substitution_is_rejected_without_replacing_identity _______
+STAGE3_RED: hermes_session_adapter.py is absent from the untouched 3D project
+_______ test_prepare_requires_exact_project_local_shared_identity_state ________
+STAGE3_RED: hermes_session_adapter.py is absent from the untouched 3D project
+______ test_response_mailbox_backpressure_never_clobbers_unread_response _______
+STAGE3_RED: hermes_session_adapter.py is absent from the untouched 3D project
+_____ test_process_once_emits_contract_exact_read_only_correlated_response _____
+STAGE3_RED: hermes_session_adapter.py is absent from the untouched 3D project
+___ test_timeout_defaults_and_failure_response_are_bounded_observation_only ____
+STAGE3_RED: hermes_session_adapter.py is absent from the untouched 3D project
+____ test_hard_correlation_rejection_skips_provider_and_reports_stable_code ____
+STAGE3_RED: hermes_session_adapter.py is absent from the untouched 3D project
+=========================== short test summary info ============================
+FAILED tests/test_hermes_session_adapter.py::test_adapter_exports_exact_frozen_identity_constants
+FAILED tests/test_hermes_session_adapter.py::test_adapter_config_owns_project_local_mailboxes_state_and_capture_root
+FAILED tests/test_hermes_session_adapter.py::test_strict_json_rejects_duplicate_nonfinite_and_overflow_numbers
+FAILED tests/test_hermes_session_adapter.py::test_valid_correlated_3d_full_request_is_accepted_with_image
+FAILED tests/test_hermes_session_adapter.py::test_wrong_host_event_or_phase_is_rejected[project_id-engain_avatar-PROJECT_ID_MISMATCH]
+FAILED tests/test_hermes_session_adapter.py::test_wrong_host_event_or_phase_is_rejected[scene_path-res://scenes/DragonAvatar3D.tscn-SCENE_IDENTITY_MISMATCH]
+FAILED tests/test_hermes_session_adapter.py::test_wrong_host_event_or_phase_is_rejected[capture_event-ai_dragon_spoke-CAPTURE_EVENT_INVALID]
+FAILED tests/test_hermes_session_adapter.py::test_wrong_host_event_or_phase_is_rejected[capture_phase-post_dispatch.v1-CAPTURE_PHASE_INVALID]
+FAILED tests/test_hermes_session_adapter.py::test_wrong_client_request_id_is_rejected
+FAILED tests/test_hermes_session_adapter.py::test_wrong_capture_id_is_rejected
+FAILED tests/test_hermes_session_adapter.py::test_nonconforming_identifier_is_schema_invalid[request_id-req_short]
+FAILED tests/test_hermes_session_adapter.py::test_nonconforming_identifier_is_schema_invalid[client_request_id-dragon_legacy_1]
+FAILED tests/test_hermes_session_adapter.py::test_nonconforming_identifier_is_schema_invalid[capture_id-cap_short]
+FAILED tests/test_hermes_session_adapter.py::test_stale_capture_is_rejected_without_newest_substitution
+FAILED tests/test_hermes_session_adapter.py::test_metadata_hash_mismatch_is_rejected
+FAILED tests/test_hermes_session_adapter.py::test_image_hash_mismatch_is_rejected
+FAILED tests/test_hermes_session_adapter.py::test_out_of_root_image_path_is_rejected
+FAILED tests/test_hermes_session_adapter.py::test_symlinked_capture_root_is_rejected
+FAILED tests/test_hermes_session_adapter.py::test_unsupported_image_type_is_rejected_even_with_matching_hash
+FAILED tests/test_hermes_session_adapter.py::test_png_ihdr_dimension_mismatch_is_rejected
+FAILED tests/test_hermes_session_adapter.py::test_boolean_or_out_of_range_dimensions_are_schema_invalid[width]
+FAILED tests/test_hermes_session_adapter.py::test_boolean_or_out_of_range_dimensions_are_schema_invalid[height]
+FAILED tests/test_hermes_session_adapter.py::test_missing_image_downgrades_to_structured_only
+FAILED tests/test_hermes_session_adapter.py::test_missing_metadata_downgrades_to_unavailable
+FAILED tests/test_hermes_session_adapter.py::test_unavailable_prompt_denies_structured_and_pixel_vision
+FAILED tests/test_hermes_session_adapter.py::test_hermes_command_explicitly_selects_profile_session_provider_model_and_image
+FAILED tests/test_hermes_session_adapter.py::test_session_substitution_is_rejected_without_replacing_identity
+FAILED tests/test_hermes_session_adapter.py::test_prepare_requires_exact_project_local_shared_identity_state
+FAILED tests/test_hermes_session_adapter.py::test_response_mailbox_backpressure_never_clobbers_unread_response
+FAILED tests/test_hermes_session_adapter.py::test_process_once_emits_contract_exact_read_only_correlated_response
+FAILED tests/test_hermes_session_adapter.py::test_timeout_defaults_and_failure_response_are_bounded_observation_only
+FAILED tests/test_hermes_session_adapter.py::test_hard_correlation_rejection_skips_provider_and_reports_stable_code
+32 failed, 5 passed in 0.07s
+
+POST-RUN REPOSITORY SCOPE
+commands:
+  git status --short --branch --untracked-files=all
+  git diff --check
+exit_code: 0
+## main...origin/main
+?? tests/test_hermes_session_adapter.py
+
+STAGE 3 VERDICT
+EXPECTED RED OBSERVED
+fixture/self-check tests passed: 5
+adapter contract tests failed: 32
+failure boundary: hermes_session_adapter.py absent from untouched 3D baseline
+production adapter written: NO
+freeze modified: NO
+provider invoked: NO
+Godot launched: NO
+commit or push: NO

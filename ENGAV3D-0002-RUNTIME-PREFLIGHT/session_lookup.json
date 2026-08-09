@@ -1,0 +1,10 @@
+{
+  "profile": "default",
+  "hermes_home": "/home/mytruelove/.hermes",
+  "state_db": "/home/mytruelove/.hermes/state.db",
+  "session_id": "20260731_065008_63a62d",
+  "source": "tool",
+  "model": "gpt-5.6-sol",
+  "billing_provider": "openai-codex",
+  "message_count_before": 65
+}

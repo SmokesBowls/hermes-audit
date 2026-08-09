@@ -1,0 +1,26 @@
+{
+  "artifact_kind": "engav.workload_3.runtime_response_receipt.v1",
+  "mailbox_response_retained": false,
+  "mailbox_consumption": "EngAInBridge validated and removed the response before audit copying",
+  "request_id": "req_5b41e1372378286e82b98154ce3aea84",
+  "client_request_id": "dragon_9c4681cfaeb046239d939fb06ce3f7d3_1",
+  "capture_id": "cap_cc165332836b76aa3137668bbe8821e5_1",
+  "session_ref": "@session:default/20260731_065008_63a62d",
+  "session_user_message_id": 23710,
+  "session_assistant_message_id": 23711,
+  "narrative_response": "Supplied structured runtime location: Cosmic Command Center. No current viewport image was attached.",
+  "action_type_observed": "OBSERVATION",
+  "world_location_before": "Cosmic Command Center",
+  "world_location_after": "Cosmic Command Center",
+  "entropy_before": 45.0,
+  "entropy_after": 45.0,
+  "effective_state": "structured_only",
+  "viewport_image_attached": false,
+  "hermes_argv_contains_image_flag": false,
+  "evidence": [
+    "ENGAV-0002-WORKLOAD-3-GODOT-RUNTIME.log",
+    "ENGAV-0002-WORKLOAD-3-HERMES-ARGV.json",
+    "ENGAV-0002-WORKLOAD-3-CAPTURE-VALIDATION.json",
+    "ENGAV-0002-WORKLOAD-3-SESSION-CONTINUITY.json"
+  ]
+}

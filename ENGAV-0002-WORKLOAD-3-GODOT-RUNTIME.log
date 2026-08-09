@@ -1,0 +1,47 @@
+Godot Engine v4.6.1.stable.official.14d19694e - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.43.03 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2070
+
+EventBus: ZW Protocol event system ready
+🧠 EngAIn Bridge: Ready for AI co-direction
+📡 Communication channel: JSON file exchange
+🔍 DEBUG: Dragon _ready() called
+🔍 DEBUG: Looking for EngAInBridge...
+🔍 Trying path: EngAInBridge
+✅ Found EngAIn bridge at: EngAInBridge
+✅ EngAIn bridge connected!
+🧠 Connected to EngAIn AI Co-Director
+📸 SnapshotManager connected for visual context
+🌟 World event triggered: session_started
+🐉 EngAIn Dragon: AI Co-Director integration ready!
+SnapshotManager: Initializing ZW Protocol snapshot system...
+SnapshotManager: Snapshots saved to: /mnt/data-drive/engain_avatar/snapshots/
+SnapshotManager: Python can access: snapshots/
+SnapshotManager: Connected to EventBus
+SnapshotManager: Running cleanup...
+SnapshotManager: Ready! Storage limit: 500.0MB
+DynamicContextManager: Found SnapshotManager at: /root/Node2D/SnapshotManager
+DynamicContextManager: Ready to replace static templates!
+🎮 Player input: Workload 3 proof: report the supplied structured runtime location and state that no viewport image was attached.
+🔍 DEBUG: Trying to write to: /mnt/data-drive/engain_avatar/engain_request.json
+🎯 Sent to EngAIn: Workload 3 proof: report the supplied structured runtime location and state that no viewport image was attached.
+📁 Request file written to: /mnt/data-drive/engain_avatar/engain_request.json
+📝 File size: 3527 bytes
+📊 Game State - Entropy: 45.0, Tension: 18.0
+✅ File exists after write
+WL3_CLIENT_REQUEST_ID=dragon_90cda72127e4c6557ca8396b318a7326_1
+WL3_REQUEST_ID=req_ae9c0ee06ec4d34fa286a7f4d477ed2c
+WL3_WAITING_AFTER_DISPATCH=true
+WL3_INPUT_EMPTY_AFTER_DISPATCH=true
+WL3_PLACEHOLDER_AFTER_DISPATCH=EngAIn is thinking...
+📥 Found AI response file!
+🐉 Dragon (EngAIn): Supplied structured runtime location: Cosmic Command Center. No current viewport image was attached.
+🎭 AI Director Action: OBSERVATION
+🧠 Analysis: Hermes conversational response...
+🧠 EngAIn Decision: OBSERVATION
+💭 Reasoning: Structured runtime perception lane; no viewport image attached...
+WL3_WAITING_AFTER_RESPONSE=false
+WL3_SPEECH_AFTER_RESPONSE=Supplied structured runtime location: Cosmic Command Center. No current viewport image was attached.
+WL3_WORLD_LOCATION_AFTER_RESPONSE=Cosmic Command Center
+WL3_ENTROPY_AFTER_RESPONSE=45.0
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+     at: cleanup (core/object/object.cpp:2641)

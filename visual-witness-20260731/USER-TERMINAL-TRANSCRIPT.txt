@@ -1,0 +1,98 @@
+╭─mytruelove@mytruelove in ~ via  v3.14.6 took 0s
+ ╰─λ godot --path /mnt/data-drive/engain_avatar
+Godot Engine v4.6.1.stable.official.14d19694e - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.43.03 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2070
+
+EventBus: ZW Protocol event system ready
+🧠 EngAIn Bridge: Ready for AI co-direction
+📡 Communication channel: JSON file exchange
+🔍 DEBUG: Dragon _ready() called
+🔍 DEBUG: Looking for EngAInBridge...
+🔍 Trying path: EngAInBridge
+✅ Found EngAIn bridge at: EngAInBridge
+✅ EngAIn bridge connected!
+🧠 Connected to EngAIn AI Co-Director
+📸 SnapshotManager connected for visual context
+🌟 World event triggered: session_started
+🐉 EngAIn Dragon: AI Co-Director integration ready!
+SnapshotManager: Initializing ZW Protocol snapshot system...
+SnapshotManager: Snapshots saved to: /mnt/data-drive/engain_avatar/snapshots/
+SnapshotManager: Python can access: snapshots/
+SnapshotManager: Connected to EventBus
+SnapshotManager: Running cleanup...
+SnapshotManager: Ready! Storage limit: 500.0MB
+DynamicContextManager: Found SnapshotManager at: /root/Node2D/SnapshotManager
+DynamicContextManager: Ready to replace static templates!
+📥 Found AI response file!
+⚠️ Ignored stale or mismatched EngAIn response
+🧠 EngAIn Decision: OBSERVATION
+💭 Reasoning: Text-only restoration lane...
+🎮 Player input: Remember this exact token for our next exchange: DRAGON-VISUAL-9A42. Reply with only: TOKEN STORED
+🔍 DEBUG: Trying to write to: /mnt/data-drive/engain_avatar/engain_request.json
+🎯 Sent to EngAIn: Remember this exact token for our next exchange: DRAGON-VISUAL-9A42. Reply with only: TOKEN STORED
+📁 Request file written to: /mnt/data-drive/engain_avatar/engain_request.json
+📝 File size: 1717 bytes
+📊 Game State - Entropy: 45.0, Tension: 18.0
+✅ File exists after write
+📥 Found AI response file!
+🐉 Dragon (EngAIn): TOKEN STORED
+SnapshotManager: Captured [LOW] ai_dragon_spoke
+🎭 AI Director Action: OBSERVATION
+🧠 Analysis: Hermes conversational response...
+🧠 EngAIn Decision: OBSERVATION
+💭 Reasoning: Text-only restoration lane...
+DynamicContextManager: Updated context from visual analysis
+🎮 Player input: What exact token did I ask you to remember? Reply with only that token.
+🔍 DEBUG: Trying to write to: /mnt/data-drive/engain_avatar/engain_request.json
+🎯 Sent to EngAIn: What exact token did I ask you to remember? Reply with only that token.
+📁 Request file written to: /mnt/data-drive/engain_avatar/engain_request.json
+📝 File size: 1710 bytes
+📊 Game State - Entropy: 45.0, Tension: 18.0
+✅ File exists after write
+📥 Found AI response file!
+🐉 Dragon (EngAIn): DRAGON-VISUAL-9A42
+SnapshotManager: Captured [LOW] ai_dragon_spoke
+🎭 AI Director Action: OBSERVATION
+🧠 Analysis: Hermes conversational response...
+🧠 EngAIn Decision: OBSERVATION
+💭 Reasoning: Text-only restoration lane...
+DynamicContextManager: Updated context from visual analysis
+🎮 Player input: hi
+SnapshotManager: Captured [LOW] message_received
+🔍 DEBUG: Trying to write to: /mnt/data-drive/engain_avatar/engain_request.json
+🎯 Sent to EngAIn: hi
+📁 Request file written to: /mnt/data-drive/engain_avatar/engain_request.json
+📝 File size: 1661 bytes
+📊 Game State - Entropy: 45.0, Tension: 18.0
+✅ File exists after write
+DynamicContextManager: Updated context from visual analysis
+📥 Found AI response file!
+🐉 Dragon (EngAIn): The constellation-wrapped dragon wakes one star at a time. It studies you, then carefully imitates your brevity.
+
+"Hi."
+
+A new constellation forms along its throat: DRAGON-VISUAL-9A42—the token you taught the interface to remember. The dragon glances toward it, pleased with itself.
+
+"I kept your sign," it says. "May I keep a name for you, too?"
+SnapshotManager: Captured [LOW] ai_dragon_spoke
+🎭 AI Director Action: OBSERVATION
+🧠 Analysis: Hermes conversational response...
+🧠 EngAIn Decision: OBSERVATION
+💭 Reasoning: Text-only restoration lane...
+DynamicContextManager: Updated context from visual analysis
+🎮 Player input: describe what you see
+SnapshotManager: Captured [LOW] message_received
+🔍 DEBUG: Trying to write to: /mnt/data-drive/engain_avatar/engain_request.json
+🎯 Sent to EngAIn: describe what you see
+📁 Request file written to: /mnt/data-drive/engain_avatar/engain_request.json
+📝 File size: 1699 bytes
+📊 Game State - Entropy: 45.0, Tension: 18.0
+✅ File exists after write
+DynamicContextManager: Updated context from visual analysis
+📥 Found AI response file!
+🐉 Dragon (EngAIn): Hermes timed out. The dragon is still here; please try again.
+SnapshotManager: Captured [LOW] ai_dragon_spoke
+🎭 AI Director Action: OBSERVATION
+🧠 Analysis: Hermes adapter error...
+🧠 EngAIn Decision: OBSERVATION
+💭 Reasoning: Text-only adapter failure...

@@ -1,0 +1,29 @@
+{
+  "schema": "engav.review-preservation.v1",
+  "delegation_id": "deleg_f9c1349e",
+  "reviewed_source_hashes": {
+    "SnapshotManager.gd": "fa8335b69c720cb0d31eac580bebb4a1e9ed3447c44e61f17113f4826f125839",
+    "EngAInDragon.gd": "5212a0e464d454767e54c70752e432a47491ab5fdd31fd01042f4826097e039e",
+    "EngAInBridge.gd": "37a207c871e38a008dffc283c1c28ca7bc418d2c2047805cb25c61f3454cf266",
+    "hermes_session_adapter.py": "9b5c65d71acf5eb2aa68d5701bdef70af24153d9cb87923ab2273058ddf398a1",
+    "tests/test_hermes_session_adapter.py": "2a64a5423d53482dcc83bd31287ebb11daa0ba0beee28a9fa6299b99ab18886e"
+  },
+  "compliance_result": {
+    "passed": false,
+    "security_concerns": [],
+    "logic_errors": [],
+    "missing_proofs": ["No durable contemporaneous evidence establishes every applicable frozen R01-R17 proof was RED before its corresponding implementation."],
+    "summary": "No additional implementation security or logic blocker; strict failure solely on historical RED gate."
+  },
+  "hostile_result": {
+    "passed": false,
+    "path": "/home/mytruelove/.hermes/cache/delegation/subagent-summary-1-20260801_143536_441900.txt",
+    "sha256": "9700d6e326bd3bbd223242cabe031b9249b5245217207d61e88ae871365fd7d9",
+    "blocking_finding": "Successful sanitization did not require last_call_was_invoked."
+  },
+  "live_transcripts": [
+    {"path": "/home/mytruelove/.hermes/cache/delegation/live/deleg_f9c1349e/task-0.log", "sha256": "cc4fc4d0197eb2dc1298e330af377bac9d181ada78dab5b06be5e401ded9cd24"},
+    {"path": "/home/mytruelove/.hermes/cache/delegation/live/deleg_f9c1349e/task-1.log", "sha256": "0d7e3e2ef2e5989214752b3668d7df5df546791c922c3dc2fac122e5e9415d51"}
+  ],
+  "adjudication": "FAIL preserved. Provider invocation finding repaired on later bytes; historical RED gate remains unresolved."
+}
