@@ -1,0 +1,16 @@
+{
+  "adapter_return_code": 0,
+  "client_request_id": "dragon3d_8235eb3f50987d9a4cb397c2084f8eb4_1",
+  "frozen_session_after": "20260731_065008_63a62d",
+  "hermes_message_count_after": 71,
+  "hermes_message_count_before": 69,
+  "hermes_message_delta": 2,
+  "processed_marker_count": 1,
+  "processed_marker_observed": true,
+  "provider_attempted": 1,
+  "provider_authorized": 1,
+  "provider_remaining": 0,
+  "request_id": "req_2a39e83f1910d77d020af67155f82399",
+  "request_occurrences_in_processed_ledger": 1,
+  "retry_authorized": false
+}

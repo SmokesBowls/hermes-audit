@@ -1,0 +1,1 @@
+  13558   11833 Sun Aug  9 11:38:49 2026 /home/mytruelove/.hermes/hermes-agent/venv/bin/python3 /home/mytruelove/.hermes/hermes-agent/venv/bin/hermes chat

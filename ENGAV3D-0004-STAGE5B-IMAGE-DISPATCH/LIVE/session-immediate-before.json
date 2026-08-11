@@ -1,0 +1,20 @@
+{
+  "billing_provider": "openai-codex",
+  "lookup_timestamp": "2026-08-10T01:35:26.511478+00:00",
+  "message_count": 67,
+  "model": "gpt-5.6-sol",
+  "profile": "default",
+  "provider_calls": 0,
+  "schema": "engav3d.stage5b_immediate_before.v1",
+  "session_id": "20260731_065008_63a62d",
+  "session_model_usage": [
+    {
+      "billing_provider": "openai-codex",
+      "model": "gpt-5.6-sol",
+      "session_id": "20260731_065008_63a62d"
+    }
+  ],
+  "source": "tool",
+  "state_database": "/home/mytruelove/.hermes/state.db",
+  "subprocess_calls": 0
+}

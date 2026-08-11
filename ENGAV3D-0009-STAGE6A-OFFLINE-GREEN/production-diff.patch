@@ -1,0 +1,755 @@
+diff --git a/hermes_session_adapter.py b/hermes_session_adapter.py
+index 7c2972d..38e441f 100644
+--- a/hermes_session_adapter.py
++++ b/hermes_session_adapter.py
+@@ -71,6 +71,8 @@ CAPTURE_PHASE = "pre_dispatch_player_view.v1"
+ PROJECT_ID = "godot_3d_avatar"
+ SCENE_PATH = "res://scenes/Main.tscn"
+ DRAGON_SCENE_PATH = "res://scenes/DragonAvatar3D.tscn"
++MAILBOX_PROJECT_ROOT = Path("/mnt/data-drive/godot_engain_3d_avatar")
++REQUEST_TEMP_PATTERN = re.compile(r"^\.engain_request\.(req_[0-9a-f]{32})\.tmp$")
+ PNG_SIGNATURE = b"\x89PNG\r\n\x1a\n"
+ SOURCE_UNAVAILABLE_REASONS = {
+     "capture_failed",
+@@ -207,6 +209,124 @@ def _claim_strict_json_mailbox(path: Path, limit: int) -> str:
+         os.close(directory_descriptor)
+ 
+ 
++def publish_request(temporary_path: Path) -> Path:
++    """Validate and atomically publish one frozen request without dispatching it."""
++    temporary_path = Path(temporary_path)
++    project_root = Path(MAILBOX_PROJECT_ROOT).absolute()
++    if not temporary_path.is_absolute():
++        raise ValueError("request temporary path must be absolute")
++    temporary_path = temporary_path.absolute()
++    if temporary_path.parent != project_root:
++        raise ValueError("request temporary path is outside the frozen project root")
++
++    match = REQUEST_TEMP_PATTERN.fullmatch(temporary_path.name)
++    directory_descriptor = -1
++    temporary_descriptor = -1
++    temporary_status: os.stat_result | None = None
++    published = False
++
++    def cleanup_exact_temporary() -> None:
++        if directory_descriptor < 0:
++            try:
++                temporary_path.unlink(missing_ok=True)
++            except OSError:
++                pass
++            return
++        try:
++            current = os.stat(
++                temporary_path.name,
++                dir_fd=directory_descriptor,
++                follow_symlinks=False,
++            )
++        except FileNotFoundError:
++            return
++        if temporary_status is not None and (
++            current.st_dev != temporary_status.st_dev
++            or current.st_ino != temporary_status.st_ino
++        ):
++            raise HermesAdapterError("request temporary path changed during publication")
++        os.unlink(temporary_path.name, dir_fd=directory_descriptor)
++
++    try:
++        if match is None:
++            raise ValueError("request temporary basename is invalid")
++        if not hasattr(os, "O_DIRECTORY") or not hasattr(os, "O_NOFOLLOW"):
++            raise HermesAdapterError("descriptor-bound request publication is unavailable")
++
++        directory_flags = os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW
++        file_flags = os.O_RDONLY | os.O_NOFOLLOW
++        if hasattr(os, "O_CLOEXEC"):
++            directory_flags |= os.O_CLOEXEC
++            file_flags |= os.O_CLOEXEC
++        directory_descriptor = os.open(project_root, directory_flags)
++
++        path_status = os.stat(
++            temporary_path.name,
++            dir_fd=directory_descriptor,
++            follow_symlinks=False,
++        )
++        temporary_status = path_status
++        if not stat.S_ISREG(path_status.st_mode):
++            raise ValueError("request temporary path is not a regular file")
++
++        temporary_descriptor = os.open(
++            temporary_path.name,
++            file_flags,
++            dir_fd=directory_descriptor,
++        )
++        descriptor_status = os.fstat(temporary_descriptor)
++        if (
++            not stat.S_ISREG(descriptor_status.st_mode)
++            or descriptor_status.st_dev != path_status.st_dev
++            or descriptor_status.st_ino != path_status.st_ino
++        ):
++            raise ValueError("request temporary file identity changed")
++        temporary_status = descriptor_status
++        if descriptor_status.st_size > MAX_REQUEST_BYTES:
++            raise ValueError("request temporary file exceeds the safe size limit")
++
++        chunks: list[bytes] = []
++        remaining = MAX_REQUEST_BYTES + 1
++        while remaining > 0:
++            chunk = os.read(temporary_descriptor, min(65536, remaining))
++            if not chunk:
++                break
++            chunks.append(chunk)
++            remaining -= len(chunk)
++        raw = b"".join(chunks)
++        if len(raw) > MAX_REQUEST_BYTES:
++            raise ValueError("request temporary file exceeds the safe size limit")
++        payload = _strict_json_loads(raw.decode("utf-8"))
++
++        validator = HermesSessionAdapter(AdapterConfig(project_dir=project_root))
++        validated = validator._validate_request(payload)
++        filename_request_id = match.group(1)
++        if validated.request_id != filename_request_id:
++            raise ValueError("request_id does not match request temporary filename")
++
++        os.fsync(temporary_descriptor)
++        os.link(
++            f"/proc/self/fd/{temporary_descriptor}",
++            "engain_request.json",
++            dst_dir_fd=directory_descriptor,
++            follow_symlinks=True,
++        )
++        published = True
++        os.fsync(directory_descriptor)
++        cleanup_exact_temporary()
++        os.fsync(directory_descriptor)
++        return project_root / "engain_request.json"
++    except Exception:
++        if not published:
++            cleanup_exact_temporary()
++        raise
++    finally:
++        if temporary_descriptor >= 0:
++            os.close(temporary_descriptor)
++        if directory_descriptor >= 0:
++            os.close(directory_descriptor)
++
++
+ def _publish_snapshot_pair(
+     project_dir: Path,
+     image_temp: Path,
+@@ -848,6 +968,127 @@ class HermesSessionAdapter:
+     def _build_director_bridge(self) -> Any:
+         return LocalObservationDirector(self.client)
+ 
++    def prepare_image_dispatch(
++        self,
++        payload: Any,
++        *,
++        dragon_scene_path: str,
++    ) -> dict[str, Any]:
++        """Validate and translate one image-bearing request without dispatching it."""
++        if dragon_scene_path != DRAGON_SCENE_PATH:
++            raise PerceptionValidationError(
++                "SCENE_IDENTITY_MISMATCH",
++                "dragon scene differs from the frozen 3D presentation",
++            )
++        if self.client.session_id != PERSISTED_HERMES_B_SESSION_ID:
++            raise HermesAdapterError(
++                "persisted Hermes B session identity is missing or mismatched"
++            )
++
++        validated = self._validate_request(payload)
++        perception = validated.perception
++        if (
++            perception.requested_state != "full"
++            or perception.effective_state != "full"
++            or not perception.viewport_image_attached
++            or perception.metadata is None
++        ):
++            raise PerceptionValidationError(
++                "UNSUPPORTED_NATIVE_IMAGE_ROUTE",
++                "image dispatch requires fully validated persisted perception",
++            )
++
++        context = cast(dict[str, Any], payload["additional_context"])
++        perception_payload = cast(dict[str, Any], context["perception"])
++        snapshot_payload = cast(dict[str, Any], perception_payload["snapshot"])
++        metadata_path = snapshot_payload["metadata_path"]
++        viewport = perception.metadata.get("viewport")
++        if not isinstance(viewport, dict):
++            raise PerceptionValidationError(
++                "METADATA_CONTENT_MISMATCH", "validated viewport metadata is missing"
++            )
++        image_path = viewport.get("image_path")
++
++        metadata_bytes, image_bytes = self._read_snapshot_evidence_pair(
++            metadata_path,
++            image_path,
++            perception.capture_id,
++        )
++        if metadata_bytes is None or image_bytes is None:
++            raise PerceptionValidationError(
++                "IMAGE_PATH_REJECTED", "validated image evidence is unavailable"
++            )
++        if hashlib.sha256(metadata_bytes).hexdigest() != perception.metadata_sha256:
++            raise PerceptionValidationError(
++                "METADATA_HASH_MISMATCH", "persisted metadata hash differs"
++            )
++        persisted_image_sha256 = hashlib.sha256(image_bytes).hexdigest()
++        if (
++            persisted_image_sha256 != perception.image_sha256
++            or persisted_image_sha256 != viewport.get("image_sha256")
++        ):
++            raise PerceptionValidationError(
++                "IMAGE_HASH_MISMATCH", "persisted image hash differs"
++            )
++        width, height = self._parse_png_dimensions(image_bytes)
++        if viewport.get("width") != width or viewport.get("height") != height:
++            raise PerceptionValidationError(
++                "IMAGE_DIMENSION_MISMATCH", "persisted image dimensions differ"
++            )
++
++        if not isinstance(image_path, str):
++            raise PerceptionValidationError(
++                "IMAGE_PATH_REJECTED", "validated image path is unavailable"
++            )
++        try:
++            snapshot_root = self.config.snapshot_root.resolve(strict=True)
++            canonical_image_path = (self.config.project_dir / image_path).resolve(
++                strict=True
++            )
++        except OSError as exc:
++            raise PerceptionValidationError(
++                "IMAGE_PATH_REJECTED", "validated image path cannot be resolved"
++            ) from exc
++        expected_image_path = snapshot_root / f"perception_{perception.capture_id}.png"
++        if (
++            canonical_image_path != expected_image_path
++            or canonical_image_path.parent != snapshot_root
++        ):
++            raise PerceptionValidationError(
++                "IMAGE_PATH_REJECTED", "canonical image path differs"
++            )
++
++        messages = LocalObservationDirector.build_messages(validated.player_input)
++        contract_argv = self.client.build_contract_command(
++            messages,
++            perception=perception,
++        )
++        executable_argv = self.client._profile_compatible_command(contract_argv)
++        for argv in (contract_argv, executable_argv):
++            if (
++                argv.count("--image") != 1
++                or argv[argv.index("--image") + 1] != str(canonical_image_path)
++            ):
++                raise HermesAdapterError(
++                    "prepared Hermes image path differs from validated evidence"
++                )
++
++        return {
++            "contract_argv": contract_argv,
++            "executable_argv": executable_argv,
++            "request_id": validated.request_id,
++            "client_request_id": validated.client_request_id,
++            "capture_id": perception.capture_id,
++            "project_id": perception.metadata["project_id"],
++            "scene_path": perception.metadata["scene_path"],
++            "dragon_scene_path": dragon_scene_path,
++            "session_id": self.client.session_id,
++            "image_path": str(canonical_image_path),
++            "image_sha256": persisted_image_sha256,
++            "width": width,
++            "height": height,
++        }
++
+     def process_once(self) -> bool:
+         if self.config.response_file.exists():
+             return False
+@@ -2001,6 +2242,17 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
+ 
+ def main(argv: Sequence[str] | None = None) -> int:
+     effective_argv = list(sys.argv[1:] if argv is None else argv)
++    if effective_argv[:1] == ["--publish-request"]:
++        if len(effective_argv) != 2:
++            print("request publication requires exactly one path", file=sys.stderr, flush=True)
++            return 2
++        try:
++            publish_request(Path(effective_argv[1]))
++        except (OSError, UnicodeDecodeError, ValueError, HermesAdapterError) as exc:
++            print(f"request publication rejected: {exc}", file=sys.stderr, flush=True)
++            return 1
++        print("ENGAIN_REQUEST_PUBLISHED=1", flush=True)
++        return 0
+     if effective_argv[:1] == ["--publish-snapshot-pair"]:
+         if len(effective_argv) != 7:
+             print("snapshot publication requires six arguments", file=sys.stderr, flush=True)
+diff --git a/scripts/EngAInBridge3D.gd b/scripts/EngAInBridge3D.gd
+index 6aa1da8..9eb9569 100644
+--- a/scripts/EngAInBridge3D.gd
++++ b/scripts/EngAInBridge3D.gd
+@@ -1,148 +1,364 @@
+ # scripts/EngAInBridge3D.gd
+ extends Node
+ 
+-signal log_line(kind: String, text: String) # "user" | "dragon" | "lore" | "sys" | "err"
++signal log_line(kind: String, text: String)
+ signal dragon_speaking(active: bool)
+ 
+-@export var server_base_url: String = "http://127.0.0.1:8081"
+-@export var request_timeout_sec: float = 20.0
++const PROJECT_ROOT := "/mnt/data-drive/godot_engain_3d_avatar"
++const REQUEST_MAILBOX_PATH := "/mnt/data-drive/godot_engain_3d_avatar/engain_request.json"
++const RESPONSE_MAILBOX_PATH := "/mnt/data-drive/godot_engain_3d_avatar/engain_response.json"
++const ADAPTER_PATH := "/mnt/data-drive/godot_engain_3d_avatar/hermes_session_adapter.py"
++const PYTHON_EXECUTABLE := "/usr/bin/python3"
++const FROZEN_SESSION_ID := "20260731_065008_63a62d"
++const FROZEN_COMPANION := "hermes_b"
++const FROZEN_PROVIDER := "openai-codex"
++const FROZEN_MODEL := "gpt-5.6-sol"
++const WAIT_TIMEOUT_SEC := 180.0
++const POLL_INTERVAL_SEC := 0.1
++const MAILBOX_BUSY := "MAILBOX_BUSY"
++const REQUEST_SCHEMA: Array[String] = [
++	"player_input",
++	"game_state",
++	"additional_context",
++	"timestamp",
++	"request_id",
++]
++const CONTEXT_SCHEMA: Array[String] = [
++	"client_request_id",
++	"companion_ref",
++	"perception",
++]
++const RESPONSE_SCHEMA: Array[String] = [
++	"request_id",
++	"client_request_id",
++	"narrative_response",
++	"action_type",
++	"state_changes",
++	"director_analysis",
++	"reasoning",
++	"entropy_impact",
++	"timestamp",
++	"provider_session_ref",
++	"perception_result",
++]
++const PROVIDER_SESSION_SCHEMA: Array[String] = [
++	"companion_ref",
++	"provider",
++	"model",
++	"session_id",
++]
++const PERCEPTION_RESULT_SCHEMA: Array[String] = [
++	"schema",
++	"requested_state",
++	"effective_state",
++	"capture_id",
++	"capture_event",
++	"capture_phase",
++	"captured_at",
++	"metadata_sha256",
++	"image_sha256",
++	"structured_snapshot_supplied",
++	"viewport_image_attached",
++	"failure_code",
++]
+ 
+-# Optional: set these from Main if you want.
+-var session_id: String = ""
+ var user_name: String = "You"
+ var dragon_name: String = "Dragon"
+ var lore_name: String = "Mr. Lore"
++var provider_execution_count: int = 0
+ 
+-var _http: HTTPRequest
+ var _busy: bool = false
++var _active_request_id: String = ""
++var _active_client_request_id: String = ""
++var _active_capture_id: String = ""
++var _active_started_msec: int = 0
++var _poll_accumulator_sec: float = 0.0
++var _submission_counter: int = 0
++var _crypto := Crypto.new()
++
+ 
+ func _ready() -> void:
+-	_http = HTTPRequest.new()
+-	add_child(_http)
+-	_http.timeout = request_timeout_sec
+-	_http.request_completed.connect(_on_request_completed)
++	_emit_sys("Mailbox bridge ready. session_id=%s" % FROZEN_SESSION_ID)
++
+ 
+-	if session_id.strip_edges() == "":
+-		session_id = _gen_session_id()
++func _process(delta: float) -> void:
++	_poll_accumulator_sec += delta
++	if _busy:
++		var elapsed_sec := float(Time.get_ticks_msec() - _active_started_msec) / 1000.0
++		if elapsed_sec >= WAIT_TIMEOUT_SEC:
++			_end_active_lifecycle()
++			_emit_err("Mailbox timeout after 180.0 seconds.")
++	if _poll_accumulator_sec < POLL_INTERVAL_SEC:
++		return
++	_poll_accumulator_sec = fmod(_poll_accumulator_sec, POLL_INTERVAL_SEC)
++	_poll_response_mailbox()
+ 
+-	_emit_sys("Bridge ready. session_id=%s server=%s" % [session_id, server_base_url])
+ 
+ func submit(text: String) -> void:
+ 	var msg := text.strip_edges()
+ 	if msg == "":
+ 		return
+ 	if _busy:
+-		_emit_err("Busy: wait for response.")
++		_emit_err(MAILBOX_BUSY + ": one request is already active.")
++		return
++	if FileAccess.file_exists(REQUEST_MAILBOX_PATH):
++		_emit_err(MAILBOX_BUSY + ": engain_request.json already exists.")
++		return
++	if FileAccess.file_exists(RESPONSE_MAILBOX_PATH):
++		_emit_err(MAILBOX_BUSY + ": engain_response.json is unread.")
+ 		return
+ 
+-	_emit_user(msg)
++	_submission_counter += 1
++	var request_id := "req_" + _random_hex_16()
++	var client_request_id := "dragon3d_%s_%d" % [_random_hex_16(), _submission_counter]
++	var capture_id := "cap_%s_%d" % [_random_hex_16(), _submission_counter]
++	var timestamp := Time.get_unix_time_from_system()
++	var payload := _build_mailbox_request(
++		msg,
++		request_id,
++		client_request_id,
++		capture_id,
++		timestamp
++	)
++	if not _has_exact_keys(payload, REQUEST_SCHEMA):
++		_emit_err("Generated request failed frozen request schema.")
++		return
++	var context: Variant = payload.get("additional_context")
++	if typeof(context) != TYPE_DICTIONARY or not _has_exact_keys(context, CONTEXT_SCHEMA):
++		_emit_err("Generated request context failed frozen schema.")
++		return
+ 
+-	var payload := _build_payload(msg)
+-	var json := JSON.stringify(payload)
++	var temporary_path := PROJECT_ROOT + "/.engain_request.%s.tmp" % request_id
++	if FileAccess.file_exists(temporary_path):
++		_emit_err(MAILBOX_BUSY + ": exact request temporary already exists.")
++		return
++	var temporary := FileAccess.open(temporary_path, FileAccess.WRITE)
++	if temporary == null:
++		_emit_err("Request temporary creation failed: %s" % error_string(FileAccess.get_open_error()))
++		return
++	temporary.store_string(JSON.stringify(payload))
++	temporary.flush()
++	temporary = null
+ 
+-	var headers := PackedStringArray([
+-		"Content-Type: application/json",
+-		"Accept: application/json",
+-	])
++	var publication := _execute_adapter(PackedStringArray(["--publish-request", temporary_path]))
++	if publication["code"] != 0 or not publication["output"].contains("ENGAIN_REQUEST_PUBLISHED=1"):
++		_emit_err("Request publication failed: " + publication["output"])
++		return
+ 
++	_active_request_id = request_id
++	_active_client_request_id = client_request_id
++	_active_capture_id = capture_id
++	_active_started_msec = Time.get_ticks_msec()
+ 	_busy = true
++	_emit_user(msg)
+ 	emit_signal("dragon_speaking", true)
+ 
+-	var url := server_base_url.rstrip("/") + "/v1/engain/parse"
+-	var err := _http.request(url, headers, HTTPClient.METHOD_POST, json)
+-	if err != OK:
+-		_busy = false
+-		emit_signal("dragon_speaking", false)
+-		_emit_err("HTTPRequest error=%s" % str(err))
+-
+-func _build_payload(msg: String) -> Dictionary:
+-	# Protocol:
+-	# - "/..." means collaboration intent routed to Mr. Lore
+-	# - otherwise natural language routed to Dragon speech
+-	var is_command := msg.begins_with("/")
+ 
++func _build_mailbox_request(
++	msg: String,
++	request_id: String,
++	client_request_id: String,
++	capture_id: String,
++	timestamp: float
++) -> Dictionary:
+ 	return {
+-		"session_id": session_id,
+-		"client": {
+-			"engine": "godot",
+-			"bridge": "EngAInBridge3D",
+-			"version": "0.1.0"
++		"player_input": msg,
++		"game_state": {},
++		"additional_context": {
++			"client_request_id": client_request_id,
++			"companion_ref": "hermes_b",
++			"perception": {
++				"schema": "engain.runtime_perception.v1",
++				"perception_state": "unavailable",
++				"capture_id": capture_id,
++				"capture_event": "message_received",
++				"capture_phase": "pre_dispatch_player_view.v1",
++				"captured_at": timestamp,
++				"project_id": "godot_3d_avatar",
++				"scene_path": "res://scenes/Main.tscn",
++				"snapshot": null,
++				"viewport": {
++					"availability": "unavailable",
++					"image_path": null,
++					"image_sha256": null,
++					"media_type": null,
++					"width": null,
++					"height": null,
++					"reason": "viewport_unavailable",
++				},
++				"unavailable_reason": "viewport_unavailable",
++			},
+ 		},
+-		"input": {
+-			"raw": msg,
+-			"type": "command" if is_command else "speech"
+-		},
+-		"actors": {
+-			"user": user_name,
+-			"dragon": dragon_name,
+-			"lore": lore_name
+-		},
+-		"ts_unix_ms": Time.get_unix_time_from_system() * 1000
++		"timestamp": timestamp,
++		"request_id": request_id,
+ 	}
+ 
+-func _on_request_completed(result: int, response_code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
+-	_busy = false
+-	emit_signal("dragon_speaking", false)
+ 
+-	if result != HTTPRequest.RESULT_SUCCESS:
+-		_emit_err("HTTP failed result=%s code=%s" % [str(result), str(response_code)])
++func _poll_response_mailbox() -> void:
++	if not FileAccess.file_exists(RESPONSE_MAILBOX_PATH):
++		return
++	var claim := _execute_adapter(PackedStringArray(["--claim-response", RESPONSE_MAILBOX_PATH]))
++	if claim["code"] != 0:
++		_emit_err("Response claim failed: " + claim["output"])
++		return
++	var parsed: Variant = _decode_claimed_response(claim["output"])
++	if parsed == null:
++		_emit_err("Claimed response is malformed; active lifecycle continues.")
++		return
++	if not _busy or _active_request_id == "":
++		_emit_err("stale response claimed and discarded; no active lifecycle.")
++		return
++	if not _validate_correlated_response(parsed):
++		_emit_err("Response rejected as malformed, mismatched, or stale; waiting continues.")
+ 		return
+ 
+-	var body_text := body.get_string_from_utf8()
+-	var parsed: Variant = JSON.parse_string(body_text)
++	var narrative: String = parsed["narrative_response"].strip_edges()
++	_end_active_lifecycle()
++	_emit_dragon(narrative)
++
++
++func _decode_claimed_response(output: String) -> Variant:
++	var marker := "ENGAIN_RESPONSE_JSON_BASE64="
++	var encoded := ""
++	for line in output.split("\n", false):
++		if line.begins_with(marker):
++			encoded = line.substr(marker.length()).strip_edges()
++			break
++	if encoded == "":
++		return null
++	var raw := Marshalls.base64_to_raw(encoded)
++	if raw.is_empty():
++		return null
++	var parser := JSON.new()
++	var parse_result := parser.parse(raw.get_string_from_utf8())
++	if parse_result != OK:
++		_emit_err("Claimed response JSON error: %s" % parser.get_error_message())
++		return null
++	var parsed: Variant = parser.data
+ 	if typeof(parsed) != TYPE_DICTIONARY:
+-		_emit_err("Invalid JSON from server.")
+-		return
++		return null
++	return parsed
+ 
+-	if response_code < 200 or response_code >= 300:
+-		var detail := ""
+-		if parsed.has("error"):
+-			detail = str(parsed["error"])
+-		_emit_err("Server error code=%s %s" % [str(response_code), detail])
+-		return
+ 
+-	# Expect:
+-	# {
+-	#   "ok": true,
+-	#   "route": "dragon"|"lore",
+-	#   "text": "...",
+-	#   "events": [... optional ...],
+-	#   "log": [... optional ...]
+-	# }
+-	var route := str(parsed.get("route", "dragon"))
+-	var text := str(parsed.get("text", ""))
+-
+-	if text.strip_edges() == "":
+-		_emit_err("Empty response.")
+-		return
++func _validate_correlated_response(value: Dictionary) -> bool:
++	if not _has_exact_keys(value, RESPONSE_SCHEMA):
++		return false
++	var request_id: Variant = value.get("request_id")
++	if request_id != _active_request_id:
++		return false
++	var client_request_id: Variant = value.get("client_request_id")
++	if client_request_id != _active_client_request_id:
++		return false
++	if typeof(value.get("narrative_response")) != TYPE_STRING:
++		return false
++	if value["narrative_response"].strip_edges() == "":
++		return false
++	if typeof(value.get("director_analysis")) != TYPE_STRING:
++		return false
++	if typeof(value.get("reasoning")) != TYPE_STRING:
++		return false
++	if value.get("action_type") != "OBSERVATION":
++		return false
++	if typeof(value.get("state_changes")) != TYPE_DICTIONARY or value["state_changes"].size() != 0:
++		return false
++	var entropy: Variant = value.get("entropy_impact")
++	if typeof(entropy) != TYPE_FLOAT and typeof(entropy) != TYPE_INT:
++		return false
++	if not is_finite(float(entropy)) or float(entropy) != 0.0:
++		return false
++	var response_timestamp: Variant = value.get("timestamp")
++	if typeof(response_timestamp) != TYPE_FLOAT and typeof(response_timestamp) != TYPE_INT:
++		return false
++	if not is_finite(float(response_timestamp)):
++		return false
++	if not _validate_provider_session(value.get("provider_session_ref")):
++		return false
++	return _validate_perception_result(value.get("perception_result"))
++
++
++func _validate_provider_session(value: Variant) -> bool:
++	if typeof(value) != TYPE_DICTIONARY or not _has_exact_keys(value, PROVIDER_SESSION_SCHEMA):
++		return false
++	return (
++		value.get("companion_ref") == "hermes_b"
++		and value.get("provider") == "openai-codex"
++		and value.get("model") == "gpt-5.6-sol"
++		and value.get("session_id") == FROZEN_SESSION_ID
++	)
++
++
++func _validate_perception_result(value: Variant) -> bool:
++	if typeof(value) != TYPE_DICTIONARY or not _has_exact_keys(value, PERCEPTION_RESULT_SCHEMA):
++		return false
++	if value.get("schema") != "engain.runtime_perception_result.v1":
++		return false
++	if value.get("requested_state") not in ["full", "structured_only", "unavailable"]:
++		return false
++	if value.get("effective_state") not in ["full", "structured_only", "unavailable", "rejected"]:
++		return false
++	if typeof(value.get("structured_snapshot_supplied")) != TYPE_BOOL:
++		return false
++	if typeof(value.get("viewport_image_attached")) != TYPE_BOOL:
++		return false
++	if value.get("effective_state") == "rejected":
++		return true
++	return (
++		value.get("capture_id") == _active_capture_id
++		and value.get("capture_event") == "message_received"
++		and value.get("capture_phase") == "pre_dispatch_player_view.v1"
++	)
++
++
++func _has_exact_keys(value: Dictionary, schema: Array[String]) -> bool:
++	var keys := value.keys()
++	if keys.size() != schema.size():
++		return false
++	for key in keys:
++		if key not in schema:
++			return false
++	return true
++
++
++func _execute_adapter(arguments: PackedStringArray) -> Dictionary:
++	var output: Array = []
++	var args := PackedStringArray([ADAPTER_PATH])
++	args.append_array(arguments)
++	var code := OS.execute(PYTHON_EXECUTABLE, args, output, true)
++	var combined := ""
++	for item in output:
++		combined += str(item)
++	return {"code": code, "output": combined.strip_edges()}
++
++
++func _end_active_lifecycle() -> void:
++	_busy = false
++	_active_request_id = ""
++	_active_client_request_id = ""
++	_active_capture_id = ""
++	_active_started_msec = 0
++	emit_signal("dragon_speaking", false)
++
++
++func _random_hex_16() -> String:
++	var random_bytes := _crypto.generate_random_bytes(16)
++	return random_bytes.hex_encode()
++
++
++func _emit_user(text: String) -> void:
++	emit_signal("log_line", "user", text)
+ 
+-	if route == "lore":
+-		_emit_lore(text)
+-	else:
+-		_emit_dragon(text)
+ 
+-	# Optional: structured events for later expansion
+-	if parsed.has("events") and typeof(parsed["events"]) == TYPE_ARRAY:
+-		for ev in parsed["events"]:
+-			_emit_sys("event=" + JSON.stringify(ev))
++func _emit_dragon(text: String) -> void:
++	emit_signal("log_line", "dragon", text)
+ 
+-func _emit_user(t: String) -> void:
+-	emit_signal("log_line", "user", t)
+ 
+-func _emit_dragon(t: String) -> void:
+-	emit_signal("log_line", "dragon", t)
++func _emit_lore(text: String) -> void:
++	emit_signal("log_line", "lore", text)
+ 
+-func _emit_lore(t: String) -> void:
+-	emit_signal("log_line", "lore", t)
+ 
+-func _emit_sys(t: String) -> void:
+-	emit_signal("log_line", "sys", t)
++func _emit_sys(text: String) -> void:
++	emit_signal("log_line", "sys", text)
+ 
+-func _emit_err(t: String) -> void:
+-	emit_signal("log_line", "err", t)
+ 
+-func _gen_session_id() -> String:
+-	var dt := Time.get_datetime_dict_from_system()
+-	var stamp := "%04d%02d%02d_%02d%02d%02d" % [dt.year, dt.month, dt.day, dt.hour, dt.minute, dt.second]
+-	var r := str(randi() % 100000).pad_zeros(5)
+-	return "S_" + stamp + "_" + r
+\ No newline at end of file
++func _emit_err(text: String) -> void:
++	emit_signal("log_line", "err", text)
+\ No newline at end of file

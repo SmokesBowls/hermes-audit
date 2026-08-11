@@ -1,0 +1,2 @@
+844459c5d4d46bdccf2fbc67a497fa25ccc6d7f2e3577581c527ace50b6d1980  /mnt/data-drive/godot_engain_3d_avatar/hermes_session_adapter.py
+c5ec9b347029fdc4b19203573af1deb11501178a7ab9470839932b7cc66d2f05  /mnt/data-drive/godot_engain_3d_avatar/scripts/EngAInBridge3D.gd

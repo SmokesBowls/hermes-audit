@@ -1,3 +1,49 @@
+# Godot 3D Avatar — End-of-session TODO
+
+Updated: 2026-08-10
+
+## P0 — authority decisions before more Stage 7 production work
+
+- [ ] Decide the evidence threat model:
+      - accept application-owned/no-overwrite pathname immutability; or
+      - authorize a new amendment for descriptor-bound or OS-enforced evidence.
+- [ ] Decide timeout semantics for an outstanding Godot capture coroutine:
+      - authorize a producer-level live-capture lock; or
+      - define an explicit cancellation/abandonment contract.
+- [ ] Do not alter either frozen Stage 7 test while making these decisions.
+- [ ] Do not run a provider or live HUD submission without a new explicit
+      authorization.
+
+## P1 — next proof gate after authority is frozen
+
+- [ ] Write new RED authority tests for the selected timeout/producer rule.
+- [ ] If adversarial same-user replacement is in scope, freeze an executable
+      byte-binding design before changing the adapter or Hermes command path.
+- [ ] Implement only the newly authorized surface.
+- [ ] Rerun the frozen Stage 7 tests and all protected Stage 4–6 tests.
+- [ ] Run Python compilation, `git diff --check`, and the Godot headless editor
+      parse without a live submission.
+- [ ] Reverify frozen Stage 7 test hashes:
+      - `7d4387695af71ac937742266f185a68b2b82e695d34943b8764801b2eb14ea66`
+      - `28f06f4e7db140964b8dfa19bc3587e15c20c2ba3c4d0a48c550e8579d355aec`
+- [ ] Seal the final Stage 7 evidence only after the architecture gate passes.
+
+## Completed this session
+
+- [x] Created and froze Stage 7 RED tests.
+- [x] Implemented the four-file Stage 7 GREEN production surface.
+- [x] Preserved Stage 5A `capture_once()` compatibility.
+- [x] Suppressed response polling while live capture is pending.
+- [x] Kept one total 180-second bridge lifecycle budget.
+- [x] Added late-completion generation rejection.
+- [x] Bound full adapter execution to the admitted argv/path/hash and added a
+      final pre-provider image rehash.
+- [x] Preserved commit-correlated HUD clearing.
+- [x] Reached `178 passed`; Godot headless parse exited `0`.
+- [x] Kept provider executions and live HUD submissions at `0`.
+
+## Historical discovery notes (archived; not the active TODO)
+
     Yes—/home/mytruelove/Desktop/burdens_of_a_forgotten_past/EngAIn is the actual EngAIn engine tree. I traced the two
     servers and the historical 3D Dragon endpoint read-only.
     

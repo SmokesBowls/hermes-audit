@@ -1,0 +1,86 @@
+7-"""
+8-
+9-from __future__ import annotations
+10-
+11:import argparse
+12-import base64
+13-from dataclasses import dataclass
+14-import hashlib
+15-import json
+--
+2155-
+2156-    def run(self) -> None:
+2157-        self.prepare()
+2158-        print(
+2159:            f"Hermes session adapter watching {self.config.request_file}",
+2160-            flush=True,
+2161-        )
+2162-        while True:
+2163-            self.process_once()
+--
+2204-            self.path.unlink(missing_ok=True)
+2205-            self.acquired = False
+2206-
+2207-
+2208:def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
+2209:    parser = argparse.ArgumentParser(
+2210-        description="Hermes provider worker for the existing EngAIn file bridge"
+2211-    )
+2212:    parser.add_argument(
+2213-        "--project-dir",
+2214-        type=Path,
+2215-        default=Path(__file__).resolve().parent,
+2216-    )
+2217:    parser.add_argument(
+2218-        "--provider",
+2219-        default=os.environ.get("ENGAIN_HERMES_PROVIDER", "openai-codex"),
+2220-    )
+2221:    parser.add_argument(
+2222-        "--model",
+2223-        default=os.environ.get("ENGAIN_HERMES_MODEL", "gpt-5.6-sol"),
+2224-    )
+2225:    parser.add_argument(
+2226-        "--timeout",
+2227-        type=float,
+2228-        default=float(
+2229-            os.environ.get("ENGAIN_HERMES_TIMEOUT", str(MAX_HERMES_TIMEOUT_SECONDS))
+2230-        ),
+2231-    )
+2232:    parser.add_argument("--poll", type=float, default=0.1)
+2233:    parser.add_argument("--state-file", type=Path)
+2234:    parser.add_argument("--pid-file", type=Path)
+2235:    parser.add_argument(
+2236:        "--once",
+2237-        action="store_true",
+2238:        help="process at most one currently available request and exit",
+2239-    )
+2240-    return parser.parse_args(argv)
+2241-
+2242-
+2243-def main(argv: Sequence[str] | None = None) -> int:
+2244-    effective_argv = list(sys.argv[1:] if argv is None else argv)
+2245:    if effective_argv[:1] == ["--publish-request"]:
+2246-        if len(effective_argv) != 2:
+2247-            print("request publication requires exactly one path", file=sys.stderr, flush=True)
+2248-            return 2
+2249-        try:
+--
+2270-            print(f"snapshot publication rejected: {exc}", file=sys.stderr, flush=True)
+2271-            return 1
+2272-        print("ENGAIN_SNAPSHOT_PAIR_PUBLISHED=1", flush=True)
+2273-        return 0
+2274:    if effective_argv[:1] == ["--claim-response"]:
+2275-        if len(effective_argv) != 2:
+2276-            print("response claim requires exactly one path", file=sys.stderr, flush=True)
+2277-            return 2
+2278-        try:
+--
+2304-        if args.once:
+2305-            adapter.process_once()
+2306-        else:
+2307-            print(
+2308:                f"Hermes session adapter watching {config.request_file}",
+2309-                flush=True,
+2310-            )
+2311-            while True:
+2312-                adapter.process_once()

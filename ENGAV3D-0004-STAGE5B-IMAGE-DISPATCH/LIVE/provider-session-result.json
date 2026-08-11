@@ -1,0 +1,15 @@
+{
+  "expected_session_id_observed_in_provider_output": true,
+  "local_session_billing_provider_after": "openai-codex",
+  "local_session_id_after": "20260731_065008_63a62d",
+  "local_session_model_after": "gpt-5.6-sol",
+  "local_session_source_after": "tool",
+  "max_message_id_after": 27697,
+  "max_message_id_before": 27389,
+  "message_count_after": 69,
+  "message_count_before": 67,
+  "message_count_delta": 2,
+  "requested_session_id": "20260731_065008_63a62d",
+  "schema": "engav3d.stage5b_provider_session_result.v1",
+  "session_like_ids_observed": []
+}

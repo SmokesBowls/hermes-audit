@@ -1,0 +1,12 @@
+{
+  "authorized_provider_requests": 1,
+  "image_path": "/mnt/data-drive/godot_engain_3d_avatar/snapshots/perception_cap_3adeef61cc885c35200be389b975c8d9_1.png",
+  "image_sha256": "9dc5f0ba825f6193b15e329948a9b3e4754dfe59c22f43c09594bd7bf97fb660",
+  "prepared_dispatch_sha256": "d9ed0cbaba7e599820081ff4668ef956c7891bd108ad96dd1a211bf8b3cc29a9",
+  "remaining_after_reservation": 0,
+  "reserved_provider_requests": 1,
+  "retry_authorized": false,
+  "schema": "engav3d.stage5b_live_request_reservation.v1",
+  "session_id": "20260731_065008_63a62d",
+  "timestamp": "2026-08-10T01:52:30.880182+00:00"
+}

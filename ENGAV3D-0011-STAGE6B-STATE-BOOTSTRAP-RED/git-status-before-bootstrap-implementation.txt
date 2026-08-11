@@ -1,0 +1,12 @@
+ M hermes_session_adapter.py
+ M scenes/Main.tscn
+ M scripts/EngAInBridge3D.gd
+ M scripts/Main.gd
+?? scripts/PerceptionCapture3D.gd
+?? scripts/PerceptionCapture3D.gd.uid
+?? snapshots/
+?? tests/test_stage5a_capture_bundle.py
+?? tests/test_stage5b_image_dispatch.py
+?? tests/test_stage6a_godot_mailbox_bridge.py
+?? tests/test_stage6a_mailbox_filesystem.py
+?? tests/test_stage6b_state_bootstrap.py

@@ -1,0 +1,11 @@
+{
+  "ended_ns": 1786355371286909374,
+  "provider_attempted": 1,
+  "provider_authorized": 1,
+  "provider_remaining": 0,
+  "retry_authorized": false,
+  "return_code": 0,
+  "started_ns": 1786355360894472618,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "c2dd382c85831e7885c4aa6264bdf171de60f286bfc63ddfe57656bd569db463"
+}

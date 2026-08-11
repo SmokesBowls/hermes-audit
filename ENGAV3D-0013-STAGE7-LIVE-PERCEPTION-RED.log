@@ -1,0 +1,653 @@
+FFFFFFFFFFFFFFF..F..FFFFFF....                                           [100%]
+=================================== FAILURES ===================================
+_____ test_live_capture_api_is_added_without_removing_stage5a_capture_once _____
+
+    def test_live_capture_api_is_added_without_removing_stage5a_capture_once() -> None:
+        source = _source(CAPTURE_SOURCE)
+        assert re.search(r"(?m)^func capture_once\(\) -> Dictionary:", source)
+>       assert re.search(
+            r"(?m)^func capture_for_submission\(client_request_id: String\) -> Dictionary:",
+            source,
+        ), "STAGE7_CAPTURE_RED: capture_for_submission(client_request_id) is absent"
+E       AssertionError: STAGE7_CAPTURE_RED: capture_for_submission(client_request_id) is absent
+E       assert None
+E        +  where None = <function search at 0x7faa3babfa00>('(?m)^func capture_for_submission\\(client_request_id: String\\) -> Dictionary:', 'class_name PerceptionCapture3D\nextends Node\n\nconst PROJECT_ID := "godot_3d_avatar"\nconst SCENE_PATH := "res://sce...ve_absolute(path)\n\n\nfunc _failure(code: String) -> Dictionary:\n\treturn {"status": "FAIL", "failure_code": code}\n')
+E        +    where <function search at 0x7faa3babfa00> = re.search
+
+tests/test_stage7_live_perception_capture.py:110: AssertionError
+___ test_live_capture_uses_external_client_id_and_allocates_only_capture_id ____
+STAGE7_CAPTURE_RED: required production function capture_for_submission(...) is absent
+_______________ test_live_capture_returns_exact_six_key_contract _______________
+STAGE7_CAPTURE_RED: required production function capture_for_submission(...) is absent
+______ test_successful_live_capture_contains_exact_frozen_full_perception ______
+STAGE7_CAPTURE_RED: required production function capture_for_submission(...) is absent
+____ test_failed_live_capture_contains_exact_frozen_unavailable_perception _____
+STAGE7_CAPTURE_RED: required production function capture_for_submission(...) is absent
+__________ test_known_capture_failures_remain_local_diagnostics_only ___________
+STAGE7_CAPTURE_RED: required production function capture_for_submission(...) is absent
+_______ test_bridge_owns_client_and_request_ids_but_not_live_capture_id ________
+
+    def test_bridge_owns_client_and_request_ids_but_not_live_capture_id() -> None:
+        body = _function(_source(BRIDGE_SOURCE), "submit")
+        assert '"req_" + _random_hex_16()' in body
+        assert '"dragon3d_%s_%d"' in body
+>       assert '"cap_%s_%d"' not in body
+E       assert '"cap_%s_%d"' not in 'func submit... true)\n\n\n'
+E         
+E         '"cap_%s_%d"' is contained here:
+E         ?           ^
+E           ure_id := "cap_%s_%d" % [_random_hex_16(), _submission_counter]
+E         ?           ^^^^^ +++++++
+E           	var timestamp := Time.get_unix_time_from_system()
+E           	var payload := _build_mailbox_request(...
+E         
+E         ...Full output truncated (40 lines hidden), use '-vv' to show
+
+tests/test_stage7_live_perception_capture.py:180: AssertionError
+_____ test_bridge_reserves_busy_before_first_await_and_starts_one_capture ______
+
+    def test_bridge_reserves_busy_before_first_await_and_starts_one_capture() -> None:
+        body = _function(_source(BRIDGE_SOURCE), "submit")
+>       assert body.count("capture_for_submission(client_request_id)") == 1
+E       assert 0 == 1
+E        +  where 0 = <built-in method count of str object at 0x559e00e920e0>('capture_for_submission(client_request_id)')
+E        +    where <built-in method count of str object at 0x559e00e920e0> = 'func submit(text: String) -> void:\n\tvar msg := text.strip_edges()\n\tif msg == "":\n\t\treturn\n\tif _busy:\n\t\t_e..._started_msec = Time.get_ticks_msec()\n\t_busy = true\n\t_emit_user(msg)\n\temit_signal("dragon_speaking", true)\n\n\n'.count
+
+tests/test_stage7_live_perception_capture.py:187: AssertionError
+______ test_capture_pending_repeat_submit_is_silent_and_side_effect_free _______
+
+    def test_capture_pending_repeat_submit_is_silent_and_side_effect_free() -> None:
+        body = _function(_source(BRIDGE_SOURCE), "submit")
+        pending = body.find("if _capture_pending:")
+        client = body.find("client_request_id :=")
+>       assert 0 <= pending < client
+E       assert 0 <= -1
+
+tests/test_stage7_live_perception_capture.py:202: AssertionError
+___ test_no_accepted_user_or_speaking_mutation_occurs_before_capture_returns ___
+
+    def test_no_accepted_user_or_speaking_mutation_occurs_before_capture_returns() -> None:
+        body = _function(_source(BRIDGE_SOURCE), "submit")
+        capture_return = body.find("capture_result")
+>       assert capture_return >= 0
+E       assert -1 >= 0
+
+tests/test_stage7_live_perception_capture.py:218: AssertionError
+_ test_request_timestamp_follows_capture_and_full_perception_is_forwarded_directly _
+
+    def test_request_timestamp_follows_capture_and_full_perception_is_forwarded_directly() -> None:
+        body = _function(_source(BRIDGE_SOURCE), "submit")
+>       _assert_order(
+            body,
+            "capture_for_submission(client_request_id)",
+            "timestamp := Time.get_unix_time_from_system()",
+            "_build_mailbox_request",
+        )
+
+tests/test_stage7_live_perception_capture.py:227: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+body = 'func submit(text: String) -> void:\n\tvar msg := text.strip_edges()\n\tif msg == "":\n\t\treturn\n\tif _busy:\n\t\t_e..._started_msec = Time.get_ticks_msec()\n\t_busy = true\n\t_emit_user(msg)\n\temit_signal("dragon_speaking", true)\n\n\n'
+tokens = ('capture_for_submission(client_request_id)', 'timestamp := Time.get_unix_time_from_system()', '_build_mailbox_request')
+positions = [], token = 'capture_for_submission(client_request_id)'
+position = -1
+
+    def _assert_order(body: str, *tokens: str) -> None:
+        positions: list[int] = []
+        for token in tokens:
+            position = body.find(token)
+>           assert position >= 0, f"STAGE7_CAPTURE_RED: missing ordered token {token!r}"
+E           AssertionError: STAGE7_CAPTURE_RED: missing ordered token 'capture_for_submission(client_request_id)'
+E           assert -1 >= 0
+
+tests/test_stage7_live_perception_capture.py:73: AssertionError
+____ test_valid_unavailable_result_publishes_once_and_invalid_result_aborts ____
+
+    def test_valid_unavailable_result_publishes_once_and_invalid_result_aborts() -> None:
+        body = _function(_source(BRIDGE_SOURCE), "submit")
+>       assert 'status not in ["full", "unavailable"]' in body
+E       assert 'status not in ["full", "unavailable"]' in 'func submit(text: String) -> void:\n\tvar msg := text.strip_edges()\n\tif msg == "":\n\t\treturn\n\tif _busy:\n\t\t_e..._started_msec = Time.get_ticks_msec()\n\t_busy = true\n\t_emit_user(msg)\n\temit_signal("dragon_speaking", true)\n\n\n'
+
+tests/test_stage7_live_perception_capture.py:241: AssertionError
+____ test_publication_failure_releases_lifecycle_without_adapter_processing ____
+
+    def test_publication_failure_releases_lifecycle_without_adapter_processing() -> None:
+        body = _function(_source(BRIDGE_SOURCE), "submit")
+        failure_start = body.find('publication["code"] != 0')
+        success_start = body.find("_active_request_id = request_id")
+        assert 0 <= failure_start < success_start
+        failure_branch = body[failure_start:success_start]
+>       assert "_end_active_lifecycle()" in failure_branch
+E       assert '_end_active_lifecycle()' in 'publication["code"] != 0 or not publication["output"].contains("ENGAIN_REQUEST_PUBLISHED=1"):\n\t\t_emit_err("Request publication failed: " + publication["output"])\n\t\treturn\n\n\t'
+
+tests/test_stage7_live_perception_capture.py:258: AssertionError
+_____ test_submission_committed_signal_follows_successful_publication_only _____
+
+    def test_submission_committed_signal_follows_successful_publication_only() -> None:
+        source = _source(BRIDGE_SOURCE)
+>       assert re.search(
+            r'(?m)^signal submission_committed\(client_request_id: String, submitted_text: String\)',
+            source,
+        )
+E       assert None
+E        +  where None = <function search at 0x7faa3babfa00>('(?m)^signal submission_committed\\(client_request_id: String, submitted_text: String\\)', '# scripts/EngAInBridge3D.gd\nextends Node\n\nsignal log_line(kind: String, text: String)\nsignal dragon_speaking(acti...mit_signal("log_line", "sys", text)\n\n\nfunc _emit_err(text: String) -> void:\n\temit_signal("log_line", "err", text)')
+E        +    where <function search at 0x7faa3babfa00> = re.search
+
+tests/test_stage7_live_perception_capture.py:266: AssertionError
+__________ test_hud_clears_only_matching_text_on_submission_committed __________
+
+    def test_hud_clears_only_matching_text_on_submission_committed() -> None:
+        source = _source(HUD_SOURCE)
+        submitted = _function(source, "_on_input_submitted")
+>       assert "input.clear()" not in submitted
+E       assert 'input.clear()' not in 'func _on_in...t", msg)\n\n'
+E         
+E         'input.clear()' is contained here:
+E           		return
+E           	input.clear()
+E           	_bridge.call("submit", msg)
+
+tests/test_stage7_live_perception_capture.py:281: AssertionError
+____ test_full_live_request_prepares_nested_dragon_before_provider_boundary ____
+
+adapter_module = <module 'hermes_session_adapter_stage7_red' from '/mnt/data-drive/godot_engain_3d_avatar/hermes_session_adapter.py'>
+tmp_path = PosixPath('/mnt/data-drive/EngAIn_Recovery/07_TMP/pytest-of-mytruelove/pytest-405/test_full_live_request_prepare0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7faa39deec40>
+
+    def test_full_live_request_prepares_nested_dragon_before_provider_boundary(
+        adapter_module: Any,
+        tmp_path: Path,
+        monkeypatch: pytest.MonkeyPatch,
+    ) -> None:
+        payload, expected = _full_payload(tmp_path)
+        adapter = _adapter(adapter_module, tmp_path)
+        events: list[str] = []
+    
+        def prepare(value: Any, *, dragon_scene_path: str) -> dict[str, Any]:
+            events.append("prepare")
+            assert value == payload
+            assert dragon_scene_path == DRAGON_SCENE_PATH
+            return _preparation(expected)
+    
+        class OfflineDirector:
+            def process_player_input(self, _text: str, _state: dict[str, Any]) -> dict[str, Any]:
+                events.append("provider_boundary")
+                return {}
+    
+        monkeypatch.setattr(adapter, "prepare_image_dispatch", prepare)
+        adapter.director_bridge = OfflineDirector()
+        assert _run_claimed(adapter, payload, tmp_path)
+>       assert events == ["prepare", "provider_boundary"], (
+            "STAGE7_ADAPTER_RED: full live request did not prepare the exact image "
+            "and nested Dragon identity before the provider boundary"
+        )
+E       AssertionError: STAGE7_ADAPTER_RED: full live request did not prepare the exact image and nested Dragon identity before the provider boundary
+E       assert ['provider_boundary'] == ['prepare', '...der_boundary']
+E         
+E         At index 0 diff: 'provider_boundary' != 'prepare'
+E         Right contains one more item: 'provider_boundary'
+E         Use -v to get more diff
+
+tests/test_stage7_live_perception_adapter.py:213: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Processed EngAIn request: req_11111111111111111111111111111111
+----------------------------- Captured stderr call -----------------------------
+Hermes failure for req_11111111111111111111111111111111: Hermes provider session was not confirmed for this response
+_ test_preparation_identity_mismatch_rejects_before_provider[request_id-req_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa] _
+
+adapter_module = <module 'hermes_session_adapter_stage7_red' from '/mnt/data-drive/godot_engain_3d_avatar/hermes_session_adapter.py'>
+tmp_path = PosixPath('/mnt/data-drive/EngAIn_Recovery/07_TMP/pytest-of-mytruelove/pytest-405/test_preparation_identity_mism0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7faa39c978a0>
+field = 'request_id', bad_value = 'req_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+
+    @pytest.mark.parametrize(
+        "field,bad_value",
+        [
+            ("request_id", "req_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"),
+            ("client_request_id", "dragon3d_bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb_2"),
+            ("capture_id", "cap_cccccccccccccccccccccccccccccccc_2"),
+            ("session_id", "wrong_session"),
+            ("image_path", "/tmp/substitute.png"),
+            ("image_sha256", "0" * 64),
+        ],
+    )
+    def test_preparation_identity_mismatch_rejects_before_provider(
+        adapter_module: Any,
+        tmp_path: Path,
+        monkeypatch: pytest.MonkeyPatch,
+        field: str,
+        bad_value: str,
+    ) -> None:
+        payload, expected = _full_payload(tmp_path)
+        adapter = _adapter(adapter_module, tmp_path)
+        provider_calls: list[str] = []
+    
+        def mismatched(_value: Any, *, dragon_scene_path: str) -> dict[str, Any]:
+            assert dragon_scene_path == DRAGON_SCENE_PATH
+            result = _preparation(expected)
+            result[field] = bad_value
+            return result
+    
+        class ForbiddenDirector:
+            def process_player_input(self, _text: str, _state: dict[str, Any]) -> dict[str, Any]:
+                provider_calls.append("director")
+                return {}
+    
+        monkeypatch.setattr(adapter, "prepare_image_dispatch", mismatched)
+        monkeypatch.setattr(
+            adapter_module.HermesCLIClient,
+            "chat",
+            lambda *_args, **_kwargs: provider_calls.append("chat"),
+        )
+        monkeypatch.setattr(
+            adapter_module.HermesCLIClient,
+            "_run_bounded",
+            lambda *_args, **_kwargs: provider_calls.append("run_bounded"),
+        )
+        monkeypatch.setattr(
+            adapter_module.subprocess,
+            "Popen",
+            lambda *_args, **_kwargs: provider_calls.append("Popen"),
+        )
+        adapter.director_bridge = ForbiddenDirector()
+        assert _run_claimed(adapter, payload, tmp_path)
+>       assert provider_calls == [], (
+            f"STAGE7_ADAPTER_RED: mismatched preparation field {field} reached provider boundary"
+        )
+E       AssertionError: STAGE7_ADAPTER_RED: mismatched preparation field request_id reached provider boundary
+E       assert ['director'] == []
+E         
+E         Left contains one more item: 'director'
+E         Use -v to get more diff
+
+tests/test_stage7_live_perception_adapter.py:312: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Processed EngAIn request: req_11111111111111111111111111111111
+----------------------------- Captured stderr call -----------------------------
+Hermes failure for req_11111111111111111111111111111111: Hermes provider session was not confirmed for this response
+_ test_preparation_identity_mismatch_rejects_before_provider[client_request_id-dragon3d_bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb_2] _
+
+adapter_module = <module 'hermes_session_adapter_stage7_red' from '/mnt/data-drive/godot_engain_3d_avatar/hermes_session_adapter.py'>
+tmp_path = PosixPath('/mnt/data-drive/EngAIn_Recovery/07_TMP/pytest-of-mytruelove/pytest-405/test_preparation_identity_mism1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7faa39c96ad0>
+field = 'client_request_id'
+bad_value = 'dragon3d_bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb_2'
+
+    @pytest.mark.parametrize(
+        "field,bad_value",
+        [
+            ("request_id", "req_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"),
+            ("client_request_id", "dragon3d_bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb_2"),
+            ("capture_id", "cap_cccccccccccccccccccccccccccccccc_2"),
+            ("session_id", "wrong_session"),
+            ("image_path", "/tmp/substitute.png"),
+            ("image_sha256", "0" * 64),
+        ],
+    )
+    def test_preparation_identity_mismatch_rejects_before_provider(
+        adapter_module: Any,
+        tmp_path: Path,
+        monkeypatch: pytest.MonkeyPatch,
+        field: str,
+        bad_value: str,
+    ) -> None:
+        payload, expected = _full_payload(tmp_path)
+        adapter = _adapter(adapter_module, tmp_path)
+        provider_calls: list[str] = []
+    
+        def mismatched(_value: Any, *, dragon_scene_path: str) -> dict[str, Any]:
+            assert dragon_scene_path == DRAGON_SCENE_PATH
+            result = _preparation(expected)
+            result[field] = bad_value
+            return result
+    
+        class ForbiddenDirector:
+            def process_player_input(self, _text: str, _state: dict[str, Any]) -> dict[str, Any]:
+                provider_calls.append("director")
+                return {}
+    
+        monkeypatch.setattr(adapter, "prepare_image_dispatch", mismatched)
+        monkeypatch.setattr(
+            adapter_module.HermesCLIClient,
+            "chat",
+            lambda *_args, **_kwargs: provider_calls.append("chat"),
+        )
+        monkeypatch.setattr(
+            adapter_module.HermesCLIClient,
+            "_run_bounded",
+            lambda *_args, **_kwargs: provider_calls.append("run_bounded"),
+        )
+        monkeypatch.setattr(
+            adapter_module.subprocess,
+            "Popen",
+            lambda *_args, **_kwargs: provider_calls.append("Popen"),
+        )
+        adapter.director_bridge = ForbiddenDirector()
+        assert _run_claimed(adapter, payload, tmp_path)
+>       assert provider_calls == [], (
+            f"STAGE7_ADAPTER_RED: mismatched preparation field {field} reached provider boundary"
+        )
+E       AssertionError: STAGE7_ADAPTER_RED: mismatched preparation field client_request_id reached provider boundary
+E       assert ['director'] == []
+E         
+E         Left contains one more item: 'director'
+E         Use -v to get more diff
+
+tests/test_stage7_live_perception_adapter.py:312: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Processed EngAIn request: req_11111111111111111111111111111111
+----------------------------- Captured stderr call -----------------------------
+Hermes failure for req_11111111111111111111111111111111: Hermes provider session was not confirmed for this response
+_ test_preparation_identity_mismatch_rejects_before_provider[capture_id-cap_cccccccccccccccccccccccccccccccc_2] _
+
+adapter_module = <module 'hermes_session_adapter_stage7_red' from '/mnt/data-drive/godot_engain_3d_avatar/hermes_session_adapter.py'>
+tmp_path = PosixPath('/mnt/data-drive/EngAIn_Recovery/07_TMP/pytest-of-mytruelove/pytest-405/test_preparation_identity_mism2')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7faa39cad850>
+field = 'capture_id', bad_value = 'cap_cccccccccccccccccccccccccccccccc_2'
+
+    @pytest.mark.parametrize(
+        "field,bad_value",
+        [
+            ("request_id", "req_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"),
+            ("client_request_id", "dragon3d_bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb_2"),
+            ("capture_id", "cap_cccccccccccccccccccccccccccccccc_2"),
+            ("session_id", "wrong_session"),
+            ("image_path", "/tmp/substitute.png"),
+            ("image_sha256", "0" * 64),
+        ],
+    )
+    def test_preparation_identity_mismatch_rejects_before_provider(
+        adapter_module: Any,
+        tmp_path: Path,
+        monkeypatch: pytest.MonkeyPatch,
+        field: str,
+        bad_value: str,
+    ) -> None:
+        payload, expected = _full_payload(tmp_path)
+        adapter = _adapter(adapter_module, tmp_path)
+        provider_calls: list[str] = []
+    
+        def mismatched(_value: Any, *, dragon_scene_path: str) -> dict[str, Any]:
+            assert dragon_scene_path == DRAGON_SCENE_PATH
+            result = _preparation(expected)
+            result[field] = bad_value
+            return result
+    
+        class ForbiddenDirector:
+            def process_player_input(self, _text: str, _state: dict[str, Any]) -> dict[str, Any]:
+                provider_calls.append("director")
+                return {}
+    
+        monkeypatch.setattr(adapter, "prepare_image_dispatch", mismatched)
+        monkeypatch.setattr(
+            adapter_module.HermesCLIClient,
+            "chat",
+            lambda *_args, **_kwargs: provider_calls.append("chat"),
+        )
+        monkeypatch.setattr(
+            adapter_module.HermesCLIClient,
+            "_run_bounded",
+            lambda *_args, **_kwargs: provider_calls.append("run_bounded"),
+        )
+        monkeypatch.setattr(
+            adapter_module.subprocess,
+            "Popen",
+            lambda *_args, **_kwargs: provider_calls.append("Popen"),
+        )
+        adapter.director_bridge = ForbiddenDirector()
+        assert _run_claimed(adapter, payload, tmp_path)
+>       assert provider_calls == [], (
+            f"STAGE7_ADAPTER_RED: mismatched preparation field {field} reached provider boundary"
+        )
+E       AssertionError: STAGE7_ADAPTER_RED: mismatched preparation field capture_id reached provider boundary
+E       assert ['director'] == []
+E         
+E         Left contains one more item: 'director'
+E         Use -v to get more diff
+
+tests/test_stage7_live_perception_adapter.py:312: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Processed EngAIn request: req_11111111111111111111111111111111
+----------------------------- Captured stderr call -----------------------------
+Hermes failure for req_11111111111111111111111111111111: Hermes provider session was not confirmed for this response
+_ test_preparation_identity_mismatch_rejects_before_provider[session_id-wrong_session] _
+
+adapter_module = <module 'hermes_session_adapter_stage7_red' from '/mnt/data-drive/godot_engain_3d_avatar/hermes_session_adapter.py'>
+tmp_path = PosixPath('/mnt/data-drive/EngAIn_Recovery/07_TMP/pytest-of-mytruelove/pytest-405/test_preparation_identity_mism3')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7faa39cd1c50>
+field = 'session_id', bad_value = 'wrong_session'
+
+    @pytest.mark.parametrize(
+        "field,bad_value",
+        [
+            ("request_id", "req_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"),
+            ("client_request_id", "dragon3d_bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb_2"),
+            ("capture_id", "cap_cccccccccccccccccccccccccccccccc_2"),
+            ("session_id", "wrong_session"),
+            ("image_path", "/tmp/substitute.png"),
+            ("image_sha256", "0" * 64),
+        ],
+    )
+    def test_preparation_identity_mismatch_rejects_before_provider(
+        adapter_module: Any,
+        tmp_path: Path,
+        monkeypatch: pytest.MonkeyPatch,
+        field: str,
+        bad_value: str,
+    ) -> None:
+        payload, expected = _full_payload(tmp_path)
+        adapter = _adapter(adapter_module, tmp_path)
+        provider_calls: list[str] = []
+    
+        def mismatched(_value: Any, *, dragon_scene_path: str) -> dict[str, Any]:
+            assert dragon_scene_path == DRAGON_SCENE_PATH
+            result = _preparation(expected)
+            result[field] = bad_value
+            return result
+    
+        class ForbiddenDirector:
+            def process_player_input(self, _text: str, _state: dict[str, Any]) -> dict[str, Any]:
+                provider_calls.append("director")
+                return {}
+    
+        monkeypatch.setattr(adapter, "prepare_image_dispatch", mismatched)
+        monkeypatch.setattr(
+            adapter_module.HermesCLIClient,
+            "chat",
+            lambda *_args, **_kwargs: provider_calls.append("chat"),
+        )
+        monkeypatch.setattr(
+            adapter_module.HermesCLIClient,
+            "_run_bounded",
+            lambda *_args, **_kwargs: provider_calls.append("run_bounded"),
+        )
+        monkeypatch.setattr(
+            adapter_module.subprocess,
+            "Popen",
+            lambda *_args, **_kwargs: provider_calls.append("Popen"),
+        )
+        adapter.director_bridge = ForbiddenDirector()
+        assert _run_claimed(adapter, payload, tmp_path)
+>       assert provider_calls == [], (
+            f"STAGE7_ADAPTER_RED: mismatched preparation field {field} reached provider boundary"
+        )
+E       AssertionError: STAGE7_ADAPTER_RED: mismatched preparation field session_id reached provider boundary
+E       assert ['director'] == []
+E         
+E         Left contains one more item: 'director'
+E         Use -v to get more diff
+
+tests/test_stage7_live_perception_adapter.py:312: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Processed EngAIn request: req_11111111111111111111111111111111
+----------------------------- Captured stderr call -----------------------------
+Hermes failure for req_11111111111111111111111111111111: Hermes provider session was not confirmed for this response
+_ test_preparation_identity_mismatch_rejects_before_provider[image_path-/tmp/substitute.png] _
+
+adapter_module = <module 'hermes_session_adapter_stage7_red' from '/mnt/data-drive/godot_engain_3d_avatar/hermes_session_adapter.py'>
+tmp_path = PosixPath('/mnt/data-drive/EngAIn_Recovery/07_TMP/pytest-of-mytruelove/pytest-405/test_preparation_identity_mism4')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7faa39ddc410>
+field = 'image_path', bad_value = '/tmp/substitute.png'
+
+    @pytest.mark.parametrize(
+        "field,bad_value",
+        [
+            ("request_id", "req_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"),
+            ("client_request_id", "dragon3d_bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb_2"),
+            ("capture_id", "cap_cccccccccccccccccccccccccccccccc_2"),
+            ("session_id", "wrong_session"),
+            ("image_path", "/tmp/substitute.png"),
+            ("image_sha256", "0" * 64),
+        ],
+    )
+    def test_preparation_identity_mismatch_rejects_before_provider(
+        adapter_module: Any,
+        tmp_path: Path,
+        monkeypatch: pytest.MonkeyPatch,
+        field: str,
+        bad_value: str,
+    ) -> None:
+        payload, expected = _full_payload(tmp_path)
+        adapter = _adapter(adapter_module, tmp_path)
+        provider_calls: list[str] = []
+    
+        def mismatched(_value: Any, *, dragon_scene_path: str) -> dict[str, Any]:
+            assert dragon_scene_path == DRAGON_SCENE_PATH
+            result = _preparation(expected)
+            result[field] = bad_value
+            return result
+    
+        class ForbiddenDirector:
+            def process_player_input(self, _text: str, _state: dict[str, Any]) -> dict[str, Any]:
+                provider_calls.append("director")
+                return {}
+    
+        monkeypatch.setattr(adapter, "prepare_image_dispatch", mismatched)
+        monkeypatch.setattr(
+            adapter_module.HermesCLIClient,
+            "chat",
+            lambda *_args, **_kwargs: provider_calls.append("chat"),
+        )
+        monkeypatch.setattr(
+            adapter_module.HermesCLIClient,
+            "_run_bounded",
+            lambda *_args, **_kwargs: provider_calls.append("run_bounded"),
+        )
+        monkeypatch.setattr(
+            adapter_module.subprocess,
+            "Popen",
+            lambda *_args, **_kwargs: provider_calls.append("Popen"),
+        )
+        adapter.director_bridge = ForbiddenDirector()
+        assert _run_claimed(adapter, payload, tmp_path)
+>       assert provider_calls == [], (
+            f"STAGE7_ADAPTER_RED: mismatched preparation field {field} reached provider boundary"
+        )
+E       AssertionError: STAGE7_ADAPTER_RED: mismatched preparation field image_path reached provider boundary
+E       assert ['director'] == []
+E         
+E         Left contains one more item: 'director'
+E         Use -v to get more diff
+
+tests/test_stage7_live_perception_adapter.py:312: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Processed EngAIn request: req_11111111111111111111111111111111
+----------------------------- Captured stderr call -----------------------------
+Hermes failure for req_11111111111111111111111111111111: Hermes provider session was not confirmed for this response
+_ test_preparation_identity_mismatch_rejects_before_provider[image_sha256-0000000000000000000000000000000000000000000000000000000000000000] _
+
+adapter_module = <module 'hermes_session_adapter_stage7_red' from '/mnt/data-drive/godot_engain_3d_avatar/hermes_session_adapter.py'>
+tmp_path = PosixPath('/mnt/data-drive/EngAIn_Recovery/07_TMP/pytest-of-mytruelove/pytest-405/test_preparation_identity_mism5')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7faa39e6de50>
+field = 'image_sha256'
+bad_value = '0000000000000000000000000000000000000000000000000000000000000000'
+
+    @pytest.mark.parametrize(
+        "field,bad_value",
+        [
+            ("request_id", "req_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"),
+            ("client_request_id", "dragon3d_bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb_2"),
+            ("capture_id", "cap_cccccccccccccccccccccccccccccccc_2"),
+            ("session_id", "wrong_session"),
+            ("image_path", "/tmp/substitute.png"),
+            ("image_sha256", "0" * 64),
+        ],
+    )
+    def test_preparation_identity_mismatch_rejects_before_provider(
+        adapter_module: Any,
+        tmp_path: Path,
+        monkeypatch: pytest.MonkeyPatch,
+        field: str,
+        bad_value: str,
+    ) -> None:
+        payload, expected = _full_payload(tmp_path)
+        adapter = _adapter(adapter_module, tmp_path)
+        provider_calls: list[str] = []
+    
+        def mismatched(_value: Any, *, dragon_scene_path: str) -> dict[str, Any]:
+            assert dragon_scene_path == DRAGON_SCENE_PATH
+            result = _preparation(expected)
+            result[field] = bad_value
+            return result
+    
+        class ForbiddenDirector:
+            def process_player_input(self, _text: str, _state: dict[str, Any]) -> dict[str, Any]:
+                provider_calls.append("director")
+                return {}
+    
+        monkeypatch.setattr(adapter, "prepare_image_dispatch", mismatched)
+        monkeypatch.setattr(
+            adapter_module.HermesCLIClient,
+            "chat",
+            lambda *_args, **_kwargs: provider_calls.append("chat"),
+        )
+        monkeypatch.setattr(
+            adapter_module.HermesCLIClient,
+            "_run_bounded",
+            lambda *_args, **_kwargs: provider_calls.append("run_bounded"),
+        )
+        monkeypatch.setattr(
+            adapter_module.subprocess,
+            "Popen",
+            lambda *_args, **_kwargs: provider_calls.append("Popen"),
+        )
+        adapter.director_bridge = ForbiddenDirector()
+        assert _run_claimed(adapter, payload, tmp_path)
+>       assert provider_calls == [], (
+            f"STAGE7_ADAPTER_RED: mismatched preparation field {field} reached provider boundary"
+        )
+E       AssertionError: STAGE7_ADAPTER_RED: mismatched preparation field image_sha256 reached provider boundary
+E       assert ['director'] == []
+E         
+E         Left contains one more item: 'director'
+E         Use -v to get more diff
+
+tests/test_stage7_live_perception_adapter.py:312: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Processed EngAIn request: req_11111111111111111111111111111111
+----------------------------- Captured stderr call -----------------------------
+Hermes failure for req_11111111111111111111111111111111: Hermes provider session was not confirmed for this response
+=========================== short test summary info ============================
+FAILED tests/test_stage7_live_perception_capture.py::test_live_capture_api_is_added_without_removing_stage5a_capture_once
+FAILED tests/test_stage7_live_perception_capture.py::test_live_capture_uses_external_client_id_and_allocates_only_capture_id
+FAILED tests/test_stage7_live_perception_capture.py::test_live_capture_returns_exact_six_key_contract
+FAILED tests/test_stage7_live_perception_capture.py::test_successful_live_capture_contains_exact_frozen_full_perception
+FAILED tests/test_stage7_live_perception_capture.py::test_failed_live_capture_contains_exact_frozen_unavailable_perception
+FAILED tests/test_stage7_live_perception_capture.py::test_known_capture_failures_remain_local_diagnostics_only
+FAILED tests/test_stage7_live_perception_capture.py::test_bridge_owns_client_and_request_ids_but_not_live_capture_id
+FAILED tests/test_stage7_live_perception_capture.py::test_bridge_reserves_busy_before_first_await_and_starts_one_capture
+FAILED tests/test_stage7_live_perception_capture.py::test_capture_pending_repeat_submit_is_silent_and_side_effect_free
+FAILED tests/test_stage7_live_perception_capture.py::test_no_accepted_user_or_speaking_mutation_occurs_before_capture_returns
+FAILED tests/test_stage7_live_perception_capture.py::test_request_timestamp_follows_capture_and_full_perception_is_forwarded_directly
+FAILED tests/test_stage7_live_perception_capture.py::test_valid_unavailable_result_publishes_once_and_invalid_result_aborts
+FAILED tests/test_stage7_live_perception_capture.py::test_publication_failure_releases_lifecycle_without_adapter_processing
+FAILED tests/test_stage7_live_perception_capture.py::test_submission_committed_signal_follows_successful_publication_only
+FAILED tests/test_stage7_live_perception_capture.py::test_hud_clears_only_matching_text_on_submission_committed
+FAILED tests/test_stage7_live_perception_adapter.py::test_full_live_request_prepares_nested_dragon_before_provider_boundary
+FAILED tests/test_stage7_live_perception_adapter.py::test_preparation_identity_mismatch_rejects_before_provider[request_id-req_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa]
+FAILED tests/test_stage7_live_perception_adapter.py::test_preparation_identity_mismatch_rejects_before_provider[client_request_id-dragon3d_bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb_2]
+FAILED tests/test_stage7_live_perception_adapter.py::test_preparation_identity_mismatch_rejects_before_provider[capture_id-cap_cccccccccccccccccccccccccccccccc_2]
+FAILED tests/test_stage7_live_perception_adapter.py::test_preparation_identity_mismatch_rejects_before_provider[session_id-wrong_session]
+FAILED tests/test_stage7_live_perception_adapter.py::test_preparation_identity_mismatch_rejects_before_provider[image_path-/tmp/substitute.png]
+FAILED tests/test_stage7_live_perception_adapter.py::test_preparation_identity_mismatch_rejects_before_provider[image_sha256-0000000000000000000000000000000000000000000000000000000000000000]
+22 failed, 8 passed in 0.39s

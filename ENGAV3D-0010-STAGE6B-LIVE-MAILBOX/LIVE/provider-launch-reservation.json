@@ -1,0 +1,9 @@
+{
+  "attempted": 1,
+  "authorized": 1,
+  "client_request_id": "dragon3d_8235eb3f50987d9a4cb397c2084f8eb4_1",
+  "remaining": 0,
+  "request_id": "req_2a39e83f1910d77d020af67155f82399",
+  "retry_authorized": false,
+  "timeout_seconds": 180
+}

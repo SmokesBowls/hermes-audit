@@ -1,0 +1,6 @@
+M scenes/Main.tscn
+ M scripts/Main.gd
+?? scripts/PerceptionCapture3D.gd
+?? scripts/PerceptionCapture3D.gd.uid
+?? snapshots/
+?? tests/test_stage5a_capture_bundle.py

@@ -1,0 +1,16 @@
+=== PROCESS ===
+    PID    PPID                  STARTED     ELAPSED COMMAND
+  13558   11833 Sun Aug  9 11:38:49 2026    02:03:19 /home/mytruelove/.hermes/hermes-agent/venv/bin/python3 /home/mytruelove/.hermes/hermes-agent/venv/bin/hermes chat
+
+=== CWD ===
+/mnt/data-drive/godot_engain_3d_avatar
+
+=== EXECUTABLE ===
+/home/mytruelove/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/bin/python3.11
+
+=== COMMAND LINE ===
+/home/mytruelove/.hermes/hermes-agent/venv/bin/python3 /home/mytruelove/.hermes/hermes-agent/venv/bin/hermes chat 
+
+=== PARENT ===
+    PID    PPID                  STARTED     ELAPSED COMMAND
+  11833   11802 Sun Aug  9 11:38:41 2026    02:03:27 /bin/bash

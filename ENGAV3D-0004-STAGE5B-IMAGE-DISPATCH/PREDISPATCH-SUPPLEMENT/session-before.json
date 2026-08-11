@@ -1,0 +1,207 @@
+{
+  "hermes_home": "/home/mytruelove/.hermes",
+  "lookup_timestamp": "2026-08-10T01:29:57.596135+00:00",
+  "profile": "default",
+  "provider_calls": 0,
+  "schema": "engav3d.stage5b_local_session_lookup.v1",
+  "session_id": "20260731_065008_63a62d",
+  "session_matches": [
+    {
+      "matched_column": "session_id",
+      "metadata": {
+        "id": 22395,
+        "session_id": "20260731_065008_63a62d"
+      },
+      "table": "messages"
+    },
+    {
+      "matched_column": "session_id",
+      "metadata": {
+        "id": 22396,
+        "session_id": "20260731_065008_63a62d"
+      },
+      "table": "messages"
+    },
+    {
+      "matched_column": "session_id",
+      "metadata": {
+        "id": 22397,
+        "session_id": "20260731_065008_63a62d"
+      },
+      "table": "messages"
+    },
+    {
+      "matched_column": "session_id",
+      "metadata": {
+        "id": 22398,
+        "session_id": "20260731_065008_63a62d"
+      },
+      "table": "messages"
+    },
+    {
+      "matched_column": "session_id",
+      "metadata": {
+        "id": 22399,
+        "session_id": "20260731_065008_63a62d"
+      },
+      "table": "messages"
+    },
+    {
+      "matched_column": "session_id",
+      "metadata": {
+        "id": 22400,
+        "session_id": "20260731_065008_63a62d"
+      },
+      "table": "messages"
+    },
+    {
+      "matched_column": "session_id",
+      "metadata": {
+        "id": 22401,
+        "session_id": "20260731_065008_63a62d"
+      },
+      "table": "messages"
+    },
+    {
+      "matched_column": "session_id",
+      "metadata": {
+        "id": 22402,
+        "session_id": "20260731_065008_63a62d"
+      },
+      "table": "messages"
+    },
+    {
+      "matched_column": "session_id",
+      "metadata": {
+        "id": 22403,
+        "session_id": "20260731_065008_63a62d"
+      },
+      "table": "messages"
+    },
+    {
+      "matched_column": "session_id",
+      "metadata": {
+        "id": 22404,
+        "session_id": "20260731_065008_63a62d"
+      },
+      "table": "messages"
+    },
+    {
+      "matched_column": "session_id",
+      "metadata": {
+        "id": 23176,
+        "session_id": "20260731_065008_63a62d"
+      },
+      "table": "messages"
+    },
+    {
+      "matched_column": "session_id",
+      "metadata": {
+        "id": 23177,
+        "session_id": "20260731_065008_63a62d"
+      },
+      "table": "messages"
+    },
+    {
+      "matched_column": "session_id",
+      "metadata": {
+        "id": 23198,
+        "session_id": "20260731_065008_63a62d"
+      },
+      "table": "messages"
+    },
+    {
+      "matched_column": "session_id",
+      "metadata": {
+        "id": 23199,
+        "session_id": "20260731_065008_63a62d"
+      },
+      "table": "messages"
+    },
+    {
+      "matched_column": "session_id",
+      "metadata": {
+        "id": 23710,
+        "session_id": "20260731_065008_63a62d"
+      },
+      "table": "messages"
+    },
+    {
+      "matched_column": "session_id",
+      "metadata": {
+        "id": 23711,
+        "session_id": "20260731_065008_63a62d"
+      },
+      "table": "messages"
+    },
+    {
+      "matched_column": "session_id",
+      "metadata": {
+        "id": 24340,
+        "session_id": "20260731_065008_63a62d"
+      },
+      "table": "messages"
+    },
+    {
+      "matched_column": "session_id",
+      "metadata": {
+        "id": 24341,
+        "session_id": "20260731_065008_63a62d"
+      },
+      "table": "messages"
+    },
+    {
+      "matched_column": "session_id",
+      "metadata": {
+        "id": 24346,
+        "session_id": "20260731_065008_63a62d"
+      },
+      "table": "messages"
+    },
+    {
+      "matched_column": "session_id",
+      "metadata": {
+        "id": 24347,
+        "session_id": "20260731_065008_63a62d"
+      },
+      "table": "messages"
+    },
+    {
+      "matched_column": "session_id",
+      "metadata": {
+        "billing_provider": "openai-codex",
+        "model": "gpt-5.6-sol",
+        "session_id": "20260731_065008_63a62d"
+      },
+      "table": "session_model_usage"
+    },
+    {
+      "matched_column": "id",
+      "metadata": {
+        "billing_provider": "openai-codex",
+        "id": "20260731_065008_63a62d",
+        "model": "gpt-5.6-sol",
+        "source": "tool"
+      },
+      "table": "sessions"
+    }
+  ],
+  "session_scoped_row_counts": [
+    {
+      "rows_for_session": 0,
+      "table": "compression_locks"
+    },
+    {
+      "rows_for_session": 67,
+      "table": "messages"
+    },
+    {
+      "rows_for_session": 1,
+      "table": "session_model_usage"
+    }
+  ],
+  "sqlite_data_version": 2,
+  "sqlite_journal_mode": "wal",
+  "state_database": "/home/mytruelove/.hermes/state.db",
+  "subprocess_calls": 0
+}

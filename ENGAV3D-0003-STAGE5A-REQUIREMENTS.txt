@@ -1,0 +1,81 @@
+ENGAV3D Stage 5A frozen requirement extraction
+
+Authoritative source:
+/mnt/data-drive/engain-avatar-audit/ENGAV3D-0001-IDENTITY-MAILBOX-PERCEPTION-FREEZE.md
+
+Identity:
+project_id=godot_3d_avatar
+scene_path=res://scenes/Main.tscn
+dragon_scene_path=res://scenes/DragonAvatar3D.tscn
+dragon_node_path=World/DragonAvatar3D (frozen by existing Stage 3 fixture from current scene bytes)
+session_id=20260731_065008_63a62d
+
+Identifiers:
+request_id regex=^req_[0-9a-f]{32}$; 16 cryptographically random bytes
+client_request_id regex=^dragon3d_[0-9a-f]{32}_[1-9][0-9]*$
+capture_id regex=^cap_[0-9a-f]{32}_[1-9][0-9]*$
+The three identifiers are distinct and may not be inferred from one another.
+
+Schemas:
+runtime perception=engain.runtime_perception.v1
+structured snapshot=engain.runtime_snapshot.v1
+perception result=engain.runtime_perception_result.v1
+capture_event=message_received
+capture_phase=pre_dispatch_player_view.v1
+
+Exact runtime perception keys:
+schema, perception_state, capture_id, capture_event, capture_phase, captured_at,
+project_id, scene_path, snapshot, viewport, unavailable_reason
+
+Exact structured snapshot keys:
+schema, capture_id, client_request_id, capture_event, capture_phase, captured_at,
+project_id, scene_path, runtime, viewport
+Exact runtime keys: fps, current_location, inventory, player_position
+Exact available viewport keys: availability, image_path, image_sha256, media_type,
+width, height, reason
+
+Exact perception result keys:
+schema, requested_state, effective_state, capture_id, capture_event, capture_phase,
+captured_at, metadata_sha256, image_sha256, structured_snapshot_supplied,
+viewport_image_attached, failure_code
+Stage 5A performs no provider invocation, so the local result cannot claim effective_state=full,
+structured_snapshot_supplied=true, or viewport_image_attached=true.
+
+Capture paths:
+absolute root=/mnt/data-drive/godot_engain_3d_avatar/snapshots
+wire root=snapshots/
+metadata=snapshots/perception_<capture_id>.json
+image=snapshots/perception_<capture_id>.png
+Only exact project-relative POSIX forms are accepted. Absolute paths, dot components,
+backslashes, URL schemes, control characters, extra nested components, symlinks,
+non-regular files, and out-of-root paths are rejected. Existing pairs are immutable.
+
+Image:
+media_type=image/png
+signature=89 50 4E 47 0D 0A 1A 0A
+first chunk=IHDR
+IHDR length=13
+exactly one IHDR required by Stage 5A gate
+maximum bytes=16777216
+SHA-256=64 lowercase hexadecimal characters computed from persisted PNG bytes
+
+Dimensions:
+integer width/height; each 1..8192; no fixed resolution
+request viewport == metadata viewport == independently parsed PNG IHDR dimensions
+
+Timestamps:
+captured_at finite and positive
+0 <= request.timestamp - captured_at <= 5 seconds
+adapter validation window is not exercised in Stage 5A because provider/adapter execution is forbidden.
+
+Perception:
+A validated PNG and structured snapshot permit requested perception_state=full.
+Because Stage 5A does not execute or attach to a provider, its frozen perception result remains
+effective_state=structured_only, structured_snapshot_supplied=false,
+viewport_image_attached=false. A failed image validation cannot publish an accepted bundle.
+
+Artifact interpretation:
+The frozen capture artifact is exactly one immutable PNG/JSON pair at the flat frozen paths.
+The request-level runtime perception and no-provider perception result are emitted as a
+machine-readable producer receipt in stdout; they are not published to the live request mailbox.
+No additional invented capture-root schema or filename is introduced.

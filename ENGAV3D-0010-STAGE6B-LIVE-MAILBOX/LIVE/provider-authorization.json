@@ -1,0 +1,9 @@
+{
+  "stage": "6B",
+  "authorized": 1,
+  "attempted": 0,
+  "remaining": 1,
+  "retry_authorized": false,
+  "adapter_mode": "--once",
+  "timeout_seconds": 180
+}

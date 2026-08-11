@@ -1,0 +1,20 @@
+=== HEAD ===
+3bd1c0558a78cd1fbd78329865ac50685f6626a2
+
+=== STATUS ===
+ M hermes_session_adapter.py
+ M scenes/Main.tscn
+ M scripts/Main.gd
+?? scripts/PerceptionCapture3D.gd
+?? scripts/PerceptionCapture3D.gd.uid
+?? snapshots/
+?? tests/test_stage5a_capture_bundle.py
+?? tests/test_stage5b_image_dispatch.py
+
+=== DIFF CHECK ===
+
+=== DIFF STAT ===
+ hermes_session_adapter.py | 121 ++++++++++++++++++++++++++++++++++++++++++++++
+ scenes/Main.tscn          |   4 +-
+ scripts/Main.gd           |  20 +++++++-
+ 3 files changed, 142 insertions(+), 3 deletions(-)

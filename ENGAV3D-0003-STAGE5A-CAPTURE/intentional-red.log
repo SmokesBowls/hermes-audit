@@ -1,0 +1,1308 @@
+EEEFEEEEEEEEEEEEEEEEEEEEEE                                               [100%]
+==================================== ERRORS ====================================
+_ ERROR at setup of test_capture_png_and_metadata_are_independently_validated __
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+>           status = path.lstat()
+                     ^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:98: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+
+    def lstat(self):
+        """
+        Like stat(), except if the path points to a symlink, the symlink's
+        status information is returned, rather than its target's.
+        """
+>       return os.lstat(self)
+               ^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log'
+
+/usr/lib/python3.14/pathlib/__init__.py:661: FileNotFoundError
+
+The above exception was the direct cause of the following exception:
+
+    @pytest.fixture(scope="module")
+    def accepted_result() -> dict[str, Any]:
+>       return _parse_result_log()
+               ^^^^^^^^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:398: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_stage5a_capture_bundle.py:158: in _parse_result_log
+    raw = _read_regular_no_symlink(path, 1_048_576).decode("utf-8")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+            status = path.lstat()
+        except OSError as exc:
+>           raise BundleRejected(f"missing artifact: {path}") from exc
+E           test_stage5a_capture_bundle.BundleRejected: missing artifact: /mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log
+
+tests/test_stage5a_capture_bundle.py:100: BundleRejected
+___ ERROR at setup of test_generated_ids_match_frozen_formats_and_correlate ____
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+>           status = path.lstat()
+                     ^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:98: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+
+    def lstat(self):
+        """
+        Like stat(), except if the path points to a symlink, the symlink's
+        status information is returned, rather than its target's.
+        """
+>       return os.lstat(self)
+               ^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log'
+
+/usr/lib/python3.14/pathlib/__init__.py:661: FileNotFoundError
+
+The above exception was the direct cause of the following exception:
+
+    @pytest.fixture(scope="module")
+    def accepted_result() -> dict[str, Any]:
+>       return _parse_result_log()
+               ^^^^^^^^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:398: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_stage5a_capture_bundle.py:158: in _parse_result_log
+    raw = _read_regular_no_symlink(path, 1_048_576).decode("utf-8")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+            status = path.lstat()
+        except OSError as exc:
+>           raise BundleRejected(f"missing artifact: {path}") from exc
+E           test_stage5a_capture_bundle.BundleRejected: missing artifact: /mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log
+
+tests/test_stage5a_capture_bundle.py:100: BundleRejected
+_ ERROR at setup of test_persisted_png_signature_ihdr_dimensions_and_hash_are_exact _
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+>           status = path.lstat()
+                     ^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:98: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+
+    def lstat(self):
+        """
+        Like stat(), except if the path points to a symlink, the symlink's
+        status information is returned, rather than its target's.
+        """
+>       return os.lstat(self)
+               ^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log'
+
+/usr/lib/python3.14/pathlib/__init__.py:661: FileNotFoundError
+
+The above exception was the direct cause of the following exception:
+
+    @pytest.fixture(scope="module")
+    def accepted_result() -> dict[str, Any]:
+>       return _parse_result_log()
+               ^^^^^^^^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:398: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_stage5a_capture_bundle.py:158: in _parse_result_log
+    raw = _read_regular_no_symlink(path, 1_048_576).decode("utf-8")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+            status = path.lstat()
+        except OSError as exc:
+>           raise BundleRejected(f"missing artifact: {path}") from exc
+E           test_stage5a_capture_bundle.BundleRejected: missing artifact: /mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log
+
+tests/test_stage5a_capture_bundle.py:100: BundleRejected
+_ ERROR at setup of test_toxic_stale_or_wrong_identifiers_are_rejected[request_id-req_ffffffffffffffffffffffffffffffff] _
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+>           status = path.lstat()
+                     ^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:98: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+
+    def lstat(self):
+        """
+        Like stat(), except if the path points to a symlink, the symlink's
+        status information is returned, rather than its target's.
+        """
+>       return os.lstat(self)
+               ^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log'
+
+/usr/lib/python3.14/pathlib/__init__.py:661: FileNotFoundError
+
+The above exception was the direct cause of the following exception:
+
+    @pytest.fixture(scope="module")
+    def accepted_result() -> dict[str, Any]:
+>       return _parse_result_log()
+               ^^^^^^^^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:398: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_stage5a_capture_bundle.py:158: in _parse_result_log
+    raw = _read_regular_no_symlink(path, 1_048_576).decode("utf-8")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+            status = path.lstat()
+        except OSError as exc:
+>           raise BundleRejected(f"missing artifact: {path}") from exc
+E           test_stage5a_capture_bundle.BundleRejected: missing artifact: /mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log
+
+tests/test_stage5a_capture_bundle.py:100: BundleRejected
+_ ERROR at setup of test_toxic_stale_or_wrong_identifiers_are_rejected[client_request_id-dragon3d_ffffffffffffffffffffffffffffffff_9] _
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+>           status = path.lstat()
+                     ^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:98: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+
+    def lstat(self):
+        """
+        Like stat(), except if the path points to a symlink, the symlink's
+        status information is returned, rather than its target's.
+        """
+>       return os.lstat(self)
+               ^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log'
+
+/usr/lib/python3.14/pathlib/__init__.py:661: FileNotFoundError
+
+The above exception was the direct cause of the following exception:
+
+    @pytest.fixture(scope="module")
+    def accepted_result() -> dict[str, Any]:
+>       return _parse_result_log()
+               ^^^^^^^^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:398: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_stage5a_capture_bundle.py:158: in _parse_result_log
+    raw = _read_regular_no_symlink(path, 1_048_576).decode("utf-8")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+            status = path.lstat()
+        except OSError as exc:
+>           raise BundleRejected(f"missing artifact: {path}") from exc
+E           test_stage5a_capture_bundle.BundleRejected: missing artifact: /mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log
+
+tests/test_stage5a_capture_bundle.py:100: BundleRejected
+_ ERROR at setup of test_toxic_stale_or_wrong_identifiers_are_rejected[capture_id-cap_ffffffffffffffffffffffffffffffff_9] _
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+>           status = path.lstat()
+                     ^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:98: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+
+    def lstat(self):
+        """
+        Like stat(), except if the path points to a symlink, the symlink's
+        status information is returned, rather than its target's.
+        """
+>       return os.lstat(self)
+               ^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log'
+
+/usr/lib/python3.14/pathlib/__init__.py:661: FileNotFoundError
+
+The above exception was the direct cause of the following exception:
+
+    @pytest.fixture(scope="module")
+    def accepted_result() -> dict[str, Any]:
+>       return _parse_result_log()
+               ^^^^^^^^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:398: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_stage5a_capture_bundle.py:158: in _parse_result_log
+    raw = _read_regular_no_symlink(path, 1_048_576).decode("utf-8")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+            status = path.lstat()
+        except OSError as exc:
+>           raise BundleRejected(f"missing artifact: {path}") from exc
+E           test_stage5a_capture_bundle.BundleRejected: missing artifact: /mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log
+
+tests/test_stage5a_capture_bundle.py:100: BundleRejected
+_ ERROR at setup of test_toxic_wrong_identity_is_rejected[session_id-wrong_session] _
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+>           status = path.lstat()
+                     ^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:98: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+
+    def lstat(self):
+        """
+        Like stat(), except if the path points to a symlink, the symlink's
+        status information is returned, rather than its target's.
+        """
+>       return os.lstat(self)
+               ^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log'
+
+/usr/lib/python3.14/pathlib/__init__.py:661: FileNotFoundError
+
+The above exception was the direct cause of the following exception:
+
+    @pytest.fixture(scope="module")
+    def accepted_result() -> dict[str, Any]:
+>       return _parse_result_log()
+               ^^^^^^^^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:398: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_stage5a_capture_bundle.py:158: in _parse_result_log
+    raw = _read_regular_no_symlink(path, 1_048_576).decode("utf-8")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+            status = path.lstat()
+        except OSError as exc:
+>           raise BundleRejected(f"missing artifact: {path}") from exc
+E           test_stage5a_capture_bundle.BundleRejected: missing artifact: /mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log
+
+tests/test_stage5a_capture_bundle.py:100: BundleRejected
+_ ERROR at setup of test_toxic_wrong_identity_is_rejected[scene_path-res://scenes/DragonAvatar3D.tscn] _
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+>           status = path.lstat()
+                     ^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:98: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+
+    def lstat(self):
+        """
+        Like stat(), except if the path points to a symlink, the symlink's
+        status information is returned, rather than its target's.
+        """
+>       return os.lstat(self)
+               ^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log'
+
+/usr/lib/python3.14/pathlib/__init__.py:661: FileNotFoundError
+
+The above exception was the direct cause of the following exception:
+
+    @pytest.fixture(scope="module")
+    def accepted_result() -> dict[str, Any]:
+>       return _parse_result_log()
+               ^^^^^^^^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:398: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_stage5a_capture_bundle.py:158: in _parse_result_log
+    raw = _read_regular_no_symlink(path, 1_048_576).decode("utf-8")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+            status = path.lstat()
+        except OSError as exc:
+>           raise BundleRejected(f"missing artifact: {path}") from exc
+E           test_stage5a_capture_bundle.BundleRejected: missing artifact: /mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log
+
+tests/test_stage5a_capture_bundle.py:100: BundleRejected
+_ ERROR at setup of test_toxic_wrong_identity_is_rejected[dragon_scene_path-res://scenes/Main.tscn] _
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+>           status = path.lstat()
+                     ^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:98: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+
+    def lstat(self):
+        """
+        Like stat(), except if the path points to a symlink, the symlink's
+        status information is returned, rather than its target's.
+        """
+>       return os.lstat(self)
+               ^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log'
+
+/usr/lib/python3.14/pathlib/__init__.py:661: FileNotFoundError
+
+The above exception was the direct cause of the following exception:
+
+    @pytest.fixture(scope="module")
+    def accepted_result() -> dict[str, Any]:
+>       return _parse_result_log()
+               ^^^^^^^^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:398: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_stage5a_capture_bundle.py:158: in _parse_result_log
+    raw = _read_regular_no_symlink(path, 1_048_576).decode("utf-8")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+            status = path.lstat()
+        except OSError as exc:
+>           raise BundleRejected(f"missing artifact: {path}") from exc
+E           test_stage5a_capture_bundle.BundleRejected: missing artifact: /mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log
+
+tests/test_stage5a_capture_bundle.py:100: BundleRejected
+_ ERROR at setup of test_toxic_wrong_identity_is_rejected[project_id-engain_avatar] _
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+>           status = path.lstat()
+                     ^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:98: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+
+    def lstat(self):
+        """
+        Like stat(), except if the path points to a symlink, the symlink's
+        status information is returned, rather than its target's.
+        """
+>       return os.lstat(self)
+               ^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log'
+
+/usr/lib/python3.14/pathlib/__init__.py:661: FileNotFoundError
+
+The above exception was the direct cause of the following exception:
+
+    @pytest.fixture(scope="module")
+    def accepted_result() -> dict[str, Any]:
+>       return _parse_result_log()
+               ^^^^^^^^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:398: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_stage5a_capture_bundle.py:158: in _parse_result_log
+    raw = _read_regular_no_symlink(path, 1_048_576).decode("utf-8")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+            status = path.lstat()
+        except OSError as exc:
+>           raise BundleRejected(f"missing artifact: {path}") from exc
+E           test_stage5a_capture_bundle.BundleRejected: missing artifact: /mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log
+
+tests/test_stage5a_capture_bundle.py:100: BundleRejected
+__ ERROR at setup of test_toxic_wrong_or_zero_dimensions_are_rejected[width] ___
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+>           status = path.lstat()
+                     ^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:98: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+
+    def lstat(self):
+        """
+        Like stat(), except if the path points to a symlink, the symlink's
+        status information is returned, rather than its target's.
+        """
+>       return os.lstat(self)
+               ^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log'
+
+/usr/lib/python3.14/pathlib/__init__.py:661: FileNotFoundError
+
+The above exception was the direct cause of the following exception:
+
+    @pytest.fixture(scope="module")
+    def accepted_result() -> dict[str, Any]:
+>       return _parse_result_log()
+               ^^^^^^^^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:398: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_stage5a_capture_bundle.py:158: in _parse_result_log
+    raw = _read_regular_no_symlink(path, 1_048_576).decode("utf-8")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+            status = path.lstat()
+        except OSError as exc:
+>           raise BundleRejected(f"missing artifact: {path}") from exc
+E           test_stage5a_capture_bundle.BundleRejected: missing artifact: /mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log
+
+tests/test_stage5a_capture_bundle.py:100: BundleRejected
+__ ERROR at setup of test_toxic_wrong_or_zero_dimensions_are_rejected[height] __
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+>           status = path.lstat()
+                     ^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:98: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+
+    def lstat(self):
+        """
+        Like stat(), except if the path points to a symlink, the symlink's
+        status information is returned, rather than its target's.
+        """
+>       return os.lstat(self)
+               ^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log'
+
+/usr/lib/python3.14/pathlib/__init__.py:661: FileNotFoundError
+
+The above exception was the direct cause of the following exception:
+
+    @pytest.fixture(scope="module")
+    def accepted_result() -> dict[str, Any]:
+>       return _parse_result_log()
+               ^^^^^^^^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:398: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_stage5a_capture_bundle.py:158: in _parse_result_log
+    raw = _read_regular_no_symlink(path, 1_048_576).decode("utf-8")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+            status = path.lstat()
+        except OSError as exc:
+>           raise BundleRejected(f"missing artifact: {path}") from exc
+E           test_stage5a_capture_bundle.BundleRejected: missing artifact: /mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log
+
+tests/test_stage5a_capture_bundle.py:100: BundleRejected
+_____________ ERROR at setup of test_toxic_wrong_hash_is_rejected ______________
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+>           status = path.lstat()
+                     ^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:98: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+
+    def lstat(self):
+        """
+        Like stat(), except if the path points to a symlink, the symlink's
+        status information is returned, rather than its target's.
+        """
+>       return os.lstat(self)
+               ^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log'
+
+/usr/lib/python3.14/pathlib/__init__.py:661: FileNotFoundError
+
+The above exception was the direct cause of the following exception:
+
+    @pytest.fixture(scope="module")
+    def accepted_result() -> dict[str, Any]:
+>       return _parse_result_log()
+               ^^^^^^^^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:398: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_stage5a_capture_bundle.py:158: in _parse_result_log
+    raw = _read_regular_no_symlink(path, 1_048_576).decode("utf-8")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+            status = path.lstat()
+        except OSError as exc:
+>           raise BundleRejected(f"missing artifact: {path}") from exc
+E           test_stage5a_capture_bundle.BundleRejected: missing artifact: /mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log
+
+tests/test_stage5a_capture_bundle.py:100: BundleRejected
+______ ERROR at setup of test_toxic_png_mutations_are_rejected[one_byte] _______
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+>           status = path.lstat()
+                     ^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:98: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+
+    def lstat(self):
+        """
+        Like stat(), except if the path points to a symlink, the symlink's
+        status information is returned, rather than its target's.
+        """
+>       return os.lstat(self)
+               ^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log'
+
+/usr/lib/python3.14/pathlib/__init__.py:661: FileNotFoundError
+
+The above exception was the direct cause of the following exception:
+
+    @pytest.fixture(scope="module")
+    def accepted_result() -> dict[str, Any]:
+>       return _parse_result_log()
+               ^^^^^^^^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:398: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_stage5a_capture_bundle.py:158: in _parse_result_log
+    raw = _read_regular_no_symlink(path, 1_048_576).decode("utf-8")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+            status = path.lstat()
+        except OSError as exc:
+>           raise BundleRejected(f"missing artifact: {path}") from exc
+E           test_stage5a_capture_bundle.BundleRejected: missing artifact: /mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log
+
+tests/test_stage5a_capture_bundle.py:100: BundleRejected
+____ ERROR at setup of test_toxic_png_mutations_are_rejected[bad_signature] ____
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+>           status = path.lstat()
+                     ^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:98: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+
+    def lstat(self):
+        """
+        Like stat(), except if the path points to a symlink, the symlink's
+        status information is returned, rather than its target's.
+        """
+>       return os.lstat(self)
+               ^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log'
+
+/usr/lib/python3.14/pathlib/__init__.py:661: FileNotFoundError
+
+The above exception was the direct cause of the following exception:
+
+    @pytest.fixture(scope="module")
+    def accepted_result() -> dict[str, Any]:
+>       return _parse_result_log()
+               ^^^^^^^^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:398: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_stage5a_capture_bundle.py:158: in _parse_result_log
+    raw = _read_regular_no_symlink(path, 1_048_576).decode("utf-8")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+            status = path.lstat()
+        except OSError as exc:
+>           raise BundleRejected(f"missing artifact: {path}") from exc
+E           test_stage5a_capture_bundle.BundleRejected: missing artifact: /mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log
+
+tests/test_stage5a_capture_bundle.py:100: BundleRejected
+______ ERROR at setup of test_toxic_png_mutations_are_rejected[malformed] ______
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+>           status = path.lstat()
+                     ^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:98: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+
+    def lstat(self):
+        """
+        Like stat(), except if the path points to a symlink, the symlink's
+        status information is returned, rather than its target's.
+        """
+>       return os.lstat(self)
+               ^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log'
+
+/usr/lib/python3.14/pathlib/__init__.py:661: FileNotFoundError
+
+The above exception was the direct cause of the following exception:
+
+    @pytest.fixture(scope="module")
+    def accepted_result() -> dict[str, Any]:
+>       return _parse_result_log()
+               ^^^^^^^^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:398: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_stage5a_capture_bundle.py:158: in _parse_result_log
+    raw = _read_regular_no_symlink(path, 1_048_576).decode("utf-8")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+            status = path.lstat()
+        except OSError as exc:
+>           raise BundleRejected(f"missing artifact: {path}") from exc
+E           test_stage5a_capture_bundle.BundleRejected: missing artifact: /mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log
+
+tests/test_stage5a_capture_bundle.py:100: BundleRejected
+___ ERROR at setup of test_toxic_png_mutations_are_rejected[duplicate_ihdr] ____
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+>           status = path.lstat()
+                     ^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:98: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+
+    def lstat(self):
+        """
+        Like stat(), except if the path points to a symlink, the symlink's
+        status information is returned, rather than its target's.
+        """
+>       return os.lstat(self)
+               ^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log'
+
+/usr/lib/python3.14/pathlib/__init__.py:661: FileNotFoundError
+
+The above exception was the direct cause of the following exception:
+
+    @pytest.fixture(scope="module")
+    def accepted_result() -> dict[str, Any]:
+>       return _parse_result_log()
+               ^^^^^^^^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:398: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_stage5a_capture_bundle.py:158: in _parse_result_log
+    raw = _read_regular_no_symlink(path, 1_048_576).decode("utf-8")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+            status = path.lstat()
+        except OSError as exc:
+>           raise BundleRejected(f"missing artifact: {path}") from exc
+E           test_stage5a_capture_bundle.BundleRejected: missing artifact: /mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log
+
+tests/test_stage5a_capture_bundle.py:100: BundleRejected
+_ ERROR at setup of test_toxic_image_path_traversal_or_substitution_is_rejected[../outside.png] _
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+>           status = path.lstat()
+                     ^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:98: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+
+    def lstat(self):
+        """
+        Like stat(), except if the path points to a symlink, the symlink's
+        status information is returned, rather than its target's.
+        """
+>       return os.lstat(self)
+               ^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log'
+
+/usr/lib/python3.14/pathlib/__init__.py:661: FileNotFoundError
+
+The above exception was the direct cause of the following exception:
+
+    @pytest.fixture(scope="module")
+    def accepted_result() -> dict[str, Any]:
+>       return _parse_result_log()
+               ^^^^^^^^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:398: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_stage5a_capture_bundle.py:158: in _parse_result_log
+    raw = _read_regular_no_symlink(path, 1_048_576).decode("utf-8")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+            status = path.lstat()
+        except OSError as exc:
+>           raise BundleRejected(f"missing artifact: {path}") from exc
+E           test_stage5a_capture_bundle.BundleRejected: missing artifact: /mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log
+
+tests/test_stage5a_capture_bundle.py:100: BundleRejected
+_ ERROR at setup of test_toxic_image_path_traversal_or_substitution_is_rejected[/tmp/outside.png] _
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+>           status = path.lstat()
+                     ^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:98: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+
+    def lstat(self):
+        """
+        Like stat(), except if the path points to a symlink, the symlink's
+        status information is returned, rather than its target's.
+        """
+>       return os.lstat(self)
+               ^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log'
+
+/usr/lib/python3.14/pathlib/__init__.py:661: FileNotFoundError
+
+The above exception was the direct cause of the following exception:
+
+    @pytest.fixture(scope="module")
+    def accepted_result() -> dict[str, Any]:
+>       return _parse_result_log()
+               ^^^^^^^^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:398: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_stage5a_capture_bundle.py:158: in _parse_result_log
+    raw = _read_regular_no_symlink(path, 1_048_576).decode("utf-8")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+            status = path.lstat()
+        except OSError as exc:
+>           raise BundleRejected(f"missing artifact: {path}") from exc
+E           test_stage5a_capture_bundle.BundleRejected: missing artifact: /mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log
+
+tests/test_stage5a_capture_bundle.py:100: BundleRejected
+_ ERROR at setup of test_toxic_image_path_traversal_or_substitution_is_rejected[snapshots/../outside.png] _
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+>           status = path.lstat()
+                     ^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:98: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+
+    def lstat(self):
+        """
+        Like stat(), except if the path points to a symlink, the symlink's
+        status information is returned, rather than its target's.
+        """
+>       return os.lstat(self)
+               ^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log'
+
+/usr/lib/python3.14/pathlib/__init__.py:661: FileNotFoundError
+
+The above exception was the direct cause of the following exception:
+
+    @pytest.fixture(scope="module")
+    def accepted_result() -> dict[str, Any]:
+>       return _parse_result_log()
+               ^^^^^^^^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:398: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_stage5a_capture_bundle.py:158: in _parse_result_log
+    raw = _read_regular_no_symlink(path, 1_048_576).decode("utf-8")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+            status = path.lstat()
+        except OSError as exc:
+>           raise BundleRejected(f"missing artifact: {path}") from exc
+E           test_stage5a_capture_bundle.BundleRejected: missing artifact: /mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log
+
+tests/test_stage5a_capture_bundle.py:100: BundleRejected
+_ ERROR at setup of test_toxic_image_path_traversal_or_substitution_is_rejected[snapshots\\outside.png] _
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+>           status = path.lstat()
+                     ^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:98: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+
+    def lstat(self):
+        """
+        Like stat(), except if the path points to a symlink, the symlink's
+        status information is returned, rather than its target's.
+        """
+>       return os.lstat(self)
+               ^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log'
+
+/usr/lib/python3.14/pathlib/__init__.py:661: FileNotFoundError
+
+The above exception was the direct cause of the following exception:
+
+    @pytest.fixture(scope="module")
+    def accepted_result() -> dict[str, Any]:
+>       return _parse_result_log()
+               ^^^^^^^^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:398: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_stage5a_capture_bundle.py:158: in _parse_result_log
+    raw = _read_regular_no_symlink(path, 1_048_576).decode("utf-8")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+            status = path.lstat()
+        except OSError as exc:
+>           raise BundleRejected(f"missing artifact: {path}") from exc
+E           test_stage5a_capture_bundle.BundleRejected: missing artifact: /mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log
+
+tests/test_stage5a_capture_bundle.py:100: BundleRejected
+_ ERROR at setup of test_toxic_image_path_traversal_or_substitution_is_rejected[snapshots/nested/outside.png] _
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+>           status = path.lstat()
+                     ^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:98: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+
+    def lstat(self):
+        """
+        Like stat(), except if the path points to a symlink, the symlink's
+        status information is returned, rather than its target's.
+        """
+>       return os.lstat(self)
+               ^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log'
+
+/usr/lib/python3.14/pathlib/__init__.py:661: FileNotFoundError
+
+The above exception was the direct cause of the following exception:
+
+    @pytest.fixture(scope="module")
+    def accepted_result() -> dict[str, Any]:
+>       return _parse_result_log()
+               ^^^^^^^^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:398: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_stage5a_capture_bundle.py:158: in _parse_result_log
+    raw = _read_regular_no_symlink(path, 1_048_576).decode("utf-8")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+            status = path.lstat()
+        except OSError as exc:
+>           raise BundleRejected(f"missing artifact: {path}") from exc
+E           test_stage5a_capture_bundle.BundleRejected: missing artifact: /mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log
+
+tests/test_stage5a_capture_bundle.py:100: BundleRejected
+________ ERROR at setup of test_toxic_symlink_substitution_is_rejected _________
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+>           status = path.lstat()
+                     ^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:98: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+
+    def lstat(self):
+        """
+        Like stat(), except if the path points to a symlink, the symlink's
+        status information is returned, rather than its target's.
+        """
+>       return os.lstat(self)
+               ^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log'
+
+/usr/lib/python3.14/pathlib/__init__.py:661: FileNotFoundError
+
+The above exception was the direct cause of the following exception:
+
+    @pytest.fixture(scope="module")
+    def accepted_result() -> dict[str, Any]:
+>       return _parse_result_log()
+               ^^^^^^^^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:398: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_stage5a_capture_bundle.py:158: in _parse_result_log
+    raw = _read_regular_no_symlink(path, 1_048_576).decode("utf-8")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+            status = path.lstat()
+        except OSError as exc:
+>           raise BundleRejected(f"missing artifact: {path}") from exc
+E           test_stage5a_capture_bundle.BundleRejected: missing artifact: /mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log
+
+tests/test_stage5a_capture_bundle.py:100: BundleRejected
+_ ERROR at setup of test_toxic_metadata_from_capture_a_with_image_b_is_rejected _
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+>           status = path.lstat()
+                     ^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:98: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+
+    def lstat(self):
+        """
+        Like stat(), except if the path points to a symlink, the symlink's
+        status information is returned, rather than its target's.
+        """
+>       return os.lstat(self)
+               ^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log'
+
+/usr/lib/python3.14/pathlib/__init__.py:661: FileNotFoundError
+
+The above exception was the direct cause of the following exception:
+
+    @pytest.fixture(scope="module")
+    def accepted_result() -> dict[str, Any]:
+>       return _parse_result_log()
+               ^^^^^^^^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:398: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_stage5a_capture_bundle.py:158: in _parse_result_log
+    raw = _read_regular_no_symlink(path, 1_048_576).decode("utf-8")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+            status = path.lstat()
+        except OSError as exc:
+>           raise BundleRejected(f"missing artifact: {path}") from exc
+E           test_stage5a_capture_bundle.BundleRejected: missing artifact: /mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log
+
+tests/test_stage5a_capture_bundle.py:100: BundleRejected
+_ ERROR at setup of test_toxic_perception_cannot_claim_full_result_without_provider_attachment _
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+>           status = path.lstat()
+                     ^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:98: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+
+    def lstat(self):
+        """
+        Like stat(), except if the path points to a symlink, the symlink's
+        status information is returned, rather than its target's.
+        """
+>       return os.lstat(self)
+               ^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log'
+
+/usr/lib/python3.14/pathlib/__init__.py:661: FileNotFoundError
+
+The above exception was the direct cause of the following exception:
+
+    @pytest.fixture(scope="module")
+    def accepted_result() -> dict[str, Any]:
+>       return _parse_result_log()
+               ^^^^^^^^^^^^^^^^^^^
+
+tests/test_stage5a_capture_bundle.py:398: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_stage5a_capture_bundle.py:158: in _parse_result_log
+    raw = _read_regular_no_symlink(path, 1_048_576).decode("utf-8")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log')
+maximum = 1048576
+
+    def _read_regular_no_symlink(path: Path, maximum: int) -> bytes:
+        try:
+            status = path.lstat()
+        except OSError as exc:
+>           raise BundleRejected(f"missing artifact: {path}") from exc
+E           test_stage5a_capture_bundle.BundleRejected: missing artifact: /mnt/data-drive/engain-avatar-audit/ENGAV3D-0003-STAGE5A-PRODUCER.log
+
+tests/test_stage5a_capture_bundle.py:100: BundleRejected
+=================================== FAILURES ===================================
+_____________ test_stage5a_producer_has_no_provider_dispatch_route _____________
+STAGE5A_RED: scripts/PerceptionCapture3D.gd does not exist
+=========================== short test summary info ============================
+FAILED tests/test_stage5a_capture_bundle.py::test_stage5a_producer_has_no_provider_dispatch_route
+ERROR tests/test_stage5a_capture_bundle.py::test_capture_png_and_metadata_are_independently_validated
+ERROR tests/test_stage5a_capture_bundle.py::test_generated_ids_match_frozen_formats_and_correlate
+ERROR tests/test_stage5a_capture_bundle.py::test_persisted_png_signature_ihdr_dimensions_and_hash_are_exact
+ERROR tests/test_stage5a_capture_bundle.py::test_toxic_stale_or_wrong_identifiers_are_rejected[request_id-req_ffffffffffffffffffffffffffffffff]
+ERROR tests/test_stage5a_capture_bundle.py::test_toxic_stale_or_wrong_identifiers_are_rejected[client_request_id-dragon3d_ffffffffffffffffffffffffffffffff_9]
+ERROR tests/test_stage5a_capture_bundle.py::test_toxic_stale_or_wrong_identifiers_are_rejected[capture_id-cap_ffffffffffffffffffffffffffffffff_9]
+ERROR tests/test_stage5a_capture_bundle.py::test_toxic_wrong_identity_is_rejected[session_id-wrong_session]
+ERROR tests/test_stage5a_capture_bundle.py::test_toxic_wrong_identity_is_rejected[scene_path-res://scenes/DragonAvatar3D.tscn]
+ERROR tests/test_stage5a_capture_bundle.py::test_toxic_wrong_identity_is_rejected[dragon_scene_path-res://scenes/Main.tscn]
+ERROR tests/test_stage5a_capture_bundle.py::test_toxic_wrong_identity_is_rejected[project_id-engain_avatar]
+ERROR tests/test_stage5a_capture_bundle.py::test_toxic_wrong_or_zero_dimensions_are_rejected[width]
+ERROR tests/test_stage5a_capture_bundle.py::test_toxic_wrong_or_zero_dimensions_are_rejected[height]
+ERROR tests/test_stage5a_capture_bundle.py::test_toxic_wrong_hash_is_rejected
+ERROR tests/test_stage5a_capture_bundle.py::test_toxic_png_mutations_are_rejected[one_byte]
+ERROR tests/test_stage5a_capture_bundle.py::test_toxic_png_mutations_are_rejected[bad_signature]
+ERROR tests/test_stage5a_capture_bundle.py::test_toxic_png_mutations_are_rejected[malformed]
+ERROR tests/test_stage5a_capture_bundle.py::test_toxic_png_mutations_are_rejected[duplicate_ihdr]
+ERROR tests/test_stage5a_capture_bundle.py::test_toxic_image_path_traversal_or_substitution_is_rejected[../outside.png]
+ERROR tests/test_stage5a_capture_bundle.py::test_toxic_image_path_traversal_or_substitution_is_rejected[/tmp/outside.png]
+ERROR tests/test_stage5a_capture_bundle.py::test_toxic_image_path_traversal_or_substitution_is_rejected[snapshots/../outside.png]
+ERROR tests/test_stage5a_capture_bundle.py::test_toxic_image_path_traversal_or_substitution_is_rejected[snapshots\\outside.png]
+ERROR tests/test_stage5a_capture_bundle.py::test_toxic_image_path_traversal_or_substitution_is_rejected[snapshots/nested/outside.png]
+ERROR tests/test_stage5a_capture_bundle.py::test_toxic_symlink_substitution_is_rejected
+ERROR tests/test_stage5a_capture_bundle.py::test_toxic_metadata_from_capture_a_with_image_b_is_rejected
+ERROR tests/test_stage5a_capture_bundle.py::test_toxic_perception_cannot_claim_full_result_without_provider_attachment
+1 failed, 25 errors in 0.91s

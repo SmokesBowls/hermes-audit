@@ -1,0 +1,45 @@
+{
+  "billing_provider": "openai-codex",
+  "label": "launch-immediate-before",
+  "lookup_timestamp": "2026-08-10T01:52:30.868054+00:00",
+  "max_message_id": 27389,
+  "message_count": 67,
+  "messages_table_columns": [
+    "id",
+    "session_id",
+    "role",
+    "content",
+    "tool_call_id",
+    "tool_calls",
+    "tool_name",
+    "timestamp",
+    "token_count",
+    "finish_reason",
+    "reasoning",
+    "reasoning_content",
+    "reasoning_details",
+    "codex_reasoning_items",
+    "codex_message_items",
+    "platform_message_id",
+    "observed",
+    "effect_disposition",
+    "active",
+    "compacted",
+    "api_content",
+    "display_kind",
+    "display_metadata"
+  ],
+  "model": "gpt-5.6-sol",
+  "profile": "default",
+  "schema": "engav3d.stage5b_live_session_state.v1",
+  "session_id": "20260731_065008_63a62d",
+  "session_model_usage": [
+    {
+      "billing_provider": "openai-codex",
+      "model": "gpt-5.6-sol",
+      "session_id": "20260731_065008_63a62d"
+    }
+  ],
+  "source": "tool",
+  "state_database": "/home/mytruelove/.hermes/state.db"
+}

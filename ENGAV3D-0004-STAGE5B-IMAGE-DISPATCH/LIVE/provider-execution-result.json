@@ -1,0 +1,15 @@
+{
+  "finished_at": "2026-08-10T01:52:49.282873+00:00",
+  "provider_invocations_attempted": 1,
+  "provider_invocations_remaining": 0,
+  "retry_authorized": false,
+  "return_code": 0,
+  "schema": "engav3d.stage5b_provider_execution_result.v1",
+  "started_at": "2026-08-10T01:52:30.896974+00:00",
+  "stderr_bytes": 117,
+  "stderr_sha256": "2e21cd39c237b4acbb7608850443791f2fa5ca3d19dc326849790cda8f427611",
+  "stdout_bytes": 1130,
+  "stdout_sha256": "5effdb3f2cd3f063f0d772bfdb74473f0ac3cb29a42474ee7a2d1574815c792c",
+  "timed_out": false,
+  "timeout_seconds": 180
+}

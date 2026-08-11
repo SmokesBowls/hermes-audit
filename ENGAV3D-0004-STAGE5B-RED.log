@@ -1,0 +1,64 @@
+.FFFFFFFFFFFFFFFFFFFF                                                    [100%]
+=================================== FAILURES ===================================
+_ test_prepare_image_dispatch_is_public_reuses_validation_and_returns_exact_argv _
+STAGE5B_INTENTIONAL_RED: public prepare_image_dispatch boundary is absent
+___________________ test_wrong_dragon_scene_path_is_rejected ___________________
+STAGE5B_INTENTIONAL_RED: public prepare_image_dispatch boundary is absent
+______________________ test_changed_png_byte_is_rejected _______________________
+STAGE5B_INTENTIONAL_RED: public prepare_image_dispatch boundary is absent
+___________________ test_incorrect_image_sha256_is_rejected ____________________
+STAGE5B_INTENTIONAL_RED: public prepare_image_dispatch boundary is absent
+______________________ test_wrong_request_id_is_rejected _______________________
+STAGE5B_INTENTIONAL_RED: public prepare_image_dispatch boundary is absent
+___________________ test_wrong_client_request_id_is_rejected ___________________
+STAGE5B_INTENTIONAL_RED: public prepare_image_dispatch boundary is absent
+______________________ test_wrong_capture_id_is_rejected _______________________
+STAGE5B_INTENTIONAL_RED: public prepare_image_dispatch boundary is absent
+______________________ test_wrong_session_id_is_rejected _______________________
+STAGE5B_INTENTIONAL_RED: public prepare_image_dispatch boundary is absent
+________ test_wrong_host_identity_is_rejected[project_id-engain_avatar] ________
+STAGE5B_INTENTIONAL_RED: public prepare_image_dispatch boundary is absent
+_ test_wrong_host_identity_is_rejected[scene_path-res://scenes/DragonAvatar3D.tscn] _
+STAGE5B_INTENTIONAL_RED: public prepare_image_dispatch boundary is absent
+________________ test_wrong_dimensions_are_rejected[width-1153] ________________
+STAGE5B_INTENTIONAL_RED: public prepare_image_dispatch boundary is absent
+________________ test_wrong_dimensions_are_rejected[height-649] ________________
+STAGE5B_INTENTIONAL_RED: public prepare_image_dispatch boundary is absent
+_________________________ test_missing_png_is_rejected _________________________
+STAGE5B_INTENTIONAL_RED: public prepare_image_dispatch boundary is absent
+__________________ test_empty_or_malformed_png_is_rejected[] ___________________
+STAGE5B_INTENTIONAL_RED: public prepare_image_dispatch boundary is absent
+______________ test_empty_or_malformed_png_is_rejected[not a PNG] ______________
+STAGE5B_INTENTIONAL_RED: public prepare_image_dispatch boundary is absent
+__________________ test_valid_but_substituted_png_is_rejected __________________
+STAGE5B_INTENTIONAL_RED: public prepare_image_dispatch boundary is absent
+_________________ test_path_outside_snapshots_root_is_rejected _________________
+STAGE5B_INTENTIONAL_RED: public prepare_image_dispatch boundary is absent
+____________________ test_symlink_substitution_is_rejected _____________________
+STAGE5B_INTENTIONAL_RED: public prepare_image_dispatch boundary is absent
+_____ test_metadata_from_one_capture_referencing_another_image_is_rejected _____
+STAGE5B_INTENTIONAL_RED: public prepare_image_dispatch boundary is absent
+_________ test_stale_artifacts_replayed_under_altered_ids_are_rejected _________
+STAGE5B_INTENTIONAL_RED: public prepare_image_dispatch boundary is absent
+=========================== short test summary info ============================
+FAILED tests/test_stage5b_image_dispatch.py::test_prepare_image_dispatch_is_public_reuses_validation_and_returns_exact_argv
+FAILED tests/test_stage5b_image_dispatch.py::test_wrong_dragon_scene_path_is_rejected
+FAILED tests/test_stage5b_image_dispatch.py::test_changed_png_byte_is_rejected
+FAILED tests/test_stage5b_image_dispatch.py::test_incorrect_image_sha256_is_rejected
+FAILED tests/test_stage5b_image_dispatch.py::test_wrong_request_id_is_rejected
+FAILED tests/test_stage5b_image_dispatch.py::test_wrong_client_request_id_is_rejected
+FAILED tests/test_stage5b_image_dispatch.py::test_wrong_capture_id_is_rejected
+FAILED tests/test_stage5b_image_dispatch.py::test_wrong_session_id_is_rejected
+FAILED tests/test_stage5b_image_dispatch.py::test_wrong_host_identity_is_rejected[project_id-engain_avatar]
+FAILED tests/test_stage5b_image_dispatch.py::test_wrong_host_identity_is_rejected[scene_path-res://scenes/DragonAvatar3D.tscn]
+FAILED tests/test_stage5b_image_dispatch.py::test_wrong_dimensions_are_rejected[width-1153]
+FAILED tests/test_stage5b_image_dispatch.py::test_wrong_dimensions_are_rejected[height-649]
+FAILED tests/test_stage5b_image_dispatch.py::test_missing_png_is_rejected - F...
+FAILED tests/test_stage5b_image_dispatch.py::test_empty_or_malformed_png_is_rejected[]
+FAILED tests/test_stage5b_image_dispatch.py::test_empty_or_malformed_png_is_rejected[not a PNG]
+FAILED tests/test_stage5b_image_dispatch.py::test_valid_but_substituted_png_is_rejected
+FAILED tests/test_stage5b_image_dispatch.py::test_path_outside_snapshots_root_is_rejected
+FAILED tests/test_stage5b_image_dispatch.py::test_symlink_substitution_is_rejected
+FAILED tests/test_stage5b_image_dispatch.py::test_metadata_from_one_capture_referencing_another_image_is_rejected
+FAILED tests/test_stage5b_image_dispatch.py::test_stale_artifacts_replayed_under_altered_ids_are_rejected
+20 failed, 1 passed in 0.09s

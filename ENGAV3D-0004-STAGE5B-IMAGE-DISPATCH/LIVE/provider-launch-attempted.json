@@ -1,0 +1,7 @@
+{
+  "attempt_number": 1,
+  "maximum_authorized_attempts": 1,
+  "retry_authorized": false,
+  "schema": "engav3d.stage5b_provider_launch_attempt.v1",
+  "timestamp": "2026-08-10T01:52:30.893975+00:00"
+}

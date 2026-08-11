@@ -1,0 +1,10 @@
+{
+  "attempted": 1,
+  "authorized": 1,
+  "remaining": 0,
+  "retry_authorized": false,
+  "return_code": 0,
+  "schema": "engav3d.stage5b_provider_request_consumption.v1",
+  "timed_out": false,
+  "timestamp": "2026-08-10T01:52:49.285374+00:00"
+}

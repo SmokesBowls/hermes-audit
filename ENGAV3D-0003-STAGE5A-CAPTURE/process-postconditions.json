@@ -1,0 +1,13 @@
+{
+  "active_frozen_provider_dispatches": {},
+  "baseline_pids": [
+    13558,
+    557554
+  ],
+  "current_matching_processes": {
+    "13558": "/home/mytruelove/.hermes/hermes-agent/venv/bin/python3 /home/mytruelove/.hermes/hermes-agent/venv/bin/hermes chat"
+  },
+  "new_hermes_or_adapter_pids": [],
+  "provider_requests_launched_by_stage5a": 0,
+  "remaining_stage5a_godot_processes": {}
+}

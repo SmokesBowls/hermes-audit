@@ -1,0 +1,19 @@
+usage: hermes_session_adapter.py [-h] [--project-dir PROJECT_DIR]
+                                 [--provider PROVIDER] [--model MODEL]
+                                 [--timeout TIMEOUT] [--poll POLL]
+                                 [--state-file STATE_FILE]
+                                 [--pid-file PID_FILE] [--once]
+
+Hermes provider worker for the existing EngAIn file bridge
+
+options:
+  -h, --help            show this help message and exit
+  --project-dir PROJECT_DIR
+  --provider PROVIDER
+  --model MODEL
+  --timeout TIMEOUT
+  --poll POLL
+  --state-file STATE_FILE
+  --pid-file PID_FILE
+  --once                process at most one currently available request and
+                        exit

@@ -1,0 +1,24 @@
+Stage 6B — COMPLETE / LIVE MAILBOX ROUND-TRIP PROVEN
+
+Godot -> mailbox: PROVEN
+mailbox -> adapter: PROVEN
+adapter -> frozen Hermes session: PROVEN
+Hermes -> response: PROVEN
+response -> Godot: PROVEN
+Godot -> existing HUD: PROVEN
+processed exactly once: PROVEN
+
+Provider:
+authorized=1
+attempted=1
+remaining=0
+retry=false
+
+Request:
+req_2a39e83f1910d77d020af67155f82399
+
+Session:
+20260731_065008_63a62d
+
+HUD screenshot SHA-256:
+20005b1f30596d6ff1366fd69c752864b51392ccc4efd9116a66905eab7b6301

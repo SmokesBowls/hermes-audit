@@ -1,0 +1,465 @@
+FFFFFFFFFFFFFFF..FFFFFFFFFFFFFF.F..........                              [100%]
+=================================== FAILURES ===================================
+__________ test_publish_request_cli_route_is_public_and_provider_free __________
+
+adapter_module = <module 'stage6a_mailbox_adapter' from '/mnt/data-drive/godot_engain_3d_avatar/hermes_session_adapter.py'>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f400eec2060>
+tmp_path = PosixPath('/mnt/data-drive/EngAIn_Recovery/07_TMP/pytest-of-mytruelove/pytest-372/test_publish_request_cli_route0')
+
+    def test_publish_request_cli_route_is_public_and_provider_free(
+        adapter_module: Any,
+        monkeypatch: pytest.MonkeyPatch,
+        tmp_path: Path,
+    ) -> None:
+        temporary = _write_temp(tmp_path)
+        calls: list[Path] = []
+    
+        def fake_publish(path: Path) -> Path:
+            calls.append(Path(path))
+            return tmp_path / FINAL_REQUEST_BASENAME
+    
+        monkeypatch.setattr(adapter_module, "publish_request", fake_publish, raising=False)
+>       result = adapter_module.main(["--publish-request", str(temporary.resolve())])
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_stage6a_mailbox_filesystem.py:142: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+hermes_session_adapter.py:2157: in main
+    args = parse_args(effective_argv)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+hermes_session_adapter.py:2120: in parse_args
+    return parser.parse_args(argv)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.14/argparse.py:2009: in parse_args
+    self.error(msg)
+/usr/lib/python3.14/argparse.py:2782: in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = ArgumentParser(prog='python -m pytest', usage=None, description='Hermes provider worker for the existing EngAIn file bridge', formatter_class=<class 'argparse.HelpFormatter'>, conflict_handler='error', add_help=True)
+status = 2
+message = 'python -m pytest: error: unrecognized arguments: --publish-request /mnt/data-drive/EngAIn_Recovery/07_TMP/pytest-of-mytruelove/pytest-372/test_publish_request_cli_route0/.engain_request.req_0123456789abcdef0123456789abcdef.tmp\n'
+
+    def exit(self, status=0, message=None):
+        if message:
+            self._print_message(message, _sys.stderr)
+>       _sys.exit(status)
+E       SystemExit: 2
+
+/usr/lib/python3.14/argparse.py:2769: SystemExit
+----------------------------- Captured stderr call -----------------------------
+usage: python -m pytest [-h] [--project-dir PROJECT_DIR] [--provider PROVIDER]
+                        [--model MODEL] [--timeout TIMEOUT] [--poll POLL]
+                        [--state-file STATE_FILE] [--pid-file PID_FILE]
+                        [--once]
+python -m pytest: error: unrecognized arguments: --publish-request /mnt/data-drive/EngAIn_Recovery/07_TMP/pytest-of-mytruelove/pytest-372/test_publish_request_cli_route0/.engain_request.req_0123456789abcdef0123456789abcdef.tmp
+_____________________ test_exact_temp_basename_is_required _____________________
+STAGE6A_INTENTIONAL_RED: public provider-free publish_request helper is absent
+______ test_temporary_path_must_be_absolute_and_confined_to_project_root _______
+STAGE6A_INTENTIONAL_RED: public provider-free publish_request helper is absent
+_________ test_symlink_temporary_is_rejected_and_only_link_is_cleaned __________
+STAGE6A_INTENTIONAL_RED: public provider-free publish_request helper is absent
+______________ test_nonregular_temporary_is_rejected_and_cleaned _______________
+STAGE6A_INTENTIONAL_RED: public provider-free publish_request helper is absent
+_______________ test_strict_request_json_is_required[not-json\n] _______________
+STAGE6A_INTENTIONAL_RED: public provider-free publish_request helper is absent
+_ test_strict_request_json_is_required[{"request_id":"a","request_id":"b"}\n] __
+STAGE6A_INTENTIONAL_RED: public provider-free publish_request helper is absent
+__________ test_strict_request_json_is_required[{"timestamp":NaN}\n] ___________
+STAGE6A_INTENTIONAL_RED: public provider-free publish_request helper is absent
+__________________ test_strict_request_json_is_required[[]\n] __________________
+STAGE6A_INTENTIONAL_RED: public provider-free publish_request helper is absent
+_ test_strict_request_json_is_required[{"player_input":"Stage 6A mailbox fixture","game_state":{},"additional_context":{"client_request_id":"dragon3d_0123456789abcdef0123456789abcdef_1","companion_ref":"hermes_b","perception":{"schema":"engain.runtime_perception.v1","perception_state":"unavailable","capture_id":"cap_0123456789abcdef0123456789abcdef_1","capture_event":"message_received","capture_phase":"pre_dispatch_player_view.v1","captured_at":1.0,"project_id":"godot_3d_avatar","scene_path":"res://scenes/Main.tscn","snapshot":null,"viewport":{"availability":"unavailable","image_path":null,"image_sha256":null,"media_type":null,"width":null,"height":null,"reason":"viewport_unavailable"},"unavailable_reason":"viewport_unavailable"}},"timestamp":1.0,"request_id":"req_0123456789abcdef0123456789abcdef","unknown":true}\n] _
+STAGE6A_INTENTIONAL_RED: public provider-free publish_request helper is absent
+___________________ test_request_id_must_match_temp_filename ___________________
+STAGE6A_INTENTIONAL_RED: public provider-free publish_request helper is absent
+__ test_publication_fsyncs_before_atomic_hard_link_and_fsyncs_directory_twice __
+STAGE6A_INTENTIONAL_RED: public provider-free publish_request helper is absent
+________ test_finalized_request_is_the_exact_validated_inode_and_bytes _________
+STAGE6A_INTENTIONAL_RED: public provider-free publish_request helper is absent
+______ test_final_request_collision_never_overwrites_and_cleans_new_temp _______
+STAGE6A_INTENTIONAL_RED: public provider-free publish_request helper is absent
+___ test_publication_failure_cleans_only_exact_temp_and_never_creates_final ____
+STAGE6A_INTENTIONAL_RED: public provider-free publish_request helper is absent
+_______________ test_legacy_http_transport_is_completely_absent ________________
+
+    def test_legacy_http_transport_is_completely_absent() -> None:
+        forbidden = (
+            "server_base_url",
+            "HTTPRequest",
+            "HTTPClient",
+            "/v1/engain/parse",
+            "http://127.0.0.1:8081",
+        )
+        present = [value for value in forbidden if value in SOURCE]
+>       assert present == [], f"legacy HTTP surface remains active: {present}"
+E       AssertionError: legacy HTTP surface remains active: ['server_base_url', 'HTTPRequest', 'HTTPClient', '/v1/engain/parse', 'http://127.0.0.1:8081']
+E       assert ['server_base...7.0.0.1:8081'] == []
+E         
+E         Left contains 5 more items, first extra item: 'server_base_url'
+E         Use -v to get more diff
+
+tests/test_stage6a_godot_mailbox_bridge.py:118: AssertionError
+______ test_frozen_mailbox_paths_timeout_polling_and_session_are_explicit ______
+
+    def test_frozen_mailbox_paths_timeout_polling_and_session_are_explicit() -> None:
+>       _require_all(
+            REQUEST_PATH,
+            RESPONSE_PATH,
+            SESSION_ID,
+            "180.0",
+            "0.1",
+            "Time.get_ticks_msec",
+        )
+
+tests/test_stage6a_godot_mailbox_bridge.py:122: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+fragments = ('/mnt/data-drive/godot_engain_3d_avatar/engain_request.json', '/mnt/data-drive/godot_engain_3d_avatar/engain_response.json', '20260731_065008_63a62d', '180.0', '0.1', 'Time.get_ticks_msec')
+missing = ['/mnt/data-drive/godot_engain_3d_avatar/engain_request.json', '/mnt/data-drive/godot_engain_3d_avatar/engain_response.json', '20260731_065008_63a62d', '180.0', 'Time.get_ticks_msec']
+@py_assert1 = False
+
+    def _require_all(*fragments: str) -> None:
+        missing = [fragment for fragment in fragments if fragment not in SOURCE]
+>       assert not missing, f"Stage 6A bridge surface is missing: {missing}"
+E       AssertionError: Stage 6A bridge surface is missing: ['/mnt/data-drive/godot_engain_3d_avatar/engain_request.json', '/mnt/data-drive/godot_engain_3d_avatar/engain_response.json', '20260731_065008_63a62d', '180.0', 'Time.get_ticks_msec']
+E       assert not ['/mnt/data-drive/godot_engain_3d_avatar/engain_request.json', '/mnt/data-drive/godot_engain_3d_avatar/engain_response.json', '20260731_065008_63a62d', '180.0', 'Time.get_ticks_msec']
+
+tests/test_stage6a_godot_mailbox_bridge.py:43: AssertionError
+___________ test_bridge_local_timestamp_session_authority_is_absent ____________
+
+    def test_bridge_local_timestamp_session_authority_is_absent() -> None:
+>       assert "_gen_session_id" not in SOURCE
+E       assert '_gen_session_id' not in '# scripts/E...mp + "_" + r'
+E         
+E         '_gen_session_id' is contained here:
+E           sion_id = _gen_session_id()
+E           
+E           	_emit_sys("Bridge ready. session_id=%s server=%s" % [session_id, server_base_url])
+E           
+E           func submit(text: String) -> void:...
+E         
+E         ...Full output truncated (118 lines hidden), use '-vv' to show
+
+tests/test_stage6a_godot_mailbox_bridge.py:133: AssertionError
+______ test_submission_has_one_active_lifecycle_and_checks_both_mailboxes ______
+
+    def test_submission_has_one_active_lifecycle_and_checks_both_mailboxes() -> None:
+>       _require_all(
+            "_active_request_id",
+            "_active_client_request_id",
+            "MAILBOX_BUSY",
+            "engain_request.json",
+            "engain_response.json",
+            ".engain_request.",
+            "--publish-request",
+        )
+
+tests/test_stage6a_godot_mailbox_bridge.py:139: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+fragments = ('_active_request_id', '_active_client_request_id', 'MAILBOX_BUSY', 'engain_request.json', 'engain_response.json', '.engain_request.', ...)
+missing = ['_active_request_id', '_active_client_request_id', 'MAILBOX_BUSY', 'engain_request.json', 'engain_response.json', '.engain_request.', ...]
+@py_assert1 = False
+
+    def _require_all(*fragments: str) -> None:
+        missing = [fragment for fragment in fragments if fragment not in SOURCE]
+>       assert not missing, f"Stage 6A bridge surface is missing: {missing}"
+E       AssertionError: Stage 6A bridge surface is missing: ['_active_request_id', '_active_client_request_id', 'MAILBOX_BUSY', 'engain_request.json', 'engain_response.json', '.engain_request.', '--publish-request']
+E       assert not ['_active_request_id', '_active_client_request_id', 'MAILBOX_BUSY', 'engain_request.json', 'engain_response.json', '.engain_request.', ...]
+
+tests/test_stage6a_godot_mailbox_bridge.py:43: AssertionError
+___________ test_request_builder_contains_exact_frozen_wire_surface ____________
+
+    def test_request_builder_contains_exact_frozen_wire_surface() -> None:
+>       _require_all(
+            '"player_input"',
+            '"game_state"',
+            '"additional_context"',
+            '"client_request_id"',
+            '"companion_ref"',
+            '"hermes_b"',
+            '"perception"',
+            '"timestamp"',
+            '"request_id"',
+            "req_",
+            "dragon3d_",
+        )
+
+tests/test_stage6a_godot_mailbox_bridge.py:153: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+fragments = ('"player_input"', '"game_state"', '"additional_context"', '"client_request_id"', '"companion_ref"', '"hermes_b"', ...)
+missing = ['"player_input"', '"game_state"', '"additional_context"', '"client_request_id"', '"companion_ref"', '"hermes_b"', ...]
+@py_assert1 = False
+
+    def _require_all(*fragments: str) -> None:
+        missing = [fragment for fragment in fragments if fragment not in SOURCE]
+>       assert not missing, f"Stage 6A bridge surface is missing: {missing}"
+E       AssertionError: Stage 6A bridge surface is missing: ['"player_input"', '"game_state"', '"additional_context"', '"client_request_id"', '"companion_ref"', '"hermes_b"', '"perception"', '"timestamp"', '"request_id"', 'req_', 'dragon3d_']
+E       assert not ['"player_input"', '"game_state"', '"additional_context"', '"client_request_id"', '"companion_ref"', '"hermes_b"', ...]
+
+tests/test_stage6a_godot_mailbox_bridge.py:43: AssertionError
+_____ test_request_publication_never_overwrites_request_or_unread_response _____
+
+    def test_request_publication_never_overwrites_request_or_unread_response() -> None:
+>       _require_all(
+            "FileAccess.file_exists",
+            "engain_request.json",
+            "engain_response.json",
+            "MAILBOX_BUSY",
+            "--publish-request",
+        )
+
+tests/test_stage6a_godot_mailbox_bridge.py:172: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+fragments = ('FileAccess.file_exists', 'engain_request.json', 'engain_response.json', 'MAILBOX_BUSY', '--publish-request')
+missing = ['FileAccess.file_exists', 'engain_request.json', 'engain_response.json', 'MAILBOX_BUSY', '--publish-request']
+@py_assert1 = False
+
+    def _require_all(*fragments: str) -> None:
+        missing = [fragment for fragment in fragments if fragment not in SOURCE]
+>       assert not missing, f"Stage 6A bridge surface is missing: {missing}"
+E       AssertionError: Stage 6A bridge surface is missing: ['FileAccess.file_exists', 'engain_request.json', 'engain_response.json', 'MAILBOX_BUSY', '--publish-request']
+E       assert not ['FileAccess.file_exists', 'engain_request.json', 'engain_response.json', 'MAILBOX_BUSY', '--publish-request']
+
+tests/test_stage6a_godot_mailbox_bridge.py:43: AssertionError
+__________ test_response_is_claimed_only_through_strict_local_helper ___________
+
+    def test_response_is_claimed_only_through_strict_local_helper() -> None:
+>       _require_all(
+            "--claim-response",
+            "ENGAIN_RESPONSE_JSON_BASE64=",
+            "Marshalls.base64_to_raw",
+            "engain_response.json",
+        )
+
+tests/test_stage6a_godot_mailbox_bridge.py:184: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+fragments = ('--claim-response', 'ENGAIN_RESPONSE_JSON_BASE64=', 'Marshalls.base64_to_raw', 'engain_response.json')
+missing = ['--claim-response', 'ENGAIN_RESPONSE_JSON_BASE64=', 'Marshalls.base64_to_raw', 'engain_response.json']
+@py_assert1 = False
+
+    def _require_all(*fragments: str) -> None:
+        missing = [fragment for fragment in fragments if fragment not in SOURCE]
+>       assert not missing, f"Stage 6A bridge surface is missing: {missing}"
+E       AssertionError: Stage 6A bridge surface is missing: ['--claim-response', 'ENGAIN_RESPONSE_JSON_BASE64=', 'Marshalls.base64_to_raw', 'engain_response.json']
+E       assert not ['--claim-response', 'ENGAIN_RESPONSE_JSON_BASE64=', 'Marshalls.base64_to_raw', 'engain_response.json']
+
+tests/test_stage6a_godot_mailbox_bridge.py:43: AssertionError
+___________ test_response_validator_names_every_exact_top_level_key ____________
+
+    def test_response_validator_names_every_exact_top_level_key() -> None:
+>       _require_all(*(f'"{key}"' for key in sorted(RESPONSE_KEYS)))
+
+tests/test_stage6a_godot_mailbox_bridge.py:194: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+fragments = ('"action_type"', '"client_request_id"', '"director_analysis"', '"entropy_impact"', '"narrative_response"', '"perception_result"', ...)
+missing = ['"action_type"', '"client_request_id"', '"director_analysis"', '"entropy_impact"', '"narrative_response"', '"perception_result"', ...]
+@py_assert1 = False
+
+    def _require_all(*fragments: str) -> None:
+        missing = [fragment for fragment in fragments if fragment not in SOURCE]
+>       assert not missing, f"Stage 6A bridge surface is missing: {missing}"
+E       AssertionError: Stage 6A bridge surface is missing: ['"action_type"', '"client_request_id"', '"director_analysis"', '"entropy_impact"', '"narrative_response"', '"perception_result"', '"provider_session_ref"', '"reasoning"', '"request_id"', '"state_changes"', '"timestamp"']
+E       assert not ['"action_type"', '"client_request_id"', '"director_analysis"', '"entropy_impact"', '"narrative_response"', '"perception_result"', ...]
+
+tests/test_stage6a_godot_mailbox_bridge.py:43: AssertionError
+__________ test_response_validator_correlates_request_and_client_ids ___________
+
+    def test_response_validator_correlates_request_and_client_ids() -> None:
+>       _require_all(
+            '"request_id"',
+            '"client_request_id"',
+            "_active_request_id",
+            "_active_client_request_id",
+        )
+
+tests/test_stage6a_godot_mailbox_bridge.py:199: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+fragments = ('"request_id"', '"client_request_id"', '_active_request_id', '_active_client_request_id')
+missing = ['"request_id"', '"client_request_id"', '_active_request_id', '_active_client_request_id']
+@py_assert1 = False
+
+    def _require_all(*fragments: str) -> None:
+        missing = [fragment for fragment in fragments if fragment not in SOURCE]
+>       assert not missing, f"Stage 6A bridge surface is missing: {missing}"
+E       AssertionError: Stage 6A bridge surface is missing: ['"request_id"', '"client_request_id"', '_active_request_id', '_active_client_request_id']
+E       assert not ['"request_id"', '"client_request_id"', '_active_request_id', '_active_client_request_id']
+
+tests/test_stage6a_godot_mailbox_bridge.py:43: AssertionError
+__________ test_response_validator_freezes_provider_model_and_session __________
+
+    def test_response_validator_freezes_provider_model_and_session() -> None:
+>       _require_all(
+            '"provider_session_ref"',
+            '"companion_ref"',
+            '"hermes_b"',
+            '"provider"',
+            '"openai-codex"',
+            '"model"',
+            '"gpt-5.6-sol"',
+            '"session_id"',
+            SESSION_ID,
+        )
+
+tests/test_stage6a_godot_mailbox_bridge.py:212: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+fragments = ('"provider_session_ref"', '"companion_ref"', '"hermes_b"', '"provider"', '"openai-codex"', '"model"', ...)
+missing = ['"provider_session_ref"', '"companion_ref"', '"hermes_b"', '"provider"', '"openai-codex"', '"model"', ...]
+@py_assert1 = False
+
+    def _require_all(*fragments: str) -> None:
+        missing = [fragment for fragment in fragments if fragment not in SOURCE]
+>       assert not missing, f"Stage 6A bridge surface is missing: {missing}"
+E       AssertionError: Stage 6A bridge surface is missing: ['"provider_session_ref"', '"companion_ref"', '"hermes_b"', '"provider"', '"openai-codex"', '"model"', '"gpt-5.6-sol"', '20260731_065008_63a62d']
+E       assert not ['"provider_session_ref"', '"companion_ref"', '"hermes_b"', '"provider"', '"openai-codex"', '"model"', ...]
+
+tests/test_stage6a_godot_mailbox_bridge.py:43: AssertionError
+_________ test_response_validator_enforces_observation_only_authority __________
+
+    def test_response_validator_enforces_observation_only_authority() -> None:
+>       _require_all(
+            '"action_type"',
+            '"OBSERVATION"',
+            '"state_changes"',
+            '"entropy_impact"',
+            "is_finite",
+        )
+
+tests/test_stage6a_godot_mailbox_bridge.py:226: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+fragments = ('"action_type"', '"OBSERVATION"', '"state_changes"', '"entropy_impact"', 'is_finite')
+missing = ['"action_type"', '"OBSERVATION"', '"state_changes"', '"entropy_impact"', 'is_finite']
+@py_assert1 = False
+
+    def _require_all(*fragments: str) -> None:
+        missing = [fragment for fragment in fragments if fragment not in SOURCE]
+>       assert not missing, f"Stage 6A bridge surface is missing: {missing}"
+E       AssertionError: Stage 6A bridge surface is missing: ['"action_type"', '"OBSERVATION"', '"state_changes"', '"entropy_impact"', 'is_finite']
+E       assert not ['"action_type"', '"OBSERVATION"', '"state_changes"', '"entropy_impact"', 'is_finite']
+
+tests/test_stage6a_godot_mailbox_bridge.py:43: AssertionError
+___________ test_malformed_and_unknown_response_content_is_rejected ____________
+
+    def test_malformed_and_unknown_response_content_is_rejected() -> None:
+>       _require_all(
+            "JSON.parse",
+            "get_error",
+            "TYPE_DICTIONARY",
+            "keys()",
+            "RESPONSE_SCHEMA",
+        )
+
+tests/test_stage6a_godot_mailbox_bridge.py:236: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+fragments = ('JSON.parse', 'get_error', 'TYPE_DICTIONARY', 'keys()', 'RESPONSE_SCHEMA')
+missing = ['get_error', 'keys()', 'RESPONSE_SCHEMA'], @py_assert1 = False
+
+    def _require_all(*fragments: str) -> None:
+        missing = [fragment for fragment in fragments if fragment not in SOURCE]
+>       assert not missing, f"Stage 6A bridge surface is missing: {missing}"
+E       AssertionError: Stage 6A bridge surface is missing: ['get_error', 'keys()', 'RESPONSE_SCHEMA']
+E       assert not ['get_error', 'keys()', 'RESPONSE_SCHEMA']
+
+tests/test_stage6a_godot_mailbox_bridge.py:43: AssertionError
+_____ test_stale_and_late_responses_are_claimed_discarded_and_never_spoken _____
+
+    def test_stale_and_late_responses_are_claimed_discarded_and_never_spoken() -> None:
+>       _require_all(
+            "--claim-response",
+            "stale",
+            "_active_request_id",
+            "dragon_speaking",
+            "log_line",
+        )
+
+tests/test_stage6a_godot_mailbox_bridge.py:247: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+fragments = ('--claim-response', 'stale', '_active_request_id', 'dragon_speaking', 'log_line')
+missing = ['--claim-response', 'stale', '_active_request_id']
+@py_assert1 = False
+
+    def _require_all(*fragments: str) -> None:
+        missing = [fragment for fragment in fragments if fragment not in SOURCE]
+>       assert not missing, f"Stage 6A bridge surface is missing: {missing}"
+E       AssertionError: Stage 6A bridge surface is missing: ['--claim-response', 'stale', '_active_request_id']
+E       assert not ['--claim-response', 'stale', '_active_request_id']
+
+tests/test_stage6a_godot_mailbox_bridge.py:43: AssertionError
+_________ test_timeout_ends_lifecycle_without_retry_or_file_overwrite __________
+
+    def test_timeout_ends_lifecycle_without_retry_or_file_overwrite() -> None:
+>       _require_all("180.0", "Time.get_ticks_msec", "dragon_speaking", "timeout")
+
+tests/test_stage6a_godot_mailbox_bridge.py:258: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+fragments = ('180.0', 'Time.get_ticks_msec', 'dragon_speaking', 'timeout')
+missing = ['180.0', 'Time.get_ticks_msec'], @py_assert1 = False
+
+    def _require_all(*fragments: str) -> None:
+        missing = [fragment for fragment in fragments if fragment not in SOURCE]
+>       assert not missing, f"Stage 6A bridge surface is missing: {missing}"
+E       AssertionError: Stage 6A bridge surface is missing: ['180.0', 'Time.get_ticks_msec']
+E       assert not ['180.0', 'Time.get_ticks_msec']
+
+tests/test_stage6a_godot_mailbox_bridge.py:43: AssertionError
+_______________ test_bridge_contains_no_provider_execution_route _______________
+
+    def test_bridge_contains_no_provider_execution_route() -> None:
+        forbidden = (
+            "_run_bounded",
+            "HermesCLIClient",
+            "--resume",
+            "--image",
+            "hermes chat",
+            "/v1/engain/parse",
+        )
+>       assert [fragment for fragment in forbidden if fragment in SOURCE] == []
+E       AssertionError: assert ['/v1/engain/parse'] == []
+E         
+E         Left contains one more item: '/v1/engain/parse'
+E         Use -v to get more diff
+
+tests/test_stage6a_godot_mailbox_bridge.py:286: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_stage6a_mailbox_filesystem.py::test_publish_request_cli_route_is_public_and_provider_free
+FAILED tests/test_stage6a_mailbox_filesystem.py::test_exact_temp_basename_is_required
+FAILED tests/test_stage6a_mailbox_filesystem.py::test_temporary_path_must_be_absolute_and_confined_to_project_root
+FAILED tests/test_stage6a_mailbox_filesystem.py::test_symlink_temporary_is_rejected_and_only_link_is_cleaned
+FAILED tests/test_stage6a_mailbox_filesystem.py::test_nonregular_temporary_is_rejected_and_cleaned
+FAILED tests/test_stage6a_mailbox_filesystem.py::test_strict_request_json_is_required[not-json\n]
+FAILED tests/test_stage6a_mailbox_filesystem.py::test_strict_request_json_is_required[{"request_id":"a","request_id":"b"}\n]
+FAILED tests/test_stage6a_mailbox_filesystem.py::test_strict_request_json_is_required[{"timestamp":NaN}\n]
+FAILED tests/test_stage6a_mailbox_filesystem.py::test_strict_request_json_is_required[[]\n]
+FAILED tests/test_stage6a_mailbox_filesystem.py::test_strict_request_json_is_required[{"player_input":"Stage 6A mailbox fixture","game_state":{},"additional_context":{"client_request_id":"dragon3d_0123456789abcdef0123456789abcdef_1","companion_ref":"hermes_b","perception":{"schema":"engain.runtime_perception.v1","perception_state":"unavailable","capture_id":"cap_0123456789abcdef0123456789abcdef_1","capture_event":"message_received","capture_phase":"pre_dispatch_player_view.v1","captured_at":1.0,"project_id":"godot_3d_avatar","scene_path":"res://scenes/Main.tscn","snapshot":null,"viewport":{"availability":"unavailable","image_path":null,"image_sha256":null,"media_type":null,"width":null,"height":null,"reason":"viewport_unavailable"},"unavailable_reason":"viewport_unavailable"}},"timestamp":1.0,"request_id":"req_0123456789abcdef0123456789abcdef","unknown":true}\n]
+FAILED tests/test_stage6a_mailbox_filesystem.py::test_request_id_must_match_temp_filename
+FAILED tests/test_stage6a_mailbox_filesystem.py::test_publication_fsyncs_before_atomic_hard_link_and_fsyncs_directory_twice
+FAILED tests/test_stage6a_mailbox_filesystem.py::test_finalized_request_is_the_exact_validated_inode_and_bytes
+FAILED tests/test_stage6a_mailbox_filesystem.py::test_final_request_collision_never_overwrites_and_cleans_new_temp
+FAILED tests/test_stage6a_mailbox_filesystem.py::test_publication_failure_cleans_only_exact_temp_and_never_creates_final
+FAILED tests/test_stage6a_godot_mailbox_bridge.py::test_legacy_http_transport_is_completely_absent
+FAILED tests/test_stage6a_godot_mailbox_bridge.py::test_frozen_mailbox_paths_timeout_polling_and_session_are_explicit
+FAILED tests/test_stage6a_godot_mailbox_bridge.py::test_bridge_local_timestamp_session_authority_is_absent
+FAILED tests/test_stage6a_godot_mailbox_bridge.py::test_submission_has_one_active_lifecycle_and_checks_both_mailboxes
+FAILED tests/test_stage6a_godot_mailbox_bridge.py::test_request_builder_contains_exact_frozen_wire_surface
+FAILED tests/test_stage6a_godot_mailbox_bridge.py::test_request_publication_never_overwrites_request_or_unread_response
+FAILED tests/test_stage6a_godot_mailbox_bridge.py::test_response_is_claimed_only_through_strict_local_helper
+FAILED tests/test_stage6a_godot_mailbox_bridge.py::test_response_validator_names_every_exact_top_level_key
+FAILED tests/test_stage6a_godot_mailbox_bridge.py::test_response_validator_correlates_request_and_client_ids
+FAILED tests/test_stage6a_godot_mailbox_bridge.py::test_response_validator_freezes_provider_model_and_session
+FAILED tests/test_stage6a_godot_mailbox_bridge.py::test_response_validator_enforces_observation_only_authority
+FAILED tests/test_stage6a_godot_mailbox_bridge.py::test_malformed_and_unknown_response_content_is_rejected
+FAILED tests/test_stage6a_godot_mailbox_bridge.py::test_stale_and_late_responses_are_claimed_discarded_and_never_spoken
+FAILED tests/test_stage6a_godot_mailbox_bridge.py::test_timeout_ends_lifecycle_without_retry_or_file_overwrite
+FAILED tests/test_stage6a_godot_mailbox_bridge.py::test_bridge_contains_no_provider_execution_route
+30 failed, 13 passed in 0.34s

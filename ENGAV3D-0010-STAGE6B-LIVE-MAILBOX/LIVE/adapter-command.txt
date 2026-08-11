@@ -1,0 +1,1 @@
+/usr/bin/python3 /mnt/data-drive/godot_engain_3d_avatar/hermes_session_adapter.py --project-dir /mnt/data-drive/godot_engain_3d_avatar --provider openai-codex --model gpt-5.6-sol --timeout 180 --poll 0.1 --once

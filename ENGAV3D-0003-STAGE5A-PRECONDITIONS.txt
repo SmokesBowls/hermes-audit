@@ -1,0 +1,11 @@
+ENGAV3D Stage 5A preconditions
+
+timestamp=2026-08-09T13:42:09-07:00
+repo=/mnt/data-drive/godot_engain_3d_avatar
+head=3bd1c0558a78cd1fbd78329865ac50685f6626a2
+
+Existing Hermes/operator processes are baseline processes.
+Stage 5A prohibition applies to NEW provider/adapter processes launched by the capture path.
+
+=== BASELINE ===
+  13558   11833 Sun Aug  9 11:38:49 2026 /home/mytruelove/.hermes/hermes-agent/venv/bin/python3 /home/mytruelove/.hermes/hermes-agent/venv/bin/hermes chat

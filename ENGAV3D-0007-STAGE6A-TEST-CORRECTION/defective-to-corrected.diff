@@ -1,0 +1,17 @@
+--- /mnt/data-drive/engain-avatar-audit/ENGAV3D-0007-STAGE6A-TEST-CORRECTION/test_stage6a_godot_mailbox_bridge.DEFECTIVE.py	2026-08-09 22:56:17.078024754 -0700
++++ /mnt/data-drive/engain-avatar-audit/ENGAV3D-0007-STAGE6A-TEST-CORRECTION/test_stage6a_godot_mailbox_bridge.CORRECTED.py	2026-08-09 23:11:04.576210584 -0700
+@@ -234,12 +234,13 @@
+ 
+ def test_malformed_and_unknown_response_content_is_rejected() -> None:
+     _require_all(
+-        "JSON.parse",
++        "JSON.new()",
+         "get_error",
+         "TYPE_DICTIONARY",
+         "keys()",
+         "RESPONSE_SCHEMA",
+     )
++    assert re.search(r"\.\s*parse\s*\(", SOURCE)
+     assert "JSON.parse_string" not in SOURCE
+ 
+ 

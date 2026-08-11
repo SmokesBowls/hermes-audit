@@ -1,0 +1,2 @@
+0048d6f6ec8c696fb21ddf7df3b65ebb3b80515c7eb8a19bf0836c5c31528745  tests/test_stage5a_capture_bundle.py
+35834506405c5f9c63f188c68088aa4a4e9640b2fe8bd2c355ba984b6c5a9d77  tests/test_hermes_session_adapter.py
