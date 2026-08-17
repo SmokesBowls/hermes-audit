@@ -9,6 +9,17 @@ closes that gap on both stated fronts: the builder moved into the real
 dispatch path, and the proof repeated through actual request/response
 files with no manually constructed recap anywhere in this session.
 
+**Scope clarification, added in review:** "real mailbox requests" here
+means real `request.json`/`response.json` files processed through the new
+`mailbox_request_handler.py` translation layer built the same day — this
+is a file-mailbox integration proof of that new layer, not an integration
+with the existing `engain_avatar`/`godot_engain_3d_avatar` worker mailboxes
+(`dragon2d`/`dragon3d`, `hermes_session_adapter.py`'s own protocol). Those
+remain exactly as the same-day full audit described them: separate,
+unconnected to this architecture. See the identity-boundary correction
+receipt for why the recap logic exercised here also needed a real fix
+before this framing could be trusted.
+
 ## ContinuityContextBuilder
 
 `tier1/engainos/core/continuity_context_builder.py`. One rule: a recap is
