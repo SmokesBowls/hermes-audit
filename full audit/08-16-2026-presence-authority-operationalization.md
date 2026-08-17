@@ -73,8 +73,14 @@ into the real mailbox by the adapter's own validation, exactly as Godot's
 own bridge does it) while the real, running, launcher-supervised worker
 held only presence, not the claim. The response itself was consumed by the
 live, running Godot dragon's own polling before it could be inspected
-directly — a stronger signal of realism than a weaker one, not a gap in
-the proof; the authority's and adapter's own logs are the record.
+directly.
+
+**Correction:** Godot consuming that response proves the live path was
+real and active end to end — it is not evidence of the response's exact
+contents, which were never independently read back. The rejection itself
+is established by the authority's own `409` on the second `/claim` and the
+adapter's own `SESSION_OCCUPIED` log line, both quoted above; those two
+are the evidence, not the fact that Godot picked the file up.
 
 **Honest finding, not fixed here:** stopping the launcher via `SIGINT`
 raised a bare `KeyboardInterrupt` inside `godot_process.wait()`. The new
