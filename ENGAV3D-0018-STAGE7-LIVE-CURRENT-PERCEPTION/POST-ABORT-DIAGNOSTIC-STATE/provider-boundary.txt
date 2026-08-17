@@ -1,0 +1,9 @@
+ENGAV3D-0018 provider boundary classification
+
+provider_launch_reservation: ABSENT
+provider_authorized: 1
+provider_attempted: 0
+provider_remaining: 1
+
+The 0018 runner must not be rerun.
+No second launch or operator retry is authorized for that harness identity.

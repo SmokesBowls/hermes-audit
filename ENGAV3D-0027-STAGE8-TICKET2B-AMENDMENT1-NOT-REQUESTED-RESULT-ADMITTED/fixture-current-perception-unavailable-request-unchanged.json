@@ -1,0 +1,31 @@
+{
+  "player_input": "Runtime preflight only: confirm this message resumed our existing companion session. Current 3D runtime perception is unavailable; do not claim to see the viewport. Reply briefly as the same companion.",
+  "game_state": {},
+  "additional_context": {
+    "client_request_id": "dragon3d_d62d32a40e6a5a59905567b92b4d1375_1",
+    "companion_ref": "hermes_b",
+    "perception": {
+      "schema": "engain.runtime_perception.v1",
+      "perception_state": "unavailable",
+      "capture_id": "cap_1d2ae4dc8895d062ebaf70ed286f6acc_1",
+      "capture_event": "message_received",
+      "capture_phase": "pre_dispatch_player_view.v1",
+      "captured_at": 1786295978.5225556,
+      "project_id": "godot_3d_avatar",
+      "scene_path": "res://scenes/Main.tscn",
+      "snapshot": null,
+      "viewport": {
+        "availability": "unavailable",
+        "image_path": null,
+        "image_sha256": null,
+        "media_type": null,
+        "width": null,
+        "height": null,
+        "reason": "viewport_unavailable"
+      },
+      "unavailable_reason": "viewport_unavailable"
+    }
+  },
+  "timestamp": 1786295978.5225556,
+  "request_id": "req_5b70272e3c463af2e43bc765b164ce18"
+}

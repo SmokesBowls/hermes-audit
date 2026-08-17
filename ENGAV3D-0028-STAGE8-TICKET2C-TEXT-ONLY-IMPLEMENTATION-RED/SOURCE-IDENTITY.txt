@@ -1,0 +1,12 @@
+evidence_id=ENGAV3D-0028-STAGE8-TICKET2C-TEXT-ONLY-IMPLEMENTATION-RED
+repository=/mnt/data-drive/godot_engain_3d_avatar
+repository_head=77593c205851c97a1b0b46ebdb6ade270309f81a
+mode=offline_test_only_intentional_red
+request_authority=ENGAV3D-STAGE8-TICKET-2A-AMENDMENT-1
+response_authority=ENGAV3D-STAGE8-TICKET-2B-AMENDMENT-1
+focused_tests=3_failed_8_passed
+provider_executions=0
+production_files_changed=0
+persistent_worker=out_of_scope
+production_implementation=not_authorized
+unrelated_dirty_state=preserved_byte_identical

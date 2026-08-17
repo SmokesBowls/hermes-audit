@@ -1,0 +1,13 @@
+{
+  "attempted": 1,
+  "authorized": 1,
+  "capture_id": "cap_fbc531bc3871a8b82e95a311c3982bf2_1",
+  "client_request_id": "dragon3d_8e928228177bbe4555960fd284afbed3_1",
+  "image_sha256": "ae64ca71b6cd46c6cc500f47dd0030e855a8bb3660da98c80dba98947aa8b58c",
+  "operator_retry_authorized": false,
+  "remaining": 0,
+  "request_id": "req_86e2ff646d177916a625437da1b05257",
+  "second_launch_authorized": false,
+  "session_id": "20260731_065008_63a62d",
+  "timeout_seconds": 180
+}

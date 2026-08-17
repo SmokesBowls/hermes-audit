@@ -1,0 +1,49 @@
+........................................................................ [ 34%]
+........................................................................ [ 68%]
+..............................................................FFF.       [100%]
+=================================== FAILURES ===================================
+_ test_ticket3b_runtime_boundary_makes_exactly_one_persistent_worker_available _
+
+    def test_ticket3b_runtime_boundary_makes_exactly_one_persistent_worker_available() -> None:
+        """The RED permits either Godot-owned or launcher-owned process supervision."""
+>       assert _has_worker_readiness_boundary(), (
+            "no Godot/launcher-facing persistent worker readiness and exclusive-ownership "
+            "boundary is present; bounded mailbox helper execution is not worker availability"
+        )
+E       AssertionError: no Godot/launcher-facing persistent worker readiness and exclusive-ownership boundary is present; bounded mailbox helper execution is not worker availability
+E       assert False
+E        +  where False = _has_worker_readiness_boundary()
+
+tests/test_stage8_ticket3b_worker_ownership_red.py:39: AssertionError
+____ test_ticket3b_multiple_submissions_share_one_observed_worker_identity _____
+
+    def test_ticket3b_multiple_submissions_share_one_observed_worker_identity() -> None:
+        submit = _function(BRIDGE, "submit")
+        assert "--once" not in submit
+        assert "process_once" not in submit
+>       assert "worker" in RUNTIME_SURFACE.lower()
+E       assert 'worker' in 'extends node3d\n\nconst perceptioncapture := preload("res://scripts/perceptioncapture3d.gd")\n\n@onready var bridge =...\n\n[rendering]\n\nrenderer/rendering_method="gl_compatibility"\nrenderer/rendering_method.mobile="gl_compatibility"\n'
+E        +  where 'extends node3d\n\nconst perceptioncapture := preload("res://scripts/perceptioncapture3d.gd")\n\n@onready var bridge =...\n\n[rendering]\n\nrenderer/rendering_method="gl_compatibility"\nrenderer/rendering_method.mobile="gl_compatibility"\n' = <built-in method lower of str object at 0x5589e118acb0>()
+E        +    where <built-in method lower of str object at 0x5589e118acb0> = 'extends Node3D\n\nconst PerceptionCapture := preload("res://scripts/PerceptionCapture3D.gd")\n\n@onready var bridge =...\n\n[rendering]\n\nrenderer/rendering_method="gl_compatibility"\nrenderer/rendering_method.mobile="gl_compatibility"\n'.lower
+
+tests/test_stage8_ticket3b_worker_ownership_red.py:50: AssertionError
+________ test_ticket3b_runtime_shutdown_requests_ticket2f_explicit_stop ________
+
+    def test_ticket3b_runtime_shutdown_requests_ticket2f_explicit_stop() -> None:
+        shutdown_tokens = ("_exit_tree", "NOTIFICATION_WM_CLOSE_REQUEST", "tree_exiting")
+        assert any(token in RUNTIME_SURFACE for token in shutdown_tokens), (
+            "runtime/launcher exposes no shutdown lifecycle boundary"
+        )
+>       assert any(token in RUNTIME_SURFACE for token in ("request_stop", "shutdown", '"stop"')), (
+            "runtime/launcher shutdown does not request the Ticket 2F explicit stop lifecycle"
+        )
+E       AssertionError: runtime/launcher shutdown does not request the Ticket 2F explicit stop lifecycle
+E       assert False
+E        +  where False = any(<generator object test_ticket3b_runtime_shutdown_requests_ticket2f_explicit_stop.<locals>.<genexpr> at 0x7f233ebca810>)
+
+tests/test_stage8_ticket3b_worker_ownership_red.py:62: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_stage8_ticket3b_worker_ownership_red.py::test_ticket3b_runtime_boundary_makes_exactly_one_persistent_worker_available
+FAILED tests/test_stage8_ticket3b_worker_ownership_red.py::test_ticket3b_multiple_submissions_share_one_observed_worker_identity
+FAILED tests/test_stage8_ticket3b_worker_ownership_red.py::test_ticket3b_runtime_shutdown_requests_ticket2f_explicit_stop
+3 failed, 207 passed in 4.06s

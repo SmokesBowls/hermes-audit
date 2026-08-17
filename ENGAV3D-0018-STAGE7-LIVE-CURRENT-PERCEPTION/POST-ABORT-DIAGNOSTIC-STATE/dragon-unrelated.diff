@@ -1,0 +1,20 @@
+diff --git a/scripts/DragonAvatar3D.gd b/scripts/DragonAvatar3D.gd
+index b97edfa..5dab465 100644
+--- a/scripts/DragonAvatar3D.gd
++++ b/scripts/DragonAvatar3D.gd
+@@ -135,7 +135,7 @@ func set_pulse_color(col: Color) -> void:
+ 	pulse_intensity = col
+ 
+ func set_orbit_parameters(radius: float = -1, speed: float = -1,
+-	                      bob_height: float = -1, bob_speed: float = -1) -> void:
++						  bob_height: float = -1, bob_speed: float = -1) -> void:
+ 	"""
+ 	Convenient way to tweak orbit/bob values at runtime (e.g. from the inspector
+ 	or another script).
+@@ -143,4 +143,4 @@ func set_orbit_parameters(radius: float = -1, speed: float = -1,
+ 	if radius >= 0: orbit_radius = radius
+ 	if speed >= 0: orbit_speed = speed
+ 	if bob_height >= 0: bob_height = bob_height
+-	if bob_speed >= 0: bob_speed = bob_speed
+\ No newline at end of file
++	if bob_speed >= 0: bob_speed = bob_speed

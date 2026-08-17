@@ -1,0 +1,31 @@
+{
+  "request_id": "req_86e2ff646d177916a625437da1b05257",
+  "client_request_id": "dragon3d_8e928228177bbe4555960fd284afbed3_1",
+  "narrative_response": "The red dragon is slightly left of center in the frame.",
+  "action_type": "OBSERVATION",
+  "state_changes": {},
+  "director_analysis": "Hermes conversational response",
+  "reasoning": "Full runtime perception lane; correlated viewport image attached",
+  "entropy_impact": 0.0,
+  "timestamp": 1786463354.0083904,
+  "provider_session_ref": {
+    "companion_ref": "hermes_b",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "session_id": "20260731_065008_63a62d"
+  },
+  "perception_result": {
+    "schema": "engain.runtime_perception_result.v1",
+    "requested_state": "full",
+    "effective_state": "full",
+    "capture_id": "cap_fbc531bc3871a8b82e95a311c3982bf2_1",
+    "capture_event": "message_received",
+    "capture_phase": "pre_dispatch_player_view.v1",
+    "captured_at": 1786463337.75906,
+    "metadata_sha256": "aaaa8dd95568bfc5dabfd3dcd2198c38753f9152bc764ed75d2f033c9886b018",
+    "image_sha256": "ae64ca71b6cd46c6cc500f47dd0030e855a8bb3660da98c80dba98947aa8b58c",
+    "structured_snapshot_supplied": true,
+    "viewport_image_attached": true,
+    "failure_code": null
+  }
+}

@@ -1,0 +1,27 @@
+....F                                                                    [100%]
+=================================== FAILURES ===================================
+_ test_ticket2e_worker_exposes_explicit_stop_lifecycle_without_signal_injection _
+
+tmp_path = PosixPath('/mnt/data-drive/EngAIn_Recovery/07_TMP/pytest-of-mytruelove/pytest-460/test_ticket2e_worker_exposes_e0')
+
+    def test_ticket2e_worker_exposes_explicit_stop_lifecycle_without_signal_injection(
+        tmp_path: Path,
+    ) -> None:
+        module = _module()
+        adapter, _director = _prepared_adapter(module, tmp_path)
+    
+        lifecycle_methods = {
+            name
+            for name in dir(adapter)
+            if callable(getattr(adapter, name)) and name in {"request_stop", "stop", "shutdown"}
+        }
+        lifecycle_state = getattr(adapter, "worker_state", None)
+    
+>       assert lifecycle_methods, "no explicit worker-stop behavior is exposed"
+E       AssertionError: no explicit worker-stop behavior is exposed
+E       assert set()
+
+tests/test_stage8_ticket2e_persistent_worker_red.py:306: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_stage8_ticket2e_persistent_worker_red.py::test_ticket2e_worker_exposes_explicit_stop_lifecycle_without_signal_injection
+1 failed, 4 passed in 0.16s

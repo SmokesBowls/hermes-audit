@@ -1,0 +1,13 @@
+evidence_id=ENGAV3D-0024-STAGE8-TICKET2A-TEXT-ONLY-MAILBOX-CONTRACT-RED
+repository=/mnt/data-drive/godot_engain_3d_avatar
+repository_head=77593c205851c97a1b0b46ebdb6ade270309f81a
+repository_status=clean
+adapter_sha256=f3add4a3011b09c9f88c489b436e4fc5e4751fd18ccb080810cac6ad06869e39
+bridge_sha256=64abb2a0770973cf8519449b918eb84fca6e87c2e5c298df5086c67a5ad18683
+ticket2a_contract_sha256=8c811933a9d9d6e882db7b9917e8b086a886d0423af7a0483ddd989a1a55d989
+routing_authority=engav3d.routing.stage8.ticket1.v1 + amendment-1
+red_verifier_expected_exit=1
+red_evidence_admission_exit=0
+provider_executions=0
+runtime_implementation_authorized=false
+schema_amendment_defined=false

@@ -1,0 +1,29 @@
+STAGE8_TICKET1_CONTRACT_ADMITTED
+
+Persistent worker lifecycle:
+DEFINED
+
+Routing modes:
+text_only
+current_perception
+
+Routing decision:
+DETERMINISTIC PRE-DISPATCH
+
+Thinking lifecycle:
+DEFINED
+
+Admission questions:
+6 / 6 DETERMINISTICALLY ANSWERABLE
+
+Memory fixture:
+route=text_only
+capture_permitted=false
+image_attachment_permitted=false
+worker_remains_alive=true
+
+Provider executions:
+0
+
+Runtime implementation:
+NOT AUTHORIZED BY THIS GATE

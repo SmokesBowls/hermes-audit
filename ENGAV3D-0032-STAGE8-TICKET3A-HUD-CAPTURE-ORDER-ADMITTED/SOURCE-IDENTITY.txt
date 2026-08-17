@@ -1,0 +1,16 @@
+evidence_id=ENGAV3D-0032-STAGE8-TICKET3A-HUD-CAPTURE-ORDER-ADMITTED
+repository=/mnt/data-drive/godot_engain_3d_avatar
+base_head=77593c205851c97a1b0b46ebdb6ade270309f81a
+base_authority=ENGAV3D-0031-STAGE8-TICKET2F-EXPLICIT-WORKER-STOP-GREEN
+stage7_authority=ENGAV3D-0001-AMENDMENT-5-STAGE7-LIVE-PERCEPTION-LIFECYCLE.md
+stage7_sha256=277a957c99c9c3ae231bcf4964141a5f736580e165e285e077f8cee0de352d74
+ticket1_authority=ENGAV3D-STAGE8-TICKET-1-PERSISTENT-WORKER-ROUTING-BOUNDARY.md
+ticket1_sha256=8d569dac608f268405630b36816cb5d8514fd6d74dc784840c4110218f2a880a
+contract_sha256=ff5ef62f696ab0361f49edf61e856b2acc1ee029a5f570ac7624fcd22c868eb3
+contract_lines=288
+contract_bytes=10265
+fail_closed_matrix=18_cases_pass
+provider_executions=0
+runtime_implementation=not_authorized
+repository_changes=0
+pre_existing_dirty_state=byte_identical

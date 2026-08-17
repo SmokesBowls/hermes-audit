@@ -1,0 +1,146 @@
+No entry for terminal type "gnome-terminal";
+using dumb terminal settings.
+FFFFF..                                                                  [100%]
+=================================== FAILURES ===================================
+______ test_ticket3e_ready_precedes_godot_and_one_worker_owns_generation _______
+
+    def test_ticket3e_ready_precedes_godot_and_one_worker_owns_generation() -> None:
+>       module = _launcher_module()
+                 ^^^^^^^^^^^^^^^^^^
+
+tests/test_stage8_ticket3e_launcher_supervision_red.py:132: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def _launcher_module() -> ModuleType:
+        candidates: list[Path] = []
+        for path in _production_python_paths():
+            source = path.read_text(encoding="utf-8")
+            ast.parse(source, filename=str(path))
+            if CONTRACT_MARKER in source:
+                candidates.append(path)
+    
+>       assert len(candidates) == 1, (
+            "qualifying production launcher/supervision boundary does not exist; "
+            "Ticket 3D requires exactly one production Python entry point marked "
+            f"{CONTRACT_MARKER}, but found {len(candidates)}"
+        )
+E       AssertionError: qualifying production launcher/supervision boundary does not exist; Ticket 3D requires exactly one production Python entry point marked ENGAV3D_STAGE8_TICKET3E_LAUNCHER_SUPERVISION_V1, but found 0
+E       assert 0 == 1
+E        +  where 0 = len([])
+
+tests/test_stage8_ticket3e_launcher_supervision_red.py:42: AssertionError
+_____ test_ticket3e_prepare_failure_prevents_godot_and_no_fallback_worker ______
+
+    def test_ticket3e_prepare_failure_prevents_godot_and_no_fallback_worker() -> None:
+>       module = _launcher_module()
+                 ^^^^^^^^^^^^^^^^^^
+
+tests/test_stage8_ticket3e_launcher_supervision_red.py:157: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def _launcher_module() -> ModuleType:
+        candidates: list[Path] = []
+        for path in _production_python_paths():
+            source = path.read_text(encoding="utf-8")
+            ast.parse(source, filename=str(path))
+            if CONTRACT_MARKER in source:
+                candidates.append(path)
+    
+>       assert len(candidates) == 1, (
+            "qualifying production launcher/supervision boundary does not exist; "
+            "Ticket 3D requires exactly one production Python entry point marked "
+            f"{CONTRACT_MARKER}, but found {len(candidates)}"
+        )
+E       AssertionError: qualifying production launcher/supervision boundary does not exist; Ticket 3D requires exactly one production Python entry point marked ENGAV3D_STAGE8_TICKET3E_LAUNCHER_SUPERVISION_V1, but found 0
+E       assert 0 == 1
+E        +  where 0 = len([])
+
+tests/test_stage8_ticket3e_launcher_supervision_red.py:42: AssertionError
+_____________ test_ticket3e_non_ready_worker_prevents_godot_start ______________
+
+    def test_ticket3e_non_ready_worker_prevents_godot_start() -> None:
+>       module = _launcher_module()
+                 ^^^^^^^^^^^^^^^^^^
+
+tests/test_stage8_ticket3e_launcher_supervision_red.py:180: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def _launcher_module() -> ModuleType:
+        candidates: list[Path] = []
+        for path in _production_python_paths():
+            source = path.read_text(encoding="utf-8")
+            ast.parse(source, filename=str(path))
+            if CONTRACT_MARKER in source:
+                candidates.append(path)
+    
+>       assert len(candidates) == 1, (
+            "qualifying production launcher/supervision boundary does not exist; "
+            "Ticket 3D requires exactly one production Python entry point marked "
+            f"{CONTRACT_MARKER}, but found {len(candidates)}"
+        )
+E       AssertionError: qualifying production launcher/supervision boundary does not exist; Ticket 3D requires exactly one production Python entry point marked ENGAV3D_STAGE8_TICKET3E_LAUNCHER_SUPERVISION_V1, but found 0
+E       assert 0 == 1
+E        +  where 0 = len([])
+
+tests/test_stage8_ticket3e_launcher_supervision_red.py:42: AssertionError
+________ test_ticket3e_godot_launch_failure_stops_the_same_ready_worker ________
+
+    def test_ticket3e_godot_launch_failure_stops_the_same_ready_worker() -> None:
+>       module = _launcher_module()
+                 ^^^^^^^^^^^^^^^^^^
+
+tests/test_stage8_ticket3e_launcher_supervision_red.py:198: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def _launcher_module() -> ModuleType:
+        candidates: list[Path] = []
+        for path in _production_python_paths():
+            source = path.read_text(encoding="utf-8")
+            ast.parse(source, filename=str(path))
+            if CONTRACT_MARKER in source:
+                candidates.append(path)
+    
+>       assert len(candidates) == 1, (
+            "qualifying production launcher/supervision boundary does not exist; "
+            "Ticket 3D requires exactly one production Python entry point marked "
+            f"{CONTRACT_MARKER}, but found {len(candidates)}"
+        )
+E       AssertionError: qualifying production launcher/supervision boundary does not exist; Ticket 3D requires exactly one production Python entry point marked ENGAV3D_STAGE8_TICKET3E_LAUNCHER_SUPERVISION_V1, but found 0
+E       assert 0 == 1
+E        +  where 0 = len([])
+
+tests/test_stage8_ticket3e_launcher_supervision_red.py:42: AssertionError
+_________ test_ticket3e_launcher_waits_boundedly_for_terminal_stopped __________
+
+    def test_ticket3e_launcher_waits_boundedly_for_terminal_stopped() -> None:
+>       module = _launcher_module()
+                 ^^^^^^^^^^^^^^^^^^
+
+tests/test_stage8_ticket3e_launcher_supervision_red.py:216: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def _launcher_module() -> ModuleType:
+        candidates: list[Path] = []
+        for path in _production_python_paths():
+            source = path.read_text(encoding="utf-8")
+            ast.parse(source, filename=str(path))
+            if CONTRACT_MARKER in source:
+                candidates.append(path)
+    
+>       assert len(candidates) == 1, (
+            "qualifying production launcher/supervision boundary does not exist; "
+            "Ticket 3D requires exactly one production Python entry point marked "
+            f"{CONTRACT_MARKER}, but found {len(candidates)}"
+        )
+E       AssertionError: qualifying production launcher/supervision boundary does not exist; Ticket 3D requires exactly one production Python entry point marked ENGAV3D_STAGE8_TICKET3E_LAUNCHER_SUPERVISION_V1, but found 0
+E       assert 0 == 1
+E        +  where 0 = len([])
+
+tests/test_stage8_ticket3e_launcher_supervision_red.py:42: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_stage8_ticket3e_launcher_supervision_red.py::test_ticket3e_ready_precedes_godot_and_one_worker_owns_generation
+FAILED tests/test_stage8_ticket3e_launcher_supervision_red.py::test_ticket3e_prepare_failure_prevents_godot_and_no_fallback_worker
+FAILED tests/test_stage8_ticket3e_launcher_supervision_red.py::test_ticket3e_non_ready_worker_prevents_godot_start
+FAILED tests/test_stage8_ticket3e_launcher_supervision_red.py::test_ticket3e_godot_launch_failure_stops_the_same_ready_worker
+FAILED tests/test_stage8_ticket3e_launcher_supervision_red.py::test_ticket3e_launcher_waits_boundedly_for_terminal_stopped
+5 failed, 2 passed in 0.09s

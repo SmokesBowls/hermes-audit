@@ -1,0 +1,8 @@
+{
+  "hermes_session_adapter.py": "f3add4a3011b09c9f88c489b436e4fc5e4751fd18ccb080810cac6ad06869e39",
+  "scripts/ControlHUD.gd": "acc0b0e075f788b96cf146a9376a56ec94943b661585570f8c1cecaa23c0c2f1",
+  "scripts/EngAInBridge3D.gd": "64abb2a0770973cf8519449b918eb84fca6e87c2e5c298df5086c67a5ad18683",
+  "scripts/PerceptionCapture3D.gd": "8036f197cc39e0c03f1258e0a6a0b9c8edb2285f3f733cedf50e7948fde6fb9a",
+  "tests/test_stage7_live_perception_adapter.py": "28f06f4e7db140964b8dfa19bc3587e15c20c2ba3c4d0a48c550e8579d355aec",
+  "tests/test_stage7_live_perception_capture.py": "7d4387695af71ac937742266f185a68b2b82e695d34943b8764801b2eb14ea66"
+}

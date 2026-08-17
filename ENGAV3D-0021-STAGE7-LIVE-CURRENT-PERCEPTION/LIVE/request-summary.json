@@ -1,0 +1,18 @@
+{
+  "capture_id": "cap_fbc531bc3871a8b82e95a311c3982bf2_1",
+  "captured_at": 1786463337.75906,
+  "client_request_id": "dragon3d_8e928228177bbe4555960fd284afbed3_1",
+  "height": 648,
+  "image_path": "/mnt/data-drive/godot_engain_3d_avatar/snapshots/perception_cap_fbc531bc3871a8b82e95a311c3982bf2_1.png",
+  "image_sha256": "ae64ca71b6cd46c6cc500f47dd0030e855a8bb3660da98c80dba98947aa8b58c",
+  "metadata_path": "/mnt/data-drive/godot_engain_3d_avatar/snapshots/perception_cap_fbc531bc3871a8b82e95a311c3982bf2_1.json",
+  "metadata_sha256": "aaaa8dd95568bfc5dabfd3dcd2198c38753f9152bc764ed75d2f033c9886b018",
+  "perception_state": "full",
+  "project_id": "godot_3d_avatar",
+  "request_capture_delta_seconds": 0.07143998146057129,
+  "request_id": "req_86e2ff646d177916a625437da1b05257",
+  "request_timestamp": 1786463337.8305,
+  "scene_path": "res://scenes/Main.tscn",
+  "validation_capture_delta_seconds": 0.16181135177612305,
+  "width": 1152
+}

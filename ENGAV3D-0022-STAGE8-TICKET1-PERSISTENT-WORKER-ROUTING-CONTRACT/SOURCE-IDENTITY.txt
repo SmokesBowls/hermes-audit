@@ -1,0 +1,10 @@
+evidence_id=ENGAV3D-0022-STAGE8-TICKET1-PERSISTENT-WORKER-ROUTING-CONTRACT
+repository=/mnt/data-drive/godot_engain_3d_avatar
+repository_head=77593c205851c97a1b0b46ebdb6ade270309f81a
+repository_status=clean
+contract_source=/mnt/data-drive/engain-avatar-audit/ENGAV3D-STAGE8-TICKET-1-PERSISTENT-WORKER-ROUTING-BOUNDARY.md
+contract_sha256=8d569dac608f268405630b36816cb5d8514fd6d74dc784840c4110218f2a880a
+provider_executions=0
+runtime_implementation_authorized=false
+admission_issued=false
+verifier_exit=1

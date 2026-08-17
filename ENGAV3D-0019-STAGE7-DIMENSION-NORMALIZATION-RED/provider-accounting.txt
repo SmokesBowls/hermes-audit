@@ -1,0 +1,8 @@
+Stage 7 dimension-normalization regression preparation.
+
+0018 is permanently closed and must not be rerun.
+
+Provider executions during this preparation:
+0
+
+No new live crossing is authorized.

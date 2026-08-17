@@ -1,0 +1,2 @@
+9ed05917067e799ee0b8de35e6bb68158c838a7eb1effb5d16137c6a3d213da7  scripts/PerceptionCapture3D.gd
+ef667b7eb63c4689f23888cf28ff25891fb459f2ccc6e6f99c4febc75dbbcf38  scripts/DragonAvatar3D.gd

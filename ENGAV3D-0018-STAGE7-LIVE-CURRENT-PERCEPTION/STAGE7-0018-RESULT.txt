@@ -1,0 +1,23 @@
+ENGAV3D-0018 — Stage 7 live current-perception
+
+RESULT:
+PRE-PROVIDER ABORT
+
+Failure:
+Godot exited before request publication after the live capture result failed
+the frozen result contract.
+
+Provider accounting:
+authorized=1
+attempted=0
+remaining=1
+
+provider-launch-reservation:
+ABSENT
+
+No provider execution occurred.
+No request was processed.
+No retry of the 0018 harness is authorized.
+
+Subsequent provider-free diagnosis is preserved under:
+POST-ABORT-DIAGNOSTIC-STATE/

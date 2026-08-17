@@ -1,0 +1,20 @@
+{
+  "context_routing_mode": "context_routing_mode=REJECTED:PerceptionValidationError:additional_context keys do not match the frozen schema",
+  "perception_null": "perception_null=REJECTED:PerceptionValidationError:perception must be an object",
+  "perception_omitted": "perception_omitted=REJECTED:PerceptionValidationError:additional_context keys do not match the frozen schema",
+  "provider_executions": 0,
+  "request_routing_mode": "request_routing_mode=REJECTED:ValueError:request keys do not match the frozen schema",
+  "text_only_state": "text_only_state=REJECTED:PerceptionValidationError:perception state is invalid",
+  "unavailable_control": "ACCEPTED_WITH_CAPTURE_ID_AND_CAPTURE_FAILURE_SEMANTICS"
+}
+
+STAGE8_TEXT_ONLY_MAILBOX_CONTRACT_GAP
+route=text_only
+capture_attempted=false
+capture_id=FORBIDDEN_BY_TICKET1_BUT_REQUIRED_BY_CURRENT_SCHEMA
+image_attachment_permitted=false
+intentional_absence_distinct_from_capture_failure=NOT_REPRESENTABLE
+stage7_current_perception_representation=UNCHANGED
+provider_executions=0
+runtime_implementation=NOT_AUTHORIZED
+VERIFIER_EXIT=1

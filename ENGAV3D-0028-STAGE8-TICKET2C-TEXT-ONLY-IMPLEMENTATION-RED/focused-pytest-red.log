@@ -1,0 +1,169 @@
+..FF.....F.                                                              [100%]
+=================================== FAILURES ===================================
+_____________ test_ticket2c_adapter_admits_exact_text_only_request _____________
+
+tmp_path = PosixPath('/mnt/data-drive/EngAIn_Recovery/07_TMP/pytest-of-mytruelove/pytest-441/test_ticket2c_adapter_admits_e0')
+
+    def test_ticket2c_adapter_admits_exact_text_only_request(tmp_path: Path) -> None:
+        adapter = _adapter(tmp_path)
+    
+>       validated = adapter._validate_request(_text_only_request(), validation_time=1.0)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_stage8_ticket2c_text_only_adapter_red.py:140: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <hermes_session_adapter.HermesSessionAdapter object at 0x7facafcdad50>
+payload = {'additional_context': {'client_request_id': 'dragon3d_bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb_1', 'companion_ref': 'hermes_b...and the room/environment you saw before this latest scene.', 'request_id': 'req_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', ...}
+
+    def _validate_request(
+        self,
+        payload: Any,
+        *,
+        validation_time: float | None = None,
+    ) -> ValidatedRequest:
+        if not isinstance(payload, dict):
+            raise ValueError("request must be a JSON object")
+        if set(payload) != {
+            "player_input",
+            "game_state",
+            "additional_context",
+            "timestamp",
+            "request_id",
+        }:
+            raise ValueError("request keys do not match the frozen schema")
+        request_id = payload.get("request_id")
+        player_input = payload.get("player_input")
+        game_state = payload.get("game_state")
+        additional_context = payload.get("additional_context")
+        request_timestamp = payload.get("timestamp")
+        if not isinstance(request_id, str) or not request_id.strip():
+            raise PerceptionValidationError("SCHEMA_INVALID", "request_id is invalid")
+        if not isinstance(player_input, str):
+            raise ValueError("player_input must be a string")
+        if _has_disallowed_control(player_input):
+            raise ValueError("player_input contains control characters")
+        if not player_input.strip():
+            raise ValueError("player_input must be a non-empty string")
+        if not isinstance(game_state, dict):
+            raise ValueError("game_state must be a JSON object")
+        self._validate_json_values(game_state, "game_state")
+        if not isinstance(additional_context, dict):
+            raise ValueError("additional_context must be a JSON object")
+        if set(additional_context) != {
+            "client_request_id",
+            "companion_ref",
+            "perception",
+        }:
+>           raise PerceptionValidationError(
+                "SCHEMA_INVALID", "additional_context keys do not match the frozen schema"
+            )
+E           hermes_session_adapter.PerceptionValidationError: additional_context keys do not match the frozen schema
+
+hermes_session_adapter.py:1682: PerceptionValidationError
+_ test_ticket2c_text_only_dispatch_has_no_capture_preparation_or_image_argument _
+
+tmp_path = PosixPath('/mnt/data-drive/EngAIn_Recovery/07_TMP/pytest-of-mytruelove/pytest-441/test_ticket2c_text_only_dispat0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7facafcc9ba0>
+
+    def test_ticket2c_text_only_dispatch_has_no_capture_preparation_or_image_argument(
+        tmp_path: Path,
+        monkeypatch: pytest.MonkeyPatch,
+    ) -> None:
+        module = _adapter_module()
+        adapter = _adapter(tmp_path)
+        preparation_calls = 0
+    
+        def forbidden_prepare(*_args: Any, **_kwargs: Any) -> Any:
+            nonlocal preparation_calls
+            preparation_calls += 1
+            pytest.fail("text_only attempted prepare_image_dispatch")
+    
+        monkeypatch.setattr(adapter, "prepare_image_dispatch", forbidden_prepare)
+    
+        def forbidden_provider(*_args: Any, **_kwargs: Any) -> Any:
+            pytest.fail("Ticket 2C must not invoke Hermes")
+    
+        monkeypatch.setattr(adapter.client, "_run_bounded", forbidden_provider)
+    
+>       validated = adapter._validate_request(_text_only_request(), validation_time=1.0)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_stage8_ticket2c_text_only_adapter_red.py:170: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <hermes_session_adapter.HermesSessionAdapter object at 0x7facafcdb390>
+payload = {'additional_context': {'client_request_id': 'dragon3d_bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb_1', 'companion_ref': 'hermes_b...and the room/environment you saw before this latest scene.', 'request_id': 'req_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', ...}
+
+    def _validate_request(
+        self,
+        payload: Any,
+        *,
+        validation_time: float | None = None,
+    ) -> ValidatedRequest:
+        if not isinstance(payload, dict):
+            raise ValueError("request must be a JSON object")
+        if set(payload) != {
+            "player_input",
+            "game_state",
+            "additional_context",
+            "timestamp",
+            "request_id",
+        }:
+            raise ValueError("request keys do not match the frozen schema")
+        request_id = payload.get("request_id")
+        player_input = payload.get("player_input")
+        game_state = payload.get("game_state")
+        additional_context = payload.get("additional_context")
+        request_timestamp = payload.get("timestamp")
+        if not isinstance(request_id, str) or not request_id.strip():
+            raise PerceptionValidationError("SCHEMA_INVALID", "request_id is invalid")
+        if not isinstance(player_input, str):
+            raise ValueError("player_input must be a string")
+        if _has_disallowed_control(player_input):
+            raise ValueError("player_input contains control characters")
+        if not player_input.strip():
+            raise ValueError("player_input must be a non-empty string")
+        if not isinstance(game_state, dict):
+            raise ValueError("game_state must be a JSON object")
+        self._validate_json_values(game_state, "game_state")
+        if not isinstance(additional_context, dict):
+            raise ValueError("additional_context must be a JSON object")
+        if set(additional_context) != {
+            "client_request_id",
+            "companion_ref",
+            "perception",
+        }:
+>           raise PerceptionValidationError(
+                "SCHEMA_INVALID", "additional_context keys do not match the frozen schema"
+            )
+E           hermes_session_adapter.PerceptionValidationError: additional_context keys do not match the frozen schema
+
+hermes_session_adapter.py:1682: PerceptionValidationError
+___________ test_ticket2c_bridge_admits_correlated_text_only_success ___________
+
+tmp_path = PosixPath('/mnt/data-drive/EngAIn_Recovery/07_TMP/pytest-of-mytruelove/pytest-441/test_ticket2c_bridge_admits_co0')
+
+    def test_ticket2c_bridge_admits_correlated_text_only_success(
+        tmp_path: Path,
+    ) -> None:
+        response = _text_only_response()
+    
+        results = _run_bridge_matrix(
+            tmp_path,
+            [_case("text_only_success", response, active_capture_id="")],
+        )
+    
+>       assert results == {"text_only_success": True}
+E       AssertionError: assert {'text_only_success': False} == {'text_only_success': True}
+E         
+E         Differing items:
+E         {'text_only_success': False} != {'text_only_success': True}
+E         Use -v to get more diff
+
+tests/test_stage8_ticket2c_text_only_bridge_red.py:176: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_stage8_ticket2c_text_only_adapter_red.py::test_ticket2c_adapter_admits_exact_text_only_request
+FAILED tests/test_stage8_ticket2c_text_only_adapter_red.py::test_ticket2c_text_only_dispatch_has_no_capture_preparation_or_image_argument
+FAILED tests/test_stage8_ticket2c_text_only_bridge_red.py::test_ticket2c_bridge_admits_correlated_text_only_success
+3 failed, 8 passed in 1.52s

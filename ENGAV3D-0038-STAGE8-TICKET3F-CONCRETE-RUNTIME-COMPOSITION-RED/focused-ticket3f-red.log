@@ -1,0 +1,166 @@
+No entry for terminal type "gnome-terminal";
+using dumb terminal settings.
+FFFFF...                                                                 [100%]
+=================================== FAILURES ===================================
+_ test_ticket3f_concrete_binding_owns_one_real_adapter_shape_and_exclusive_generation _
+
+tmp_path = PosixPath('/mnt/data-drive/EngAIn_Recovery/07_TMP/pytest-of-mytruelove/pytest-506/test_ticket3f_concrete_binding0')
+
+    def test_ticket3f_concrete_binding_owns_one_real_adapter_shape_and_exclusive_generation(
+        tmp_path: Path,
+    ) -> None:
+>       module = _composition_module()
+                 ^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_stage8_ticket3f_runtime_composition_red.py:196: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def _composition_module() -> ModuleType:
+        candidates: list[Path] = []
+        for path in _production_python_paths():
+            source = path.read_text(encoding="utf-8")
+            ast.parse(source, filename=str(path))
+            if COMPOSITION_MARKER in source:
+                candidates.append(path)
+    
+>       assert len(candidates) == 1, (
+            "QUALIFYING_CONCRETE_RUNTIME_COMPOSITION_BOUNDARY_DOES_NOT_EXIST: "
+            "Ticket 3F requires exactly one production Python composition boundary "
+            f"marked {COMPOSITION_MARKER}, but found {len(candidates)}"
+        )
+E       AssertionError: QUALIFYING_CONCRETE_RUNTIME_COMPOSITION_BOUNDARY_DOES_NOT_EXIST: Ticket 3F requires exactly one production Python composition boundary marked ENGAV3D_STAGE8_TICKET3F_CONCRETE_RUNTIME_COMPOSITION_V1, but found 0
+E       assert 0 == 1
+E        +  where 0 = len([])
+
+tests/test_stage8_ticket3f_runtime_composition_red.py:47: AssertionError
+____ test_ticket3f_ready_and_persistent_servicing_precede_and_outlive_godot ____
+
+tmp_path = PosixPath('/mnt/data-drive/EngAIn_Recovery/07_TMP/pytest-of-mytruelove/pytest-506/test_ticket3f_ready_and_persis0')
+
+    def test_ticket3f_ready_and_persistent_servicing_precede_and_outlive_godot(
+        tmp_path: Path,
+    ) -> None:
+>       module = _composition_module()
+                 ^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_stage8_ticket3f_runtime_composition_red.py:253: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def _composition_module() -> ModuleType:
+        candidates: list[Path] = []
+        for path in _production_python_paths():
+            source = path.read_text(encoding="utf-8")
+            ast.parse(source, filename=str(path))
+            if COMPOSITION_MARKER in source:
+                candidates.append(path)
+    
+>       assert len(candidates) == 1, (
+            "QUALIFYING_CONCRETE_RUNTIME_COMPOSITION_BOUNDARY_DOES_NOT_EXIST: "
+            "Ticket 3F requires exactly one production Python composition boundary "
+            f"marked {COMPOSITION_MARKER}, but found {len(candidates)}"
+        )
+E       AssertionError: QUALIFYING_CONCRETE_RUNTIME_COMPOSITION_BOUNDARY_DOES_NOT_EXIST: Ticket 3F requires exactly one production Python composition boundary marked ENGAV3D_STAGE8_TICKET3F_CONCRETE_RUNTIME_COMPOSITION_V1, but found 0
+E       assert 0 == 1
+E        +  where 0 = len([])
+
+tests/test_stage8_ticket3f_runtime_composition_red.py:47: AssertionError
+_________ test_ticket3f_non_ready_generation_fails_closed_before_godot _________
+
+tmp_path = PosixPath('/mnt/data-drive/EngAIn_Recovery/07_TMP/pytest-of-mytruelove/pytest-506/test_ticket3f_non_ready_genera0')
+
+    def test_ticket3f_non_ready_generation_fails_closed_before_godot(
+        tmp_path: Path,
+    ) -> None:
+>       module = _composition_module()
+                 ^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_stage8_ticket3f_runtime_composition_red.py:280: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def _composition_module() -> ModuleType:
+        candidates: list[Path] = []
+        for path in _production_python_paths():
+            source = path.read_text(encoding="utf-8")
+            ast.parse(source, filename=str(path))
+            if COMPOSITION_MARKER in source:
+                candidates.append(path)
+    
+>       assert len(candidates) == 1, (
+            "QUALIFYING_CONCRETE_RUNTIME_COMPOSITION_BOUNDARY_DOES_NOT_EXIST: "
+            "Ticket 3F requires exactly one production Python composition boundary "
+            f"marked {COMPOSITION_MARKER}, but found {len(candidates)}"
+        )
+E       AssertionError: QUALIFYING_CONCRETE_RUNTIME_COMPOSITION_BOUNDARY_DOES_NOT_EXIST: Ticket 3F requires exactly one production Python composition boundary marked ENGAV3D_STAGE8_TICKET3F_CONCRETE_RUNTIME_COMPOSITION_V1, but found 0
+E       assert 0 == 1
+E        +  where 0 = len([])
+
+tests/test_stage8_ticket3f_runtime_composition_red.py:47: AssertionError
+_ test_ticket3f_godot_launch_failure_completes_same_worker_stop_and_releases_ownership _
+
+tmp_path = PosixPath('/mnt/data-drive/EngAIn_Recovery/07_TMP/pytest-of-mytruelove/pytest-506/test_ticket3f_godot_launch_fai0')
+
+    def test_ticket3f_godot_launch_failure_completes_same_worker_stop_and_releases_ownership(
+        tmp_path: Path,
+    ) -> None:
+>       module = _composition_module()
+                 ^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_stage8_ticket3f_runtime_composition_red.py:308: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def _composition_module() -> ModuleType:
+        candidates: list[Path] = []
+        for path in _production_python_paths():
+            source = path.read_text(encoding="utf-8")
+            ast.parse(source, filename=str(path))
+            if COMPOSITION_MARKER in source:
+                candidates.append(path)
+    
+>       assert len(candidates) == 1, (
+            "QUALIFYING_CONCRETE_RUNTIME_COMPOSITION_BOUNDARY_DOES_NOT_EXIST: "
+            "Ticket 3F requires exactly one production Python composition boundary "
+            f"marked {COMPOSITION_MARKER}, but found {len(candidates)}"
+        )
+E       AssertionError: QUALIFYING_CONCRETE_RUNTIME_COMPOSITION_BOUNDARY_DOES_NOT_EXIST: Ticket 3F requires exactly one production Python composition boundary marked ENGAV3D_STAGE8_TICKET3F_CONCRETE_RUNTIME_COMPOSITION_V1, but found 0
+E       assert 0 == 1
+E        +  where 0 = len([])
+
+tests/test_stage8_ticket3f_runtime_composition_red.py:47: AssertionError
+_ test_ticket3f_non_editor_process_and_executable_entry_are_concrete_but_injected _
+
+tmp_path = PosixPath('/mnt/data-drive/EngAIn_Recovery/07_TMP/pytest-of-mytruelove/pytest-506/test_ticket3f_non_editor_proce0')
+
+    def test_ticket3f_non_editor_process_and_executable_entry_are_concrete_but_injected(
+        tmp_path: Path,
+    ) -> None:
+>       module = _composition_module()
+                 ^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_stage8_ticket3f_runtime_composition_red.py:346: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def _composition_module() -> ModuleType:
+        candidates: list[Path] = []
+        for path in _production_python_paths():
+            source = path.read_text(encoding="utf-8")
+            ast.parse(source, filename=str(path))
+            if COMPOSITION_MARKER in source:
+                candidates.append(path)
+    
+>       assert len(candidates) == 1, (
+            "QUALIFYING_CONCRETE_RUNTIME_COMPOSITION_BOUNDARY_DOES_NOT_EXIST: "
+            "Ticket 3F requires exactly one production Python composition boundary "
+            f"marked {COMPOSITION_MARKER}, but found {len(candidates)}"
+        )
+E       AssertionError: QUALIFYING_CONCRETE_RUNTIME_COMPOSITION_BOUNDARY_DOES_NOT_EXIST: Ticket 3F requires exactly one production Python composition boundary marked ENGAV3D_STAGE8_TICKET3F_CONCRETE_RUNTIME_COMPOSITION_V1, but found 0
+E       assert 0 == 1
+E        +  where 0 = len([])
+
+tests/test_stage8_ticket3f_runtime_composition_red.py:47: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_stage8_ticket3f_runtime_composition_red.py::test_ticket3f_concrete_binding_owns_one_real_adapter_shape_and_exclusive_generation
+FAILED tests/test_stage8_ticket3f_runtime_composition_red.py::test_ticket3f_ready_and_persistent_servicing_precede_and_outlive_godot
+FAILED tests/test_stage8_ticket3f_runtime_composition_red.py::test_ticket3f_non_ready_generation_fails_closed_before_godot
+FAILED tests/test_stage8_ticket3f_runtime_composition_red.py::test_ticket3f_godot_launch_failure_completes_same_worker_stop_and_releases_ownership
+FAILED tests/test_stage8_ticket3f_runtime_composition_red.py::test_ticket3f_non_editor_process_and_executable_entry_are_concrete_but_injected
+5 failed, 3 passed in 0.80s

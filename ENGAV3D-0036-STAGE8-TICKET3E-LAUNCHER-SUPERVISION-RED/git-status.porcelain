@@ -1,0 +1,15 @@
+M hermes_session_adapter.py
+ M scenes/ControlHUD.tscn
+ M scripts/ControlHUD.gd
+ M scripts/DragonAvatar3D.gd
+ M scripts/EngAInBridge3D.gd
+?? snapshots/perception_cap_cb1d91386b9fb24a1f969d439664566e_1.json
+?? snapshots/perception_cap_cb1d91386b9fb24a1f969d439664566e_1.png
+?? snapshots/perception_cap_cb1d91386b9fb24a1f969d439664566e_1.png.import
+?? tests/test_stage8_ticket2c_text_only_adapter_red.py
+?? tests/test_stage8_ticket2c_text_only_bridge_red.py
+?? tests/test_stage8_ticket2e_persistent_worker_red.py
+?? tests/test_stage8_ticket3b_godot_routing_red.py
+?? tests/test_stage8_ticket3b_hud_lifecycle_red.py
+?? tests/test_stage8_ticket3b_worker_ownership_red.py
+?? tests/test_stage8_ticket3e_launcher_supervision_red.py

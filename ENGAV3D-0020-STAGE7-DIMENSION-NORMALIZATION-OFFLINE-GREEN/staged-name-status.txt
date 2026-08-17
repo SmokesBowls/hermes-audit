@@ -1,0 +1,2 @@
+M	scripts/PerceptionCapture3D.gd
+A	tests/test_stage7_dimension_normalization.py

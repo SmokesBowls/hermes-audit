@@ -1,0 +1,11 @@
+{
+  "adapter_mode": "--once",
+  "attempted": 0,
+  "authorized": 1,
+  "operator_retry_authorized": false,
+  "remaining": 1,
+  "second_launch_authorized": false,
+  "session_id": "20260731_065008_63a62d",
+  "stage": "7-live-current-perception",
+  "timeout_seconds": 180
+}

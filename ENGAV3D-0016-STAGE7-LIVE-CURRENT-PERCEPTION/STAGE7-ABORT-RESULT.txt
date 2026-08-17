@@ -1,0 +1,29 @@
+Stage 7 live current-perception — PRE-PROVIDER ABORT
+
+Reason:
+A finalized unprocessed mailbox request existed before preflight.
+
+Stale request:
+req_8f11ca7b5f0dd09db1752e522eded21e
+
+Player input:
+you will see soon
+
+Perception:
+unavailable
+
+The request was not in the processed-request ledger and was not authorized
+for provider execution.
+
+Its exact bytes were preserved under STALE-PREEXISTING-MAILBOX before the
+blocking mailbox was removed.
+
+Provider accounting:
+authorized=1
+attempted=0
+remaining=1
+
+No adapter launch.
+No provider execution.
+
+The single Stage 7 live authorization remains unconsumed.

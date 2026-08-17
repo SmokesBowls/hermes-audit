@@ -1,0 +1,9 @@
+{
+  "companion_ref": "hermes_b",
+  "model": "gpt-5.6-sol",
+  "permissions": "600",
+  "processed_request_count": 1,
+  "profile": "default",
+  "provider": "openai-codex",
+  "session_id": "20260731_065008_63a62d"
+}

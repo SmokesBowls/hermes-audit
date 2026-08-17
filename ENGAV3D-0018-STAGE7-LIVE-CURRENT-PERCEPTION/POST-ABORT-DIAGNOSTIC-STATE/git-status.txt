@@ -1,0 +1,14 @@
+ M scripts/DragonAvatar3D.gd
+ M scripts/PerceptionCapture3D.gd
+?? snapshots/perception_cap_2ef1cb2279be385a882d5221c87b3ee1_1.json
+?? snapshots/perception_cap_2ef1cb2279be385a882d5221c87b3ee1_1.png
+?? snapshots/perception_cap_2ef1cb2279be385a882d5221c87b3ee1_1.png.import
+?? snapshots/perception_cap_ab700b5dc09150e01b058eae76003d7c_3.json
+?? snapshots/perception_cap_ab700b5dc09150e01b058eae76003d7c_3.png
+?? snapshots/perception_cap_ab700b5dc09150e01b058eae76003d7c_3.png.import
+?? snapshots/perception_cap_cee2c332e3c45ea6fdc4daa0448366a1_1.json
+?? snapshots/perception_cap_cee2c332e3c45ea6fdc4daa0448366a1_1.png
+?? snapshots/perception_cap_cee2c332e3c45ea6fdc4daa0448366a1_1.png.import
+?? snapshots/perception_cap_ddd0f0a291f65872c34dc7c5c235c8da_2.json
+?? snapshots/perception_cap_ddd0f0a291f65872c34dc7c5c235c8da_2.png
+?? snapshots/perception_cap_ddd0f0a291f65872c34dc7c5c235c8da_2.png.import

@@ -1,0 +1,22 @@
+Stage 7 live current-perception — PRE-PROVIDER ABORT
+
+Reason:
+Tracked Godot SpriteFrames resource had been automatically normalized.
+
+Changed resource:
+assets/dragon_3d_frames.tres
+
+Observed change:
+Only gd_resource load_steps=14 header metadata was removed.
+
+Provider accounting:
+authorized=1
+attempted=0
+remaining=1
+
+No request publication.
+No adapter launch.
+No provider execution.
+
+The resource was subsequently restored byte-for-byte to HEAD before
+the next authorized attempt.

@@ -1,0 +1,2 @@
+9ed05917067e799ee0b8de35e6bb68158c838a7eb1effb5d16137c6a3d213da7  scripts/PerceptionCapture3D.gd
+b2323d94b3fcf52986273a4a014f8116047aa2af377d82dbd5a55167d8599731  tests/test_stage7_dimension_normalization.py

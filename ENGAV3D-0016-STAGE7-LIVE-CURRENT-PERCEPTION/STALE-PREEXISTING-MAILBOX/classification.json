@@ -1,0 +1,11 @@
+{
+  "capture_id": "cap_260e843f50bba9f54937b1becfd208bc_1",
+  "classification": "STALE_UNPROCESSED_PREEXISTING_REQUEST",
+  "client_request_id": "dragon3d_4de3ce381cab4e6812d77766cd4bb171_1",
+  "perception_state": "unavailable",
+  "player_input": "you will see soon",
+  "present_in_processed_ledger": false,
+  "provider_execution_authorized_for_this_request": false,
+  "request_id": "req_8f11ca7b5f0dd09db1752e522eded21e",
+  "unavailable_reason": "viewport_unavailable"
+}

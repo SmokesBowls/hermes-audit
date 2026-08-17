@@ -1,0 +1,78 @@
+{
+  "godot_executions": 0,
+  "head": "77593c205851c97a1b0b46ebdb6ade270309f81a",
+  "pre_existing_dirty_paths": {
+    "hermes_session_adapter.py": {
+      "bytes": 112446,
+      "sha256": "fc7969f9be6f992570821d96ed9a46b62959f5cc60780d4d89d9a04cc79f7542"
+    },
+    "scenes/ControlHUD.tscn": {
+      "bytes": 1790,
+      "sha256": "d20e7e87dd5121f20a29cee865e5e9ef2cf4bc916addcd5cc3dc5559ea74ddc1"
+    },
+    "scripts/ControlHUD.gd": {
+      "bytes": 2325,
+      "sha256": "96afd4f81669830d69e541a6e26e843a41eda6c9c642c18de7e6d50aa68fcd81"
+    },
+    "scripts/DragonAvatar3D.gd": {
+      "bytes": 5585,
+      "sha256": "ef667b7eb63c4689f23888cf28ff25891fb459f2ccc6e6f99c4febc75dbbcf38"
+    },
+    "scripts/EngAInBridge3D.gd": {
+      "bytes": 24301,
+      "sha256": "021b7838d8984e4c55f10a226f70319a1b53bf2101b5a70e9889a72cda7167e1"
+    },
+    "snapshots/perception_cap_cb1d91386b9fb24a1f969d439664566e_1.json": {
+      "bytes": 739,
+      "sha256": "c5588884a45c6ab6ab7be7df1a102d3411431d488a25cca01c8dc240f26028aa"
+    },
+    "snapshots/perception_cap_cb1d91386b9fb24a1f969d439664566e_1.png": {
+      "bytes": 37140,
+      "sha256": "ddbca6833ba8f8a44c733e2a2feceabbac96d5a238b1a360ae2da690268fc858"
+    },
+    "snapshots/perception_cap_cb1d91386b9fb24a1f969d439664566e_1.png.import": {
+      "bytes": 1061,
+      "sha256": "12ce78ab051d67ce9200edd6a0f46cc067b10cce548bcc41cc6c24fbdf8b75b8"
+    },
+    "tests/test_stage8_ticket2c_text_only_adapter_red.py": {
+      "bytes": 7603,
+      "sha256": "17bf37dee6e3abb4208b8f2dd15ba14178f9e0e8a493581723804077c9e977af"
+    },
+    "tests/test_stage8_ticket2c_text_only_bridge_red.py": {
+      "bytes": 7159,
+      "sha256": "fc70cfc985a42428768c9c144da3f7fd3655defe766d80bc99912113cfbca465"
+    },
+    "tests/test_stage8_ticket2e_persistent_worker_red.py": {
+      "bytes": 12351,
+      "sha256": "db705f501187709b55f927faa589bafad93a3cb6e72368387b0a4dcc5914d068"
+    },
+    "tests/test_stage8_ticket3b_godot_routing_red.py": {
+      "bytes": 6158,
+      "sha256": "0b7f189de9864588fcc8e273e5e64b3824e36e6ec7331a34049fb1c171c1c973"
+    },
+    "tests/test_stage8_ticket3b_hud_lifecycle_red.py": {
+      "bytes": 4583,
+      "sha256": "da9533c8c83f20cf15037c4723ecfb495603c4661887eb9eb4f180fe15bf0f8c"
+    },
+    "tests/test_stage8_ticket3b_worker_ownership_red.py": {
+      "bytes": 3437,
+      "sha256": "7868afe8cd4fc09a839de746f28f9bd2e9fcbeb42fdc78a0bb8b5fc542b29787"
+    }
+  },
+  "production_files_changed": [],
+  "provider_executions": 0,
+  "repository": "/mnt/data-drive/godot_engain_3d_avatar",
+  "runtime_launcher_path": "runtime_launcher.py",
+  "runtime_launcher_sha256": "e2388f74953a452f5626565fcde7d6e5abc4c92eb01187570d9cf03abd62ec96",
+  "schema": "engav3d.ticket3f.red.source_identity.v1",
+  "test_files_changed": [],
+  "test_files_created": [
+    "tests/test_stage8_ticket3f_runtime_composition_red.py"
+  ],
+  "ticket3e_test_path": "tests/test_stage8_ticket3e_launcher_supervision_red.py",
+  "ticket3e_test_sha256": "c89aa2153d2a7bb1db50a6b1cf901ef8cefa655f8d0244a1911b56e26e78d68d",
+  "ticket3f_test_path": "tests/test_stage8_ticket3f_runtime_composition_red.py",
+  "ticket3f_test_sha256": "1b3961ec020fa56ddacf5099abdd761e0d7df5592f9eee04a32616c100acba4a",
+  "tracked_binary_diff_sha256": "4f3eb7f0b4f538b810ef9fc33f54c7a0345e2375403c6c55ae712b4310241b28",
+  "worker_executions": 0
+}

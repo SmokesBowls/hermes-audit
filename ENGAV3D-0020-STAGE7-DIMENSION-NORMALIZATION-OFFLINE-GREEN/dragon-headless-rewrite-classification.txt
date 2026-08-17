@@ -1,0 +1,23 @@
+Godot headless post-parse working-tree observation
+
+File:
+scripts/DragonAvatar3D.gd
+
+Observed after the successful Godot headless editor initialization recorded
+in godot-headless.log.
+
+Current diff SHA-256:
+bc03b207fd70323038d571719267d8932940abdb87527c52414b91caa6d42f9a
+
+The diff is byte-for-byte identical to the DragonAvatar3D.gd diff previously
+preserved under:
+
+ENGAV3D-0018-STAGE7-LIVE-CURRENT-PERCEPTION/
+POST-ABORT-DIAGNOSTIC-STATE/dragon-unrelated.diff
+
+This file is outside the Stage 7 dimension-normalization correction scope.
+
+The reproduced rewrite is therefore preserved as post-headless evidence and
+then restored to committed HEAD before final repository-state admission.
+
+No tests or provider executions are repeated as part of this restoration.

@@ -1,0 +1,75 @@
+ENGAV3D-0021 — Stage 7 live current-perception crossing
+
+RESULT:
+SUCCESS
+
+Sealed production HEAD:
+77593c205851c97a1b0b46ebdb6ade270309f81a
+
+Frozen Hermes session:
+20260731_065008_63a62d
+
+Successful request:
+req_86e2ff646d177916a625437da1b05257
+
+Client request:
+dragon3d_8e928228177bbe4555960fd284afbed3_1
+
+Capture:
+cap_fbc531bc3871a8b82e95a311c3982bf2_1
+
+Capture dimensions:
+1152x648
+
+Capture image SHA-256:
+ae64ca71b6cd46c6cc500f47dd0030e855a8bb3660da98c80dba98947aa8b58c
+
+Capture metadata SHA-256:
+aaaa8dd95568bfc5dabfd3dcd2198c38753f9152bc764ed75d2f033c9886b018
+
+Perception state:
+full
+
+Provider accounting:
+authorized=1
+attempted=1
+remaining=0
+
+Second launch authorized:
+false
+
+Operator retry authorized:
+false
+
+Hermes message count:
+71 -> 73
+delta=2
+
+Processed request occurrence:
+1
+
+Response bytes observed:
+true
+
+HUD response:
+The red dragon is slightly left of center in the frame.
+
+The prompt itself supplied neither the Dragon color nor its position.
+
+Post-live second HUD submission:
+req_b0df8489d91063047efc4e961e13a754
+
+That second submission occurred after the one-shot adapter had exited.
+It timed out locally, had zero provider executions, was never entered into
+the processed-request ledger, was preserved under
+POST-LIVE-UNPROCESSED-SUBMISSION/, and its finalized request mailbox was
+removed so it cannot be processed retroactively.
+
+Final request mailbox:
+ABSENT
+
+Final response mailbox:
+ABSENT
+
+Final repository state:
+CLEAN

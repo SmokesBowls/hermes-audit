@@ -1,0 +1,11 @@
+evidence_id=ENGAV3D-0029-STAGE8-TICKET2D-TEXT-ONLY-IMPLEMENTATION-GREEN
+repository=/mnt/data-drive/godot_engain_3d_avatar
+base_head=77593c205851c97a1b0b46ebdb6ade270309f81a
+focused_tests=11_passed
+protected_suite=191_passed
+provider_executions=0
+authorized_production_files=hermes_session_adapter.py,scripts/EngAInBridge3D.gd
+test_correction=tests/test_stage8_ticket2c_text_only_adapter_red.py
+pre_existing_dirty_state=byte_identical
+persistent_worker=not_implemented
+hud_routing=not_implemented

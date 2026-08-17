@@ -1,0 +1,78 @@
+STAGE8_TICKET3G_FIRST_LIVE_COMPOSED_RUNTIME_VALIDATION_V1
+
+TICKET_3G_LIVE=CONFIRMED
+LIVE_RUNTIME_EXECUTIONS=1
+WORKER_GENERATIONS=1
+GODOT_EXECUTIONS=1
+PROVIDER_EXECUTIONS=0
+SUBMISSIONS=0
+
+COMMAND=python3 runtime_composition.py --godot-command /home/mytruelove/applications/Godot_v4.6.1-stable_linux.x86_64 --project-dir /mnt/data-drive/godot_engain_3d_avatar --shutdown-budget 5.0
+PRECHECK_UTC=2026-08-13T10:12:18.280585855+00:00
+RUNTIME_START_UTC=2026-08-13T10:12:36.640+00:00
+GODOT_START_UTC=2026-08-13T10:12:36.860+00:00
+POSTCHECK_UTC=2026-08-13T10:17:35.763737296+00:00
+
+RUNTIME_COMPOSITION_PID=2663251
+RUNTIME_COMPOSITION_START_TICKS=4528964
+PID_FILE_MIDRUN=/mnt/data-drive/godot_engain_3d_avatar/.godot/engain_hermes_adapter.pid
+PID_FILE_MIDRUN_TEXT=2663251
+GODOT_PID=2663314
+GODOT_PPID=2663251
+GODOT_START_TICKS=4528986
+GODOT_EXECUTABLE=/home/mytruelove/applications/Godot_v4.6.1-stable_linux.x86_64
+GODOT_ARGV=/home/mytruelove/applications/Godot_v4.6.1-stable_linux.x86_64 --path /mnt/data-drive/godot_engain_3d_avatar
+GODOT_VERSION=4.6.1.stable.official.14d19694e
+GODOT_EXIT_CODE=0
+LAUNCHER_EXIT_CODE=0
+
+WORKER_READY_BEFORE_GODOT=PASS
+READY_ORDER_EVIDENCE=PID ownership existed with launcher PID and Godot was its single child; production composition acquires ownership, prepares the sole in-process adapter, requires READY, and starts servicing before the Ticket 3E Godot factory is admitted. Runtime start ticks 4528964 precede Godot start ticks 4528986.
+SAME_WORKER_GENERATION=PASS
+SAME_GENERATION_EVIDENCE=One launcher process owned one PID file for the full generation; no adapter subprocess existed; one Godot child had launcher PID 2663251 as parent; normal exit code 0 was followed by PID-file disappearance and no remaining runtime process.
+PERSISTENT_SERVICING=PASS
+PERSISTENT_SERVICING_EVIDENCE=The sole composition remained alive with the PID lock held while its Godot child was running; the in-process adapter service thread is the only production servicing path and no adapter subprocess was present.
+WORKER_STOP_REQUEST=PASS
+WORKER_TERMINAL_STOPPED=PASS
+STOPPING_TO_STOPPED_EVIDENCE=Indirect production-boundary evidence: launcher exited 0 only after Ticket 3E requested stop and observed STOPPED; ComposedWorker delegates request_stop to the same adapter, then boundedly closes servicing and invokes existing _finish_stop. STOPPING was not directly logged.
+PID_RELEASE=PASS
+PID_RELEASE_EVIDENCE=PID file present mid-run with 2663251 and absent after launcher exit.
+
+MAIN_SCENE_LOAD=PASS
+MAIN_SCENE_OUTPUT=[MAIN] Loaded. Bridge at:/root/Main/World/DragonAvatar3D/EngAInBridge
+REQUEST_MAILBOX_BEFORE=ABSENT
+RESPONSE_MAILBOX_BEFORE=ABSENT
+PID_FILE_BEFORE=ABSENT
+REQUEST_MAILBOX_DURING=ABSENT
+RESPONSE_MAILBOX_DURING=ABSENT
+PID_FILE_DURING=PRESENT
+REQUEST_MAILBOX_AFTER=ABSENT
+RESPONSE_MAILBOX_AFTER=ABSENT
+PID_FILE_AFTER=ABSENT
+
+RUNTIME_COMPOSITION_PROCESS_AFTER=ABSENT
+ADAPTER_WORKER_PROCESS_AFTER=ABSENT
+GODOT_PROJECT_PROCESS_AFTER=ABSENT
+HERMES_PROVIDER_PROCESS_BEFORE=ABSENT
+HERMES_PROVIDER_PROCESS_DURING=ABSENT
+HERMES_PROVIDER_PROCESS_AFTER=ABSENT
+
+SESSION_STATE_SHA256_BEFORE=2a206cff6487dc9cef1feb1a05cd79b9d5b01d316e48b9256c95f3089a4ee494
+SESSION_STATE_SHA256_AFTER=2a206cff6487dc9cef1feb1a05cd79b9d5b01d316e48b9256c95f3089a4ee494
+PROCESSED_REQUEST_IDS_CHANGED=0
+RUNTIME_COMPOSITION_SHA256_BEFORE=54308fa61f76348f2b2190c1c7b08820b57a58cfe36a0b67d30c48abe68e0bcd
+RUNTIME_COMPOSITION_SHA256_AFTER=54308fa61f76348f2b2190c1c7b08820b57a58cfe36a0b67d30c48abe68e0bcd
+RUNTIME_LAUNCHER_SHA256_BEFORE=e2388f74953a452f5626565fcde7d6e5abc4c92eb01187570d9cf03abd62ec96
+RUNTIME_LAUNCHER_SHA256_AFTER=e2388f74953a452f5626565fcde7d6e5abc4c92eb01187570d9cf03abd62ec96
+TRACKED_FILE_MANIFEST_SHA256_BEFORE=c66c7674d14b9be98b2594164a5488fed7596a4b526ffa760a17909ab9885afd
+TRACKED_FILE_MANIFEST_SHA256_AFTER=c66c7674d14b9be98b2594164a5488fed7596a4b526ffa760a17909ab9885afd
+GIT_STATUS_CHANGED=0
+RUNTIME_GENERATED_PROJECT_FILES_OBSERVED=0
+QUARANTINED_REQUEST_SHA256_AFTER=19111c9dca529e340cef464a0a25326905c212d2d8366cb3e36ca1ba9df2cf1a
+
+PRODUCTION_CODE_CHANGED=0
+TEST_FILES_CHANGED=0
+LIVE_PROVIDER_VALIDATION=NOT_BEGUN
+NEXT_TICKET=NOT_BEGUN
+
+PROOF_SCOPE=First real composed lifecycle with zero submissions only. This does not prove provider submission, response delivery, live perception capture, multiple submissions, long-duration stability, restart/retry, multiple generations, or crash recovery.

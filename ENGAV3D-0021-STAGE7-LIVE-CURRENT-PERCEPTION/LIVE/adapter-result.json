@@ -1,0 +1,15 @@
+{
+  "ended_ns": 1786463354032281934,
+  "operator_retry_authorized": false,
+  "processed_marker_count": 1,
+  "processed_marker_observed": true,
+  "processed_request_occurrences": 1,
+  "provider_attempted": 1,
+  "provider_authorized": 1,
+  "provider_remaining": 0,
+  "return_code": 0,
+  "second_launch_authorized": false,
+  "session_id_after": "20260731_065008_63a62d",
+  "started_ns": 1786463337921993570,
+  "timeout_killed": false
+}

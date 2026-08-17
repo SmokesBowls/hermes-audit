@@ -1,0 +1,3 @@
+[main 77593c2] stage 7: normalize persisted capture dimensions
+ 2 files changed, 139 insertions(+)
+ create mode 100644 tests/test_stage7_dimension_normalization.py

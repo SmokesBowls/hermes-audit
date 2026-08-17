@@ -1,0 +1,11 @@
+ENGAV3D-0020 Stage 7 dimension-normalization offline GREEN.
+
+Provider executions during this gate:
+0
+
+Live HUD submissions during this gate:
+0
+
+ENGAV3D-0018 remains permanently closed and must not be rerun.
+
+No new live crossing is authorized by this evidence gate.

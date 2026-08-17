@@ -1,0 +1,11 @@
+evidence_id=ENGAV3D-0030-STAGE8-TICKET2E-PERSISTENT-WORKER-LIFECYCLE-RED
+repository=/mnt/data-drive/godot_engain_3d_avatar
+base_head=77593c205851c97a1b0b46ebdb6ade270309f81a
+base_authority=ENGAV3D-0029-STAGE8-TICKET2D-TEXT-ONLY-IMPLEMENTATION-GREEN
+test_file=tests/test_stage8_ticket2e_persistent_worker_red.py
+test_sha256=385ea2aa60b988f206d4df0eb4c65745d4733983140b5ff3435b6e7de68314d7
+focused_result=1_failed_4_passed
+expected_failure=test_ticket2e_worker_exposes_explicit_stop_lifecycle_without_signal_injection
+provider_executions=0
+production_files_changed=0
+pre_existing_dirty_state=byte_identical

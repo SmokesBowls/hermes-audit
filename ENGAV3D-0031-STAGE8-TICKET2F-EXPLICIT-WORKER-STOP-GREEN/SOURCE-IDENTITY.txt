@@ -1,0 +1,12 @@
+evidence_id=ENGAV3D-0031-STAGE8-TICKET2F-EXPLICIT-WORKER-STOP-GREEN
+repository=/mnt/data-drive/godot_engain_3d_avatar
+base_head=77593c205851c97a1b0b46ebdb6ade270309f81a
+base_authority=ENGAV3D-0030-STAGE8-TICKET2E-PERSISTENT-WORKER-LIFECYCLE-RED
+production_file=hermes_session_adapter.py
+production_sha256=fc7969f9be6f992570821d96ed9a46b62959f5cc60780d4d89d9a04cc79f7542
+test_file=tests/test_stage8_ticket2e_persistent_worker_red.py
+test_sha256=db705f501187709b55f927faa589bafad93a3cb6e72368387b0a4dcc5914d068
+focused_tests=5_passed
+protected_suite=196_passed
+provider_executions=0
+pre_existing_dirty_state=byte_identical

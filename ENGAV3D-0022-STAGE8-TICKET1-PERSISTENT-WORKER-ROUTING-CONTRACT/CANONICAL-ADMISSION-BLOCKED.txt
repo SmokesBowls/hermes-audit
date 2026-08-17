@@ -1,0 +1,52 @@
+ENGAV3D-0022 CANONICAL ADMISSION BLOCKED
+
+Requested admission marker:
+STAGE8_TICKET1_CONTRACT_ADMITTED
+
+Verdict:
+NOT ISSUED
+
+Reason:
+The exact Ticket 1 contract artifact and the newly supplied mandatory memory
+fixture disagree under the contract's own closed deterministic routing policy.
+
+Exact preserved contract SHA-256:
+8d569dac608f268405630b36816cb5d8514fd6d74dc784840c4110218f2a880a
+
+Mandatory fixture:
+Without using any current image, describe what you remember about the previous
+Dragon and the room/environment you saw before this latest scene.
+
+Required route stated by operator:
+text_only
+
+Observed route under engav3d.routing.stage8.ticket1.v1:
+current_perception
+
+Deterministic cause:
+- Rule 2 anchor match: "this"
+- Rule 2 visual/spatial term match: "scene"
+- Rule 2 result: current_perception
+
+The contract's history-scoped exception applies only to the direct phrases
+"what do you see" and "what can you see". It does not define an explicit
+negative-current-image override for "without using any current image".
+
+Fail-closed consequence:
+The canonical verifier exited 1. It did not issue the admission statement.
+Changing the verifier to force text_only would contradict the exact preserved
+contract. Changing the contract would change its frozen SHA-256 and sidecar.
+Neither mutation is authorized implicitly by a canonical evidence gate.
+
+Required authority before admission:
+Choose one:
+1. amend and re-freeze Ticket 1 routing policy so an explicit no-current-image
+   instruction wins for this history-scoped fixture; or
+2. preserve the exact Ticket 1 artifact and replace the fixture with wording
+   that is text_only under the existing closed predicates.
+
+Provider executions:
+0
+
+Runtime implementation:
+NOT AUTHORIZED
