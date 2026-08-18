@@ -1,0 +1,11 @@
+[presence-authority] listening on 127.0.0.1:8767
+[presence-authority] "GET /health HTTP/1.1" 200 -
+[presence-authority] "POST /presence/register HTTP/1.1" 200 -
+Godot Engine v4.6.1.stable.official.14d19694e - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.57.04 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2070
+
+[MAIN] Loaded. Bridge at:/root/Main/World/DragonAvatar3D/EngAInBridge
+[presence-authority] "GET /health HTTP/1.1" 200 -
+[presence-authority] "POST /claim HTTP/1.1" 200 -
+[presence-authority] "POST /release HTTP/1.1" 200 -
+Processed EngAIn request: req_ee57c1f837c3e33267668c28d50fde1d
