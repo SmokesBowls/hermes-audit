@@ -8,6 +8,19 @@ document is the required crash-consistency design pass before any of
 that gets implemented. **Design only — no runtime code, no encoding
 selected.**
 
+> **Wording amendment (same day, before the encoding pass)**: window 2
+> below was originally characterized as "honestly-irreducible." That
+> overstated it. It is irreducible only *with the capabilities EngAIn
+> has today* — no dispatcher adapter exposes provider transcript
+> read-back, so EngAIn cannot currently recover a response that landed
+> on the native side but never reached EngAIn's own durable write. If
+> that capability is ever added, this specific gap could close by a
+> different route than journal design. Corrected wording below to
+> **"currently unrecoverable without provider transcript read-back"** —
+> not fundamentally or permanently impossible. The technical claim this
+> was making (no *journal-ordering* design change closes it) still
+> stands; only the "forever" framing was wrong.
+
 ## 1. The failure windows, traced against the actual code
 
 `handle_turn()`'s real step order (unchanged by items 1/2, both already
@@ -21,7 +34,7 @@ crash lands between durability points that don't yet exist.
 | # | Window | Reconstructed state after restart | Consequence |
 |---|---|---|---|
 | 1 | Crash after request turn durable, before dispatch | Ledger has the request; no response exists; cursor unaffected | **Orphan request** — but this is not a new failure mode. Gate 2 (§7 of the contract) already requires exactly this to be a valid, tolerated state: "a request may be appended even while nobody is currently on the other side." No special recovery needed beyond what the system already does for any unanswered request. |
-| 2 | Crash after provider returns, before response turn durable | Ledger has only the request; the *native* provider's own transcript already contains the exchange (durable, vendor-side, per item 3's own derivation) — but EngAIn's Ledger does not | **Missing recap**, bounded and inherent — not eliminable by any journal-ordering design, only by making the request-durable→dispatch→response-durable path as short as possible. See §4: no design can make "provider call succeeded but our own write hadn't landed yet" impossible when the provider call is an external, non-transactional, possibly-multi-second subprocess. This is the one honestly-irreducible risk window; it is bounded (one exchange, one shared_session_id, one crash), not open-ended. |
+| 2 | Crash after provider returns, before response turn durable | Ledger has only the request; the *native* provider's own transcript already contains the exchange (durable, vendor-side, per item 3's own derivation) — but EngAIn's Ledger does not | **Missing recap**, bounded and **currently unrecoverable without provider transcript read-back** — no journal-ordering design closes this, since it's not an ordering problem: the provider call is an external, non-transactional, possibly-multi-second subprocess, and no write on EngAIn's side can be made to happen *before* a response EngAIn doesn't have yet. Bounded (one exchange, one shared_session_id, one crash), not open-ended, and not necessarily permanent — see §4: if a dispatcher adapter ever exposes reliable read-back of a native transcript, this gap could close by recovering the response from provider-side state instead of from EngAIn's own journal. Not pursued in this pass; named as the honest limit of what journal design alone can guarantee today. |
 | 3 | Crash after response turn durable, before cursor advance durable | Ledger correctly has the response; cursor for that `(provider_id, provider_session_id)` is stale — still shows the pre-exchange value | **Safe duplicate recap.** The next dispatch to that same native session recaps a turn it already actually produced. This is exactly the pre-existing, already-endorsed safety argument ("a lost cursor can only cause more recap, never less") — now trustworthy again specifically because item 2 closed the `turn_id` corruption that had put that argument at risk. |
 | 4 | Crash after cursor advance durable, before the HTTP response reaches the caller | Ledger and cursor are both **fully, correctly durable** | **Not a Ledger/Cursor consistency issue at all** — this is a caller-notification ambiguity (the caller doesn't know its request succeeded), identical in shape to what any HTTP service has whenever a response is lost after the server-side effect committed. Out of scope for this journal design; would need an idempotency key on the *caller's* retry to fix, which is separate, unbuilt, unscoped-here machinery. |
 | 5 | Process kill mid-write of a single event record (torn write) | Whatever the storage mechanism leaves behind — a partial/unparseable record, *unless* the mechanism guarantees atomic, all-or-nothing appends | **Unrecoverable corruption is possible** unless the eventual storage choice provides: an event either lands whole or not at all, and a torn tail is *detectable*, never silently accepted as valid. This is a required property of whatever encoding gets chosen later (§3) — not resolved here, but the requirement is non-negotiable regardless of which encoding is picked. |
@@ -204,9 +217,12 @@ touched by this document.
 
 - Six failure windows traced against the real code; five are safe or
   already-tolerated by existing contract gates; one (window 2, provider
-  succeeded but the write hadn't landed) is an honestly bounded,
-  irreducible risk inherent to any design where durability follows an
-  external, non-transactional provider call — named, not hidden.
+  succeeded but the write hadn't landed) is honestly bounded and
+  currently unrecoverable without provider transcript read-back — a
+  limit of today's dispatcher-adapter capabilities, not a permanent
+  architectural impossibility — inherent to any *journal-ordering*
+  design where durability follows an external, non-transactional
+  provider call. Named, not hidden.
 - One durable, strictly-ordered event stream per `shared_session_id`,
   not two independently-authoritative files — proven necessary, not
   merely preferred, by the asymmetry in table row 3 vs. its reverse.
