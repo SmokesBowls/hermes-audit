@@ -76,3 +76,29 @@ What's the concrete next step you want from me right now?
   6. Chat about this
 
 Enter to select · ↑/↓ to navigate · Esc to cancel
+
+
+Now let's commit this to the audit repo, and write a persistent memory pointer for future sessions.
+
+  Committed 2429840
+
+Now let me write the persistent memory so a future session can pick this up efficiently without re-deriving everything.
+
+  Wrote 2 memories
+
+Wrapped up. Summary of what's now in place:
+
+Todo list / continuation instructions, committed as full audit/08-17-2026-continuation-todo.md in the audit repo (commit 2429840, not pushed):
+
+1. Concurrent-/dispatch mutex for overridden (non-default) bindings — not yet built, needs a design decision before implementing.
+2. Ledger/cursor persistence or reconstruction across a restart — deferred by original scope, worth re-deriving given this phase's recap-becomes-native discovery.
+3. Production cutover decision (turning ENGAIN_CONTINUITY_DISPATCH on by default, or retiring the old path) — explicitly not made, real feature-coverage tradeoffs involved.
+4. Composing this integration with the real Godot launcher (runtime_composition.py) — untried.
+5. provider_session_ref's frozen-identity schema limitation — named, not fixed.
+
+Plus current state (all four repos clean/committed/unpushed, exact test counts, where to look first in each repo).
+
+Persistent memory for future sessions: engain-continuity-project-status.md (indexed in MEMORY.md) — a compact pointer covering the four-repo layout, the sole-authority architecture as it stands today, and directing straight to that audit-repo TODO file rather than re-deriving state from git history. It also codifies the working discipline this project has run on (live proof over simulation, honest correction, Amendment-not-rewrite for ratified docs, no push without explicit instruction, audit repo for evidence) so it carries forward without re-explanation.
+
+Nothing was pushed in this wrap-up — only the one new commit to the audit repo, matching the standing rule.
+
