@@ -72,6 +72,40 @@ null in that headless context so the new function no-ops safely) — but
 the actual experiment needs one more live, human-triggered DIRECT_WRITE
 turn, then reading the trace log afterward.
 
+## Follow-up: the experiment was firing too late, not disproved
+
+Live result (`load_probe_diamond_05`): the new object appeared
+automatically in the running world (auto-refresh confirmed working
+again), but Godot's own "Files have been modified outside Godot"
+dialog for `Main.tscn` appeared **while the request still said
+WORKING**. The user correctly declined to press "Reload from disk"
+(the known crash path) and asked: don't assume the API failed — trace
+whether the call is simply arriving too late.
+
+Traced: yes. `_experimental_reload_edited_scene_via_api()` was called
+from `_on_turn_finished()`, which only runs once the **entire**
+(possibly multi-minute) Hermes turn returns — the actual file write
+happens deep inside the still-running background-thread subprocess
+call, and Godot's own async `EditorFileSystem` detection runs
+independently on the main thread's idle loop, firing well before that
+whole call ever completes. The experiment had never actually reached
+its own call site before Godot's dialog appeared — it wasn't disproved,
+it just hadn't run yet.
+
+**Correction applied**: the reload call now fires from a new poll in
+`_process()` — active only while a `DIRECT_WRITE` turn is in flight —
+the moment `Main.tscn`'s own mtime is observed to differ from a
+baseline recorded right before `send()`. Fires at most once per turn.
+The old, too-late call site in `_on_turn_finished()` was removed (not
+kept alongside the new one), to keep this a single-variable experiment.
+Noted, not hidden: this earlier call site means Hermes may still be
+actively running (possibly still writing) when the reload fires — a
+real open question this experiment doesn't resolve, only surfaces.
+
+Still not adopted as the fix. Still requires one more live,
+human-triggered DIRECT_WRITE turn to actually prove whether calling it
+this early avoids the dialog and survives.
+
 ## Next step (not done yet)
 
 Have Dragon make one more harmless, uniquely-identifiable edit request;
