@@ -204,6 +204,53 @@ not currently specify whether that reply should be persisted (e.g.
 logged locally, or surfaced some other way) or is fine to discard
 locally as it is now — that decision is open, not made here.
 
+## Follow-up: surfacing [TOOL]/[DRAGON] in the live HUD, then correcting the text
+
+Before the live restart, the "known gap" above (reply not captured) was
+closed: `AdapterConfig.tool_events_dir` + `_publish_tool_event()` (dragon3d)
+write small display-only events; `EngAInBridge3D.gd` polls them and
+re-emits through the existing `log_line` signal; `ControlHUD.gd` renders
+`kind="tool"` as `[TOOL]`. Deliberately NOT routed through `response.json`
+— `_validate_correlated_response()` requires an active player-initiated
+lifecycle that a coordination-only delivery never has.
+
+**Live-test review caught a real defect before restart**: the first
+version's `[TOOL]` text was a canned `"Proposal complete — <summary>"` /
+`"Proposal failed — <summary>"` string — exactly the generic status
+language this project's own honesty conventions reject. Fixed with
+`_format_tool_completion_text(coordination_report)`, a pure function
+built entirely from real report fields (request id via
+`parent_message_id`, real changed-file basenames, real
+`validation_result.status`, DONE/FAILED from the report's own `status`,
+first real error message on failure) — no canned strings. 2 new pure
+unit tests plus corrected assertions on the 2 existing end-to-end
+tool-event tests (exact text, not `startswith()`).
+
+Also caught and fixed in the same pass: a real filename-ordering bug —
+`_publish_tool_event()` used second-resolution `strftime` timestamps,
+and a "tool" event followed by its "dragon" reaction routinely publish
+within the same wall-clock second, so they could sort out of order in
+both a test and the actual live HUD. Fixed to zero-padded
+`time.time_ns()`. Caught by a real, reproducible test failure, not
+reasoned about in the abstract.
+
+**Git-state correction**: a claim that "push ended at 27a5113" was
+checked directly (`git log`, `git status`, `git show --stat`) —
+`27a5113 "reload"` is the user's own commit on top of this session's
+`ebd6137`/`dda1057`/etc., capturing their saved `Main.tscn`/
+`FirstLightTower.tscn` scene edits plus two new snapshot captures.
+Working tree clean; nothing was pushed to `origin` by this session at
+any point.
+
+**Live restart, still pending as of this writing**: `ENGAIN_CONTINUITY_DISPATCH=1
+ENGAIN_CONTINUITY_SHARED_SESSION_ID=dragon3d_main ./launch_dragon3d.sh`,
+after saving editor state. Expected first observable effect: the
+already-completed `first_light_tower_revision_02` report still sitting
+in `coordination/inbox/` should flush automatically on the worker's
+first poll, producing a real `[TOOL] Request dragonreq_...: DONE — ...`
+line with no player input at all — the free proof-of-return-lane the
+live test was designed to give before any new interactive turn.
+
 ## Closure
 
 Ticket closed. The five held-open conditions are proven, not merely
