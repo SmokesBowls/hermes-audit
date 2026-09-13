@@ -133,3 +133,64 @@ equivalent dispatch) run when the Editor's report actually lands, not
 only the next time a player happens to type something. Nothing in this
 session's implementation added such a trigger, and per instruction,
 nothing further is implemented here until this is reviewed.
+
+## Follow-up (same day): the trigger itself, closing the ticket
+
+User held the ticket open pending five conditions and specified the
+exact integration test to add. Implemented in
+`godot_engain_3d_avatar/hermes_session_adapter.py`:
+
+- `process_once()`: when no player request is claimable, it now calls a
+  new `_process_pending_coordination_report_without_player_turn()`
+  instead of unconditionally returning `False`. The existing poll loop
+  (`run(): while True: process_once(); sleep(poll_seconds)`) becomes the
+  delivery mechanism — no new thread, file-watcher, or process.
+- The new method fires only when continuity dispatch is enabled (local/
+  non-continuity path untouched — a report still just waits for a
+  player turn there). It acquires the same presence-authority dispatch
+  claim a real player turn already takes, in the same order (claim
+  first, then claim the report from the inbox), so a contended or
+  unreachable claim costs the report no retry attempt. It claims via the
+  same atomic-rename `_claim_coordination_report()`/
+  `_dispose_coordination_report()` pair the player-turn path already
+  uses. It dispatches with `player_input=""` (no player said anything;
+  the coordination_report block alone carries content) and deliberately
+  does **not** write `config.response_file` — doing so would wedge every
+  subsequent real player request behind a file nothing would ever
+  correlate to and claim, since `process_once()` itself refuses to claim
+  a new request while that file exists.
+- `_dispatch_via_engain_continuity()` now takes a plain `player_input:
+  str` instead of a `ValidatedRequest`, so the real-player-turn call site
+  and this new one can share it.
+
+**Verification against the five held-open conditions:**
+1. Editor completion causes dispatch with no external trigger — proven:
+   `test_pending_coordination_report_dispatches_without_a_player_turn`
+   writes a report and calls `process_once()` with **no request file at
+   all**; the fake `/dispatch` server receives it.
+2. `coordination_report` still carried separately from `player_input` —
+   asserted directly on the wire body (`player_input == ""`,
+   `coordination_report` present as its own key).
+3. Success → moved to `consumed/`, not retried — asserted directly.
+4. Failure → exactly one HTTP attempt per poll, back to `inbox/` at
+   `attempt+1`, and a second poll proves it's genuinely retryable, not
+   stuck — new `test_pending_coordination_report_stays_retryable_on_dispatch_failure`.
+5. `COORDINATION_UNSUPPORTED_ON_CONTINUITY_DISPATCH` — grep-confirmed
+   absent from the file and every test.
+
+**Test results:** targeted files 59/60 passed (2 new + 57 prior); the
+one failure is the same pre-existing, unrelated scene-freeze test
+already confirmed via `git stash` to predate any of this session's
+changes. Additionally ran every other test file in the repo that calls
+`process_once()` (presence-authority integration/supervision, stage8
+runtime-composition/persistent-worker): 21/21 passed, no regressions.
+
+**Known, stated limitation, not one of the five conditions**: the
+resulting narrative response from a coordination-only dispatch is
+absorbed into EngAIn's own Ledger (visible to a future real turn's
+recap) but is not surfaced to the player directly — no in-game "the
+dragon speaks" effect from this delivery yet. Also unresolved:
+`handle_turn()`'s step 2 still unconditionally records this turn's empty
+`player_input` as an `actor="player"` Ledger entry — a minor imprecision
+in Ledger history for a turn no player initiated, left as-is since it's
+an EngAIn-side Ledger-schema question outside this ticket's scope.
