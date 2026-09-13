@@ -194,3 +194,24 @@ dragon speaks" effect from this delivery yet. Also unresolved:
 `player_input` as an `actor="player"` Ledger entry — a minor imprecision
 in Ledger history for a turn no player initiated, left as-is since it's
 an EngAIn-side Ledger-schema question outside this ticket's scope.
+
+**Known gap (closure note, user-added)**: the dispatch reply from the
+report-only path is not captured by the dragon3d worker itself —
+`_process_pending_coordination_report_without_player_turn()` calls
+`_dispatch_via_engain_continuity()` and checks only for success/failure,
+never binding or logging the returned `engain_result`. This receipt does
+not currently specify whether that reply should be persisted (e.g.
+logged locally, or surfaced some other way) or is fine to discard
+locally as it is now — that decision is open, not made here.
+
+## Closure
+
+Ticket closed. The five held-open conditions are proven, not merely
+asserted — in particular #4 (retry semantics: exactly one HTTP attempt
+per poll, requeued at `attempt+1`, a second poll proving genuine
+retryability) and the shared dispatch-claim ordering with the real
+player-turn path (claim first, then claim the report, so a contended or
+unreachable claim costs no retry attempt). The two stated follow-ups
+above (in-game surfacing of a report-only reply, and the `actor="player"`
+Ledger imprecision) are correctly out of this ticket's scope and remain
+open questions for whenever they're picked up next.
