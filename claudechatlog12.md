@@ -7499,3 +7499,503 @@ The receipt records exactly what you asked, no more:
 No code touched. Left the other untracked files in that repo (a1 created.md, claudechatlog12.md, claudelog10.md, hermes chatlog11.md) alone — unrelated to this receipt.
 
 ✻ Cogitated for 59s · done 11:08 PM · 1 shell still running
+
+Baseline confirmed and consistent across both repos:
+
+- audit (engain-avatar-audit, main): HEAD 046e78c is exactly the milestone receipt you named. The one commit after it (6174fd8 "hot reload") only added raw chat-log dumps, no new claims — I'm treating 046e78c as the actual baseline, not that log commit.
+- code (godot_engain_3d_avatar, main): HEAD ee418d4 "hot reload" is the matching code landing — WorldComposition.tscn split, RuntimeSceneSync3D.gd retargeted, Main.gd wiring, all three test files, plus the probe scenes (AmberCubeProbe08, VioletCubeProbe11, etc.) and capture artifacts from the live proof run. Working tree is clean, nothing uncommitted.
+
+So the additive-hotload milestone really is closed and pushed to local history exactly as the receipt states, and I won't reopen the Main.tscn clobber/return-loop diagnosis or the ownership-split design — that's settled.
+
+Per the receipt's own "not yet proven" section, three things are still open on this track, plus one non-code loose end:
+
+1. Dragon's external system prompt still tells it to instance into res://scenes/Main.tscn — a chat correction, not a code change, and the next probe will target the wrong file until it's fixed.
+2. Repeated-turn durability — the proof so far is n=1 (one hotload, one turn). Multiple successive additive turns against the already-running process haven't been exercised.
+3. Edit/delete/move of existing nodes — RuntimeSceneSync3D is additive-only by design; reconciling a changed or removed node was explicitly out of scope and has no implementation yet.
+User answered Claude's questions:                                                                      · Which of these should this sess first. Correct Dragon’s persistentoperating instruction so normal world-content mutations target res://scenes/WorldComposition.tscn,  never res://scenes/Main.tscn.                                                                                                    Preserve the responsibility bound                                                                                                    Hermes mutates/saves and reportsOuter bridge validates.                                                                             No runtime/reload/viewport/GUI vaREQUEST].                                                                                                    Make only the smallest prompt/ins verify the effective Dragoninstructions actually contain the new boundary.                                                     Then stop and report what changed. Do not begin edit/delete/move design yet.                        Searched for 19 patterns, read 3 files, listed 1 directory, ran 3 shell commands                       Found it — a real preamble mechanism in the codebase, not an external chat instruction. Let me read it fully.                                                                                                       Searched for 4 patterns, read 3 file                                                                                                       Write(full audit/09-14-2026-dragon-sction.md)Wrote 123 lines to full audit/09-14-2026-dragon-scene-target-instruction-correction.md              # Dragon's persistent world-con corrected                                                                                                ## What this closes                                                                                                The loose end flagged in `09--ownership-split.md`:"Dragon's own operating instructions still say 'Instance ... into                               `res://scenes/Main.tscn`.'" Tumulatedconversation history of the real, resumed Hermes Editor session — not                           in this repo, not in any confmories/MEMORY.md`or a project `AGENTS.md` (checked; none exists for this project) — so                           … +114 lines                                                                                                       Committed e4e746e                                                                                                       Done. Report:                                                                                                       What changed: Sent a direct chat cor into the exact live Hermes Editorsession the dock resumes every turn (session_id 20260731_065008_63a62d, companion hermes_b), using the same invocation shape hermes_bridge.lready produces (hermes chat -Q--source tool --pass-session-id --resume <id> -q "...", cwd = the project root, no model/provider      override).                                                                                                       The correction superseded the stale ain.tscn" instruction with: normalworld-content [EDITOR_REQUEST] mutations target res://scenes/WorldComposition.tscn only, Main.tscn is  off-limits, and it restated the resps you specified — Hermes mutates/savesand reports changed paths/blockers, the outer bridge validates, no runtime/reload/viewport/GUI         validation ask inside [EDITOR_REQUES                                                                                                       Verification: hermes chat -Q's own tboth times (it surfaced Hermes's ownauto-injected "continue" nudge-reply instead of the real answer — a CLI display artifact, noted in the receipt). So I queried ~/.hermes/stan's actual persisted messages and gottwo independently-worded, correct restatements:                                                        - Turn 1: "I will instance normal world-content only into res://scenes/WorldComposition.tscn ... and     will not modify res://scenes/Main.ad, viewport, GUI, or other validation  myself."                                                                                             - Turn 2 (separate follow-up questioce normal world-content only into  WorldComposition.tscn, never Main.tscn ... I will not perform runtime, reload, viewport, GUI, or       visual validation; the outer layer                                                                                                       Both correctly scoped and independenence the boundary is now effective,not just echoed once.                                                                                  No repo files were touched. A receipt (full                                                            audit/09-14-2026-dragon-scene-targets committed locally to the audit repo,not pushed. Edit/delete/move reconciliation design was not started, per your instruction — stopping    here.                                                                                                       Cogitated for 9m 58s · done 5:22 AM                                                                                                       recap: Working on the EngAIn Dragon ting feature; just corrected Dragon's
+✻ Cogitated for 9m 58s · done 5:22 AM                                                                                                                                                                           recap: Working on the EngAIn Dragon ting feature; just corrected Dragon'spersistent instruction to target WorldComposition.tscn instead of Main.tscn and verified it stuck.     Next: run a live probe to confirm Dry targets the right file. (disablerecaps in /config)                                                                                     Before we mark option 1 complete, verify whether you changed the instruction source used by the Dragon that generates [EDITOR_REQUEST], or r execution session.                                                                                                       Do not change code.                                                                                                       If only the Hermes Editor session wand locate the actual persistentDragon instruction source that still says Main.tscn.                                                   The acceptance condition is that the next [EDITOR_REQUEST] generated by Dragon itself names            res://scenes/WorldComposition.tscn wride it downstream.                                                                                                       Stop after verification/correction.                                                                                                       Searched for 7 patterns, read 1 file                                                                                                       Write(full audit/09-14-2026-dragon-s.md)Wrote 74 lines to full audit/09-14-2026-dragon-session-attribution-correction.md                    # Amendment — which session ttually reached                                                                                                ## Trigger                                                                                                User asked, before marking the fix reachthe instruction source Dragon uses to *generate* `[EDITOR_REQUEST]`, or                         only the Hermes Editor *execu plainly if itwas only the latter.                                                                            ## Finding, checked against code and the live session store, not assumed                        … +70 lines                                                                                                       Committed 3d21543                                                                                                       Verification result: my earlier recet the correction itself landed on theright session.                                                                                         Plainly: there are two separate Hermes conversations in this architecture, not one:                    ┌───────────┬──────────────────────────────────────────────────────┬──────────────────────────────┐    │           │                         │       Execution side         ││           │     Generating side (hermes_session_adapter.py)      │   (hermes_bridge.gd, the     │    │           │                         │         Editor dock)         │├───────────┼──────────────────────────────────────────────────────┼──────────────────────────────┤    │ Session   │ Persisted in .godot/en  │ In-memory only, on-disk      ││ identity  │ 20260731_065008_63a62d                               │ owner unknown                │    ├───────────┼─────────────────────────┼──────────────────────────────┤│ Tools     │ -t __engain_text_only_no_tools_v1__ — a deliberately │ Full file/shell/test access  │    │           │  unknown toolset, reso  │                              │├───────────┼──────────────────────────────────────────────────────┼──────────────────────────────┤    │           │ Produces narrative_res  │ Receives the extracted       ││ Role      │ _extract_editor_directive() for [EDITOR_REQUEST] —   │ request text and does the    │    │           │ this is the source      │ actual write                 │└───────────┴──────────────────────────────────────────────────────┴──────────────────────────────┘    I checked, not assumed: grep for engain_hermes_session.json returns zero hits in either hermes_dock.gd or hermes_bridge.gd — that state filssion_adapter.py. The Editor's ownsession_id is a plain in-memory Node property (its own comment says so), never written to that file.   Independent corroboration: DRAGON_SC records a resumed Editor session id20260823_122123_e96802 — a different ID entirely, confirming these are genuinely separate              conversations.                                                                                                       Since the generating side runs with annot write scene files itself — itcan only emit the [EDITOR_REQUEST] text. That confirms 20260731_065008_63a62d really is "the Dragon    that generates [EDITOR_REQUEST]," anboth correction turns were sent to(--resume 20260731_065008_63a62d). Re-querying ~/.hermes/state.db just now: message id 49609 (my secondcorrection turn's reply) is still th— nothing has run since — so the
+session_id is a plain in-memory Node property (its own comment says so), never written to that file.
+Independent corroboration: DRAGON_SCENE_UNDERSTANDING_CHANNELS.md records a resumed Editor session id  20260823_122123_e96802 — a different ID entirely, confirming theseconversations.
+
+Since the generating side runs with zero tools, it structurally cannot write scene files itself — it
+can only emit the [EDITOR_REQUEST] text. That confirms 20260731_065008_63a62d really is "the Dragon
+that generates [EDITOR_REQUEST]," and that's exactly the session both correction turns were sent to    (--resume 20260731_065008_63a62d). Re-querying ~/.hermes/state.db just now: message id 49609 (my secondcorrection turn's reply) is still th— nothing has run since — so thecorrection sits at the head of the exact history that adapter will resume from on its next real call.  Net effect: the earlier receipt's conclusion was correct by accident of where the message actually     landed, but its stated reasoning ("tck uses") was wrong. I've committed anamendment (09-14-2026-dragon-session-attribution-correction.md) correcting that record — no code       changed, no new message sent (none w run.                                                                                                       Still unproven, out of scope here: ny triggered a fresh [EDITOR_REQUEST]since the correction, so the live acceptance condition (Dragon naming WorldComposition.tscn on its own,unprompted) hasn't been empirically ural next live probe, not run peryour instruction to stop after verification.                                                           Sautéed for 5m 33s · done 5:31 AM                                                                      recap: Goal: prove Dragon's live hotload/editing pipeline end-to-end. Just verified the                WorldComposition.tscn instruction fi session, not just the executor. Next:run a live probe to confirm Dragon's next EDITOR_REQUEST names WorldComposition.tscn on its own.       (disable recaps in /config)                                                                                                       Yes — pause the next live probe. Do w against the current clean/pushedbaseline.                                                                                              First discovery only. Inventory the project root and classify anything that does not belong there:     transient runtime/mailbox files such as .engain_request.req_*.tmp;                                     stale response/claim/temp files;capture/snapshot artifacts;                                                                            generated logs;test leftovers;                                                                                        obsolete probe artifacts;  — pause the next live probe. Do a repository hygiene audit now against the current clean/pushed
+  baseline.
+                                                                                                         First discovery only. Inventory the project root and classify anyt
+  transient runtime/mailbox files such as .engain_request.req_*.tmp;
+  stale response/claim/temp files;
+  capture/snapshot artifacts;
+  generated logs;                                                                                        test leftovers;                                                                                        obsolete probe artifacts;caches/build output;                                                                                   anything untracked or ignored that iory tree.                                                                                                       For each class report:                                                                                                       what creates it;whether runtime still depends on it;                                                                   count and disk usage;intended lifetime;                                                                                     why it is located in the repo;whether it should instead live under the runtime-mailbox/temp/audit area;                              whether existing cleanup is failing.                                                                                                       Do not delete or move functional pro                                                                                                       Specifically trace why .engain_requed in the project root and why any oldones survive, despite being temporary.                                                                 Then propose the smallest cleanup/migration plan that leaves the proven hotload/continuity behavior    unchanged.                                                                                                       Stop before implementation.                                                                                                       Read 1 file, ran 9 shell commands                                                                                                       Found the actual creator. Let me seence and how it's supposed to beconsumed/cleaned up.                                                                                   
+  ones survive, despite being temporary.                                                                 
+  Then propose the smallest cleanup/migration plan that leaves the proven hotload/continuity behavior
+  unchanged.                                                                                                                                                               Stop before implementation.
+
+  Read 1 file, ran 9 shell commands
+
+Found the actual creator. Let me see the full write/publish sequence and how it's supposed to be       consumed/cleaned up.                                                                                   Read 2 files, ran 10 shell commands                                                                    Write(full audit/09-14-2026-repository-hygiene-audit-discovery.md)                                     Wrote 257 lines to full audit/09-dit-discovery.md# Repository hygiene audit — discovery only                                                     ## Scope and method                                                                             Target: `godot_engain_3d_avatar` (the repo with `.engain_request.req_*.tmp`                     in its root). Checked againstgit status--porcelain=2 --ignored=matching`, `du`, `find`, and direct code reading                        — not assumed from memory. Batart (0untracked-and-not-ignored files); a live game session (editor + composed                        runtime, PIDs 2968093/2968094nning,… +254 lines                                                                                        Committed 10a94d9                                                                                      Repository hygiene audit — findings                                                                    One caveat up front: a live game session (editor + composed runtime) turned out to be running, started independently 3 minutes before I begdit — I noted where.                                                                                                       .engain_request.req_*.tmp — traced a                                                                                                       Creator: scripts/EngAInBridge3D.gd:3ites .engain_request.<req_id>.tmpruntime, PIDs 2968093/2968094/2968110) turned out to be running,
+… +254 lines                                                                                        
+  Committed 10a94d9
+                                                                                                         Repository hygiene audit — findings                               
+One caveat up front: a live game session (editor + composed runtime) turned out to be running, started
+independently 3 minutes before I began. Repo state changed mid-audit — I noted where.
+
+.engain_request.req_*.tmp — traced as asked                                                                                                                                                                   Creator: scripts/EngAInBridge3D.gd:3ites .engain_request.<req_id>.tmpdirectly in the project root, then shells out to hermes_session_adapter.py --publish-request <path>.   Why old ones survive — the actual defect: publish_request() on the Python side reliably deletes its owntemp file on every path it reaches, at subprocess call itself doesn'tsucceed (crash, timeout, non-zero exit), EngAInBridge3D.gd:334-337 just logs the error and returns —   nothing deletes the temp file it juseep anywhere in the adapter either.Not "cleanup is failing" — cleanup for this specific failure mode doesn't exist.                       Evidence: 12 files, 48 KB, all dated Aug 17–30 (exactly the window this project's own receipts documentreal crashes/clobbers), none since. turn IDs, never reused, nothing readsthem again.                                                                                            Everything else, by class                                                                              Class: .engain_request.req_*.tmp (stale)                                                               Tracked?: NoCount/size: 12 / 48 KB                                                                                 Accumulating?: Dormant since AugBelongs in repo root?: No — cleanup gap                                                                ────────────────────────────────────Class: snapshots/ capture pairs                                                                        Tracked?: YesCount/size: 177 (+9 untracked, live) / 2.9 MB                                                          Accumulating?: Yes, unboundedBelongs in repo root?: No — evidentiary, growing every turn, forever                                   ────────────────────────────────────Class: .hermes_scratch/ proposal                                                                       Tracked?: NoCount/size: 2 files / 20 KB                                                                            Accumulating?: NoBelongs in repo root?: Stale 3-week-old pre-split leftover, never reviewed                             ────────────────────────────────────Class: AzureCubeProbe09.tscn / EmeraldCubeProbe10.tscn                                                 Tracked?: YesCount/size: 2                                                                                          Accumulating?: NoBelongs in repo root?: No — referenced nowhere                                                         ────────────────────────────────────Class: evidence/stage8_ticket3f_green.txt                                                              Tracked?: YesCount/size: 1                                                                                          Accumulating?: NoBelongs in repo root?: No — evidentiary in code repo                                                   ────────────────────────────────────Class: .pytest_cache/, .godot/ cache                                                                   Tracked?: NoCount/size: 64 KB / 12 MB                                                                              Accumulating?: NormalBelongs in repo root?: Fine as-is                                                                      ────────────────────────────────────Class: engain_request.json/response/.reserved locks                                                    Tracked?: No
+Accumulating?: Yes, unbounded
+Belongs in repo root?: No — evidentiary, growing every turn, forever                                ────────────────────────────────────────                                                             Class: .hermes_scratch/ proposal
+Tracked?: No
+Count/size: 2 files / 20 KB
+Accumulating?: No
+Belongs in repo root?: Stale 3-week-old pre-split leftover, never reviewed
+────────────────────────────────────────
+Class: AzureCubeProbe09.tscn / EmeraldCubeProbe10.tscn                                          cked?: Yes
+Count/size: 2                                                                                      umulating?: No
+Belongs in repo root?: No — referenced nowhere
+────────────────────────────────────────                                                             ss: evidence/stage8_ticket3f_green.txt                                                              cked?: Yes
+Count/size: 1                                                                                           umulating?: No
+Belongs in repo root?: No — evidentiary in code repo
+────────────────────────────────────────                                                               Class: .pytest_cache/, .godot/ cache                              Tracked?: No
+Count/size: 64 KB / 12 MB
+Accumulating?: Normal
+Belongs in repo root?: Fine as-is
+────────────────────────────────────────                                                               Class: engain_request.json/response/.reserved locks                                                    Tracked?: NoCount/size: ≤1 each                                                                                    Accumulating?: No, single-slotBelongs in repo root?: Fine as-is                                                                      The biggest live finding is snapshots/: 177 files already committed to git, growing every play turn    (watched it gain 9 more, untracked, evidentiary material sitting in thecode repo, unbounded.                                                                                  Proposed cleanup, smallest/safest first (nothing executed)                                             1. Delete the 12 stale .tmp files — zero risk, already proven inert.                                   2. Delete .hermes_scratch/'s stale p, ignored, unreviewed.3. Remove the two orphaned probe scenes from git — low risk, confirmed unreferenced, but a real           tracked-file change.4. Actual code fix (separate step, not bundled): give EngAInBridge3D.gd's publish-failure branch a        cleanup call for its own temp fil)'s existing pattern.5. Relocate evidence/stage8_ticket3f_green.txt to the audit repo.                                      6. snapshots/ needs a decision, not forward (like .hermes_scratch/) vs.   keep committing indefinitely — and separately, whether to rewrite history to shrink the 177 already    committed, or leave the past alon7. engain_probe/engain_visibility_probe.py — flagged only, not classified (unreferenced but might still   be a manual tool you use).                                                                                                       None of this touches RuntimeSceneSynmposition.tscn split, or anything thehotload proof depends on. Full detail committed to the audit repo                                      (09-14-2026-repository-hygiene-audit, before implementation.                                                                                                       Sautéed for 6m 9s · done 5:47 AM                                                                                                       recap: Goal: build/prove EngAIn's lition pipeline for the 3D avatar. Justfinished a hygiene audit of the game repo (stale temp files, growing snapshot bloat, orphaned probes). Next: decide on the cleanup plan befisable recaps in /config)
+
+❯ identifyng the bloat is sufficient fith the dragon in the meantime Pause
+  repository cleanup. Resume the repeated-turn durability verification track.
+  I have continued using Dragon live wct the turns since the Violet proof,
+  including SKYFIRE_ORRERY_12, and determine how many successive additive hotloads completed against the
+  same continuously running runtime. Vdence as before:
+  WorldComposition.tscn changed, Main.tscn untouched, HOTLOAD, TOOL return, Dragon reaction, same PID,
+  prior objects preserved, HUD/session
+
+※ recap: Goal: build/prove EngAIn's lition pipeline for the 3D avatar. Just
+  finished a hygiene audit of the game repo (stale temp files, growing snapshot bloat, orphaned probes).
+  Next: decide on the cleanup plan befisable recaps in /config)
+
+❯ identifyng the bloat is sufficient fith the dragon in the meantime Pause
+  repository cleanup. Resume the repeated-turn durability verification track.
+  I have continued using Dragon live wct the turns since the Violet proof,
+  including SKYFIRE_ORRERY_12, and determine how many successive additive hotloads completed against the
+  same continuously running runtime. Vdence as before:
+  WorldComposition.tscn changed, Main.tscn untouched, HOTLOAD, TOOL return, Dragon reaction, same PID,
+  prior objects preserved, HUD/session
+  Do not make code changes. Just establish the current durability evidence.[Image #3]
+[Image #3]
+
+  Listed 1 directory, ran 6 shell comm
+
+● Write(full audit/09-14-2026-repeatedonsight.md)
+Wrote 105 lines to full audit/09-14-2026-repeated-turn-durability-skyfire-dragonsight.md
+# Repeated-turn durability —
+
+## Scope
+
+Inspection only, no code chann between the
+Violet proof (`edit_id 20260913_225605_7461`) and now. Found **two**
+new completed additive hotloa
+
+1. `skyfire_orrery_12` → `edi
+2. `dragon_sight_toggle_13` → `edit_id 20260914_055945_3bb6`
+… +128 lines
+
+  Committed 10694a8
+
+Repeated-turn durability — two hotlo
+
+Inspected every mailbox turn since tw completed additive hotloads:
+SKYFIRE_ORRERY_12 and DRAGON_SIGHT_RIG_13 (the F1 toggle rig you two designed after it).
+
+Headline: this is the first time durability has gone past n=1. Precisely, not blurred:
+
+- n=2, same process, zero restarts: Skyfire → Dragon Sight Rig both ran on PID 2968110 (started
+  05:42:28 this morning), back-to-ba
+- n=3, content-continuous, one process boundary crossed: Violet's own PID (2719969, last night) is dead
+  — the runtime was restarted this mying. That's expected, not a defect,
+  but I'm not folding it into the "same continuously running runtime" claim. What does chain across
+  that restart is file continuity: eeipt shows before_sha256 exactly equal
+  to the previous turn's after_sha256 — Violet → Skyfire → DragonSightRig13, an unbroken hash chain
+  proving nothing was lost or overwr
+
+Per-turn, same evidence standard as
+- Both EditReceiptStore records show only WorldComposition.tscn modified (+ new scene/script files
+  created) — Main.tscn absent from by.
+- Main.tscn's live hash is byte-identical to the ee418d4 commit — zero drift across the restart and
+  both turns.
+- Both editor reports: status: applied, validation passed.
+- Live WorldComposition.tscn hashes 's after_sha256 — no clobber since.
+- All six prior nodes (FirstLightTower, RETURN-01, Verification Monolith, Load Probe Diamond, Amber
+  Cube, Violet Cube) still present,
+- Skyfire's [HOTLOAD]/[TOOL]/[DRAGON] sequence is corroborated directly by your screenshot — message_id
+  matches the mailbox file exactly.
+- DragonSightRig13 is on weaker footing, honestly: its report timestamp (06:05:49) is after your
+  screenshot (06:00:08), so I have mpt evidence for it, but no
+  independently-viewed HUD line — flagged rather than claimed as equal.
+
+Bonus finding: both new [EDITOR_REQUEST] bodies, written by Dragon itself unprompted, explicitly say
+"instance into WorldComposition.tscn instance anything in Main.tscn" — the
+first live sign the correction from earlier is actually holding.
+
+- All six prior nodes (FirstLightTower, RETURN-01, Verification Monolith, Load Probe Diamond, Amber
+  Cube, Violet Cube) still present, transforms byte-identical.
+- Skyfire's [HOTLOAD]/[TOOL]/[DRAGON] sequence is corroborated directly by your screenshot — message_id
+  matches the mailbox file exactly.                                                            - DragonSightRig13 is on weaker footing, honestly: its report timestamp (06:05:49) is after your
+  screenshot (06:00:08), so I have mailbox + tamper-evident-receipt evidence for it, but no
+  independently-viewed HUD line — flagged rather than claimed as equal.
+                                                                                                     Bonus finding: both new [EDITOR_REQUEST] bodies, written by Dragon itself unprompted, explicitly say
+"instance into WorldComposition.tscn... do not create, modify, or instance anything in Main.tscn" — the
+first live sign the correction from earlier is actually holding.
+
+One housekeeping note, not acted on: none of this is committed yet — git status shows the modified/new
+files sitting live in the working tr
+
+Full detail in 09-14-2026-repeated-tsight.md, committed to the audit repo.
+No code touched, nothing committed to the game repo, no probe run by me.
+
+✻ Cooked for 3m 39s · done 6:11 AM
+
+※ recap: We're proving Dragon's live world-editing pipeline is durable across repeated turns; two more
+  hotloads (Skyfire, Dragon Sight Rig)ame running process. Next: decide
+  whether to commit these changes or keep playing to test further.
+
+❯ ok.. so we been planning ahead.. lets go ahead and add this to the todo Yes. That sequence is sound,
+  with one important adjustment:
+
+  Session identity should be solved bestep, not after it.
+
+  Otherwise we risk proving an installyour hardcoded Hermes identity with
+  it, and then we have to change the installer immediately afterward.
+
+  I’d stage it like this:
+
+
+✻ Cooked for 3m 39s · done 6:11 AM
+
+※ recap: We're proving Dragon's live world-editing pipeline is durable across repeated turns; two more
+  hotloads (Skyfire, Dragon Sight Rig) just verified clean on the same running process. Next: decide
+  whether to commit these changes or keep playing to test further.
+
+❯ ok.. so we been planning ahead.. lets go ahead and add this to the todo Yes. That sequence is sound,
+  with one important adjustment:                                                                 
+  Session identity should be solved before the real import/install step, not after it.
+
+  Otherwise we risk proving an installer that accidentally carries your hardcoded Hermes identity with it, and then we have to change the installer immediately afterward.
+
+  I’d stage it like this:
+
+  Cleanup
+  Remove the known junk/leaks, move evstop snapshot growth, fix temp
+  cleanup. Then rerun the same live loop and prove nothing regressed.
+
+  Session identity / install-state extraction
+  Do the smallest change possible: stoa62d as source-code identity. Make
+  the current Dragon session an explicit local binding/configuration. For your install, point that
+  config right back at the same existid remain identical.
+
+  This is not yet changing providers. eat. We are just separating:
+  software package from this particular Dragon's identity.
+
+  Import/install
+  Now package/import the Dragon stack taller can either:
+
+  bind your existing Dragon session, o
+  create a fresh session for another installation.
+
+  Then prove stability again in the real game.
+
+  Provider-seat abstraction, one seat at a time
+  Keep everything else frozen while ch
+
+  I would start with the main Dragon/Dently has zero tools and cannot
+  directly mutate files. That makes it the safer chair to experiment with:
+  Hermes → Claude, test; then potentiat.
+
+  The Builder/Editor seat is scarier bol authority. I’d leave Hermes there
+  until the main seat abstraction is proven.
+
+  Builder seat last
+  Only after the Dragon seat is providake the tool-using Builder seat
+  accept another provider.
+
+  So the progression becomes:
+
+  working Hermes/Hermes system
+          ↓
+  working Hermes/Hermes system
+          ↓
+  cleanup
+          ↓
+  prove stability
+          ↓
+  extract session identity from source
+          ↓
+  prove same Hermes Dragon still behaves identically
+          ↓
+  install/import into real game
+          ↓
+  prove stability again
+          ↓
+  Dragon seat: Hermes → alternate provider
+          ↓
+  prove stability
+          ↓
+  Builder seat: Hermes → alternate provider
+          ↓
+  prove stability
+
+  That gives you a known-good checkpoint after every potentially dangerous change.
+
+  And importantly, the session-identity step should be boring. We shouldn't be creating a new Dragon
+  yet. Your existing session should co; we're merely changing where its ID
+  is stored and how it is selected.
+
+  Then when installation eventually says “Fresh Dragon,” that path can create a new session. Your
+  current Dragon remains your current
+
+  That would be my order.
+
+  well i wanted to change the user sesthat point it will be in a different
+  project leaving user session still active here in this project if the other project failed some reason
+
+  Yes — with that rollback requirement, your order is better than what I suggested.
+
+  You want the original project to remain the known-good rescue point. So don’t detach its Hermes
+  identity before you know the importe
+
+  I’d treat it as a migration with a r
+
+  CURRENT TESTBED
+  godot_engain_3d_avatar
+  Dragon session = your existing Herme
+  KNOWN GOOD — leave untouched
+          │
+          │ import/install working stack
+          ▼
+  REAL GAME
+  initially uses same proven configura
+          │
+          │ prove Dragon + Builder + h
+          ▼
+  REAL GAME gets NEW session identity
+          │
+          ├── original project keeps o
+          └── real game gets its own fresh Dragon
+
+  That gives you exactly what you want: if the import blows up, you haven’t dismantled the working
+  Dragon to create it.
+
+  There is one rule I’d add: while botat the same Hermes session, don’t run
+  both Dragons at the same time. They would be two clients resuming the same conversation identity, and
+  given the presence/session protectiold create competing claims or at
+  minimum muddy the conversation history.
+
+  So the sequence becomes:
+
+  Cleanup current project.
+  Prove stability again.
+  Import/install into the real project without changing the original project.
+  Temporarily test the imported copy uty, with the original runtime shut
+  down.
+  Prove the imported system works.
+  Give the imported project a fresh Hermes session and bootstrap its Dragon identity.
+  Re-test the imported project.
+  Confirm the original project can still resume the old Dragon if needed.
+  Only then start generalizing the mairavity/etc.
+  Builder/tool seat last.
+
+  That actually gives session identity a nice role: it becomes the final cut-over step of the import,
+  rather than a prerequisite.
+
+  And there’s another advantage: when ct to a fresh session, you get a very
+  clean test of whether the Dragon’s important behavior comes from the installed architecture/bootstrap
+  instructions rather than accidental  old Hermes conversation.
+
+  If the fresh Dragon immediately undeITOR_REQUEST], the validation
+  boundary, etc., then we know the installer is carrying the right things. If it doesn’t, we discover
+  exactly what was still living only i
+
+  So yeah — I’d revise the roadmap to  Dragon becomes the lifeboat until
+  the imported one is independently alive.
+
+  Read 1 file
+
+● Write(full audit/09-14-2026-provider-seat-migration-roadmap.md)
+Wrote 159 lines to full audit/09-on-roadmap.md
+# Provider-seat migration roadmap — planning only, nothing started
+
+Captures the sequencing decided in conversation on 2026-09-14, for
+when this track is resumed. *mented.**
+This is a plan document, not a receipt.
+
+## Where this picks up from
+
+- Hotload proven (`09-13-2026-first-live-additive-hotload-proof.md`),
+  durability now at n=2 same-ous
+… +149 lines
+
+  Committed e32f99e
+
+Added to the audit repo as 09-14-2026-provider-seat-migration-roadmap.md — a planning document, nothing
+implemented.
+
+It captures the full arc of your disnswer: the original "solve session
+identity before import" proposal, why it got revised (you needing godot_engain_3d_avatar to stay a
+working rollback anchor rather than etached before the import is proven),
+and the resulting agreed sequence:
+
+cleanup → prove stability → import (original project untouched) →
+temporarily run imported copy on theme shut down —
+never both live at once) → prove imported system works →
+imported project gets its OWN fresh
+which doubles as a test of whether the installer's bootstrap carries the
+right knowledge vs. knowledge that o history) →
+re-test → confirm original can still resume its old Dragon →
+only then: Dragon/Director seat Herm tools, safer) →
+Builder/Editor seat last (full write authority, scarier)
+
+It also records the new rule that fell out of the rollback requirement: never run the original and
+imported Dragons against the same se
+
+This sits alongside the other two do durability receipt) as the three
+things to read first when this track picks back up. Nothing was cleaned up, imported, or changed —
+planning only, per what you asked.
+
+✻ Churned for 1m 47s · done 6:36 AM
+
+※ recap: You're proving out Dragon's l_engain_3d_avatar and just planned a
+  safe path to swap Hermes for other AI providers later. Next step: clean up the repo junk (stale temp
+  files, growing snapshot folder) befoeck.
+
+❯ add this to the todo as well Yes. Thake blindness an engine state, not a
+  model instruction.
+
+  Right now the bridge already has a real lifecycle machine — IDLE, LOOKING_INTERNAL, THINKING — plus a
+  status_changed signal. It also alreaption capture from an unavailable
+  one; today, an unavailable capture simply terminates the turn before Runtime Dragon is invoked. That
+  is the exact seam to harden.
+
+  I would change one detail in your fot make blindness merely another phase
+  alongside IDLE and THINKING. Blindness is a capability condition that can persist while the system is
+  otherwise idle, thinking, or handlinant something like:
+
+  Lifecycle:
+  IDLE
+  LOOKING_INTERNAL
+  THINKING
+
+  Perception capability:
+  SIGHTED
+  BLIND
+
+  Godot owns both.
+
+  When capture fails:
+
+  viewport capture failure
+          ↓
+  Godot validates failure
+          ↓
+  perception_state = BLIND
+          ↓
+  emit perception_state_changed(BLIND, reason)
+          ↓
+  physical/runtime systems react
+
+  No Python prose such as:
+
+  > “You cannot see right now, please behave as though you are blind.”
+
+  That is exactly the weak pattern you identified.
+
+  Instead, blindness has actual consequences:
+
+  - no viewport image exists for that turn;
+  - visual/perception-dependent capabi
+  - anything requiring fresh rendered evidence fails closed;
+  - the HUD can visibly show BLIND;
+  - Dragon may still be allowed to converse from nonvisual knowledge if desired;
+  - @tool can still inspect structuralructural sight is a different
+  channel;
+  - nothing can promote structural evied right now.”
+
+  That preserves the distinction alrearstanding document: rendered pixels
+  and project structure are separate evidence classes, and session/history is not sensory freshness.
+
+  Then recovery is also physical:
+
+  BLIND
+    ↓
+  next correlated capture succeeds
+    ↓
+  Godot validates capture
+    ↓
+  perception_state = SIGHTED
+    ↓
+  emit perception_state_changed(SIGHTED)
+
+  The AI is never responsible for deciding whether it can see.
+
+  And this becomes much more important once you start swapping the driver seat. Hermes, Claude, and
+  Antigravity may respond differently ” They cannot respond differently to
+  X never being supplied to their seat at all.
+
+  So the stronger invariant becomes:
+
+  > A provider does not enforce its own sensory boundary. EngAIn decides which evidence channels
+  physically exist for that turn.
+
+  That is engine-level governance inst
+
+  I’d also make BLIND visible to Godoter systems can subscribe to it. Then
+  later you can have things like Dragon Sight UI dimming, sensor-dependent actions disabling, or a
+  visual fault indicator without addinprompt.
+
+  That is a real architectural fix.
+
+  Ran 2 shell commands
+
+● Write(full audit/09-14-2026-perceptiign.md)
+Wrote 123 lines to full audit/09-14-2026-perception-blindness-engine-state-design.md
+# Perception blindness as an eruction — design, nothing imple
+mented
+
+Design conversation from 2026-09-14. **Nothing below has been
+implemented.** Companion to
+`09-14-2026-provider-seat-migration-roadmap.md` — this hardens the
+perception boundary that mattetor seat
+starts accepting alternate providers (step 9a of that roadmap).
+
+## What exists today, verified against the actual code (not assumed)
+… +114 lines
+
+  Committed b2171e0
+
+Added — 09-14-2026-perception-blindnlanning only, nothing implemented.
+
+Before writing it up I checked it agthan just transcribing the
+conversation:
+
+- EngAInBridge3D.gd really does already have STATUS_IDLE/LOOKING_INTERNAL/THINKING + a status_changed
+  signal, exactly as described.
+- The capture-unavailable seam is real and already hard-stops the turn today
+  (EngAInBridge3D.gd:285-294: unavaiifecycle() → "Runtime Dragon was not
+  invoked" — Dragon never even sees that turn on this path).
+- I also found the concrete "weak pao replace: hermes_session_adapter.py's
+  _format_messages() still has a prose fallback (PROVENANCE=UNAVAILABLE_OR_UNVERIFIED, literally
+  telling the model in English "do nrior facts only as memory") for
+  whatever calls do reach the adapter without perception attached. That's the exact spot the
+  SIGHTED/BLIND engine state would r
+
+The doc captures:
+- the correction (blindness as an orthogonal capability condition, not a fourth lifecycle phase),
+- the full failure/recovery state maed(BLIND, reason) → ... → SIGHTED),
+- the governing invariant — "a provider does not enforce its own sensory boundary; EngAIn decides which
+  evidence channels physically existt specifically matters once the
+  Dragon seat starts accepting Claude/Antigravity (roadmap step 9a): different providers may comply
+  differently with a prompted "prete them can behave differently toward
+  evidence that was structurally never supplied.
+
+It's filed as a companion to the migration roadmap, flagged as the thing worth doing alongside or just
+before that step 9a swap.
+
+✻ Churned for 1m 33s · done 6:54 AM
+
+※ recap: We're building a provider-neuGodot; today we proved repeated liveworld-edit hotloads work and audited repo cleanliness. Next: start the repository cleanup plan before importing the stack into the real game.
